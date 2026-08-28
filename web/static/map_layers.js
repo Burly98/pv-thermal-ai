@@ -157,7 +157,7 @@
                                 +
                                 "rgb_aligned.jpg"
                                 +
-                                "?v=20260827_fast_final"
+                                "?v=20260828_render_1"
                             ),
 
                         projection:
@@ -187,7 +187,7 @@
                                 +
                                 "ir_aligned.jpg"
                                 +
-                                "?v=20260827_fast_final"
+                                "?v=20260828_render_1"
                             ),
 
                         projection:
