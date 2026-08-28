@@ -1,0 +1,278 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+
+    font-family:
+        Inter,
+        Segoe UI,
+        Arial,
+        sans-serif;
+
+    background: #0d1117;
+    color: #e6edf3;
+}
+
+.topbar {
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 18px;
+
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+button {
+    border: 1px solid #3d444d;
+    background: #21262d;
+    color: #e6edf3;
+
+    padding: 8px 13px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #30363d;
+}
+
+button.primary {
+    background: #238636;
+    border-color: #2ea043;
+}
+
+button.activate {
+    background: #1f6feb;
+    border-color: #388bfd;
+}
+
+button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.workspace {
+    display: grid;
+
+    grid-template-columns:
+        minmax(600px, 1fr)
+        minmax(520px, 1fr);
+
+    height: calc(100vh - 56px);
+}
+
+.left-panel,
+.right-panel {
+    position: relative;
+
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.left-panel {
+    border-right: 1px solid #30363d;
+}
+
+.panel-header {
+    min-height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 8px 12px;
+
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+}
+
+#imageName {
+    color: #8b949e;
+    margin-left: 8px;
+    font-size: 12px;
+}
+
+.annotation-tools {
+    display: flex;
+    gap: 5px;
+}
+
+.tool.active {
+    background: #1f6feb;
+}
+
+.tool.danger {
+    border-color: #8b3333;
+}
+
+#imageStage {
+    position: relative;
+
+    flex: 1;
+
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #000;
+}
+
+#thermalImage {
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: contain;
+
+    user-select: none;
+}
+
+#annotationCanvas {
+    position: absolute;
+
+    cursor: crosshair;
+}
+
+.statusbar,
+.map-footer {
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 7px 12px;
+
+    background: #161b22;
+    border-top: 1px solid #30363d;
+
+    font-size: 13px;
+}
+
+#map {
+    flex: 1;
+    min-height: 0;
+
+    background: #050505;
+}
+
+.map-footer {
+    justify-content: space-between;
+}
+
+#selectedPanel {
+    color: #4cc2ff;
+}
+
+#gpsStatus {
+    color: #8b949e;
+}
+
+#toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    transform: translateX(-50%);
+
+    padding: 10px 18px;
+
+    border-radius: 6px;
+
+    background: rgba(0,0,0,.88);
+
+    display: none;
+
+    z-index: 99999;
+}
+
+/* ==========================================================
+   ACTIVE LEARNING IMAGE VIEWER
+   ========================================================== */
+
+#imageStage {
+    touch-action: none;
+}
+
+#thermalImage,
+#annotationCanvas {
+    transform-origin: 0 0;
+}
+
+#imageStage.pan-mode #annotationCanvas {
+    cursor: grab;
+}
+
+#imageStage.pan-mode.dragging #annotationCanvas {
+    cursor: grabbing;
+}
+
+.image-zoom-controls {
+    position: absolute;
+    z-index: 50;
+
+    top: 12px;
+    left: 12px;
+
+    display: flex;
+    gap: 5px;
+
+    padding: 5px;
+
+    border-radius: 7px;
+
+    background: rgba(10, 15, 20, .82);
+}
+
+.image-zoom-controls button {
+    min-width: 38px;
+    height: 34px;
+
+    padding: 4px 9px;
+
+    font-weight: 700;
+}
+
+#zoomLabel {
+    min-width: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    color: #fff;
+}
+

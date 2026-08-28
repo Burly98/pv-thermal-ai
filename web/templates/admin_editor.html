@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PV Thermal AI - Admin Editor</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/ol@v10.6.1/ol.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/static/app.css"
+    >
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='admin-login.css') }}">
+
+
+<link rel="stylesheet" href="/static/admin_editor.css">
+</head>
+
+
+<body class="admin-mode">
+
+<header class="topbar">
+
+    <div class="project-title">
+        <span class="project-site">Urzicuta</span>
+        <span class="project-divider">/</span>
+        <strong>Solar Thermography</strong>
+    </div>
+
+    <nav class="main-nav">
+
+        <button
+            id="mapButton"
+            class="nav-btn active"
+        >
+            Map
+        </button>
+
+        <button
+            id="tableButton"
+            class="nav-btn"
+        >
+            Table
+        </button>
+
+        <button
+            id="chartButton"
+            class="nav-btn"
+        >
+            Charts
+        </button>
+
+        <button
+            id="exportButton"
+            class="nav-btn"
+        >
+            Export
+        </button>
+
+    </nav>
+
+</header>
+
+
+<main class="workspace">
+
+    <section
+        id="mapView"
+        class="view active-view"
+    >
+
+        <div id="map"></div>
+
+
+        <aside
+            id="detailCard"
+            class="detail-card hidden"
+        >
+
+            <div class="detail-header">
+
+                <div>
+                    <div
+                        id="detailTitle"
+                        class="detail-title"
+                    >
+                        Panel
+                    </div>
+
+                    <div
+                        id="detailSubtitle"
+                        class="detail-subtitle"
+                    >
+                        Thermal anomaly
+                    </div>
+                </div>
+
+                <button
+                    id="closeDetail"
+                    class="close-btn"
+                >
+                    Ã—
+                </button>
+
+            </div>
+
+
+            <div class="detail-grid">
+
+                <div>
+                    <span>Severity</span>
+                    <strong id="detailSeverity">â€”</strong>
+                </div>
+
+                <div>
+                    <span>Status</span>
+                    <strong class="status-confirmed">
+                        Confirmed
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Observations</span>
+                    <strong id="detailObservations">â€”</strong>
+                </div>
+
+            </div>
+
+
+            <div class="section-label">
+                Location
+            </div>
+
+            <div class="location-grid">
+
+                <div>
+                    <span>Latitude</span>
+                    <strong id="detailLatitude">â€”</strong>
+                </div>
+
+                <div>
+                    <span>Longitude</span>
+                    <strong id="detailLongitude">â€”</strong>
+                </div>
+
+            </div>
+
+
+            <div class="section-label">
+                Thermal evidence
+            </div>
+
+            <div class="thermal-toolbar">
+    <button id="thermalZoomOut">−</button>
+    <button id="thermalReset">Reset</button>
+    <button id="thermalZoomIn">+</button>
+</div>
+
+<div
+    class="thermal-wrap"
+    id="thermalViewer"
+>
+    <img
+        id="thermalPhoto"
+        alt="Thermal image"
+        draggable="false"
+    >
+</div>
+
+
+            <div class="detail-meta">
+
+                <div>
+                    <span>Image</span>
+                    <strong id="detailFilename">â€”</strong>
+                </div>
+
+                <div>
+                    <span>Detection ID</span>
+                    <strong id="detailDetection">â€”</strong>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <aside class="layers-panel">
+
+            <div class="layers-header">
+                Layers
+            </div>
+
+
+            <div class="layer-section">
+
+                <label class="switch-row">
+
+                    <span>
+                        Verified findings
+                        <strong id="findingCount">
+                            [0]
+                        </strong>
+                    </span>
+
+                    <input
+                        id="findingsToggle"
+                        type="checkbox"
+                        checked
+                    >
+
+                </label>
+
+                <div
+                    id="anomalyLegend"
+                    class="legend"
+                ></div>
+
+            </div>
+
+
+            <div class="layer-section">
+
+                <div class="layer-title">
+                    Basemap
+                </div>
+
+                <label class="radio-row">
+
+                    <span>RGB Orthomosaic</span>
+
+                    <input
+                        type="radio"
+                        checked
+                    >
+
+                </label>
+
+                <label class="radio-row disabled">
+
+                    <span>Thermal Orthomosaic</span>
+
+                    <input
+                        type="radio"
+                        disabled
+                    >
+
+                </label>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+
+    <section
+        id="tableView"
+        class="view"
+    >
+
+        <div class="content-page">
+
+            <div class="page-header">
+                Verified Findings
+            </div>
+
+            <table id="findingsTable">
+
+                <thead>
+                    <tr>
+                        <th>Panel</th>
+                        <th>Anomaly</th>
+                        <th>Severity</th>
+                        <th>Observations</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </tr>
+                </thead>
+
+                <tbody></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <section
+        id="chartView"
+        class="view"
+    >
+
+        <div class="dashboard">
+
+            <div class="metric-card">
+                <span>Total panels</span>
+                <strong id="totalPanels">0</strong>
+            </div>
+
+            <div class="metric-card">
+                <span>Affected panels</span>
+                <strong id="affectedPanels">0</strong>
+            </div>
+
+            <div class="metric-card">
+                <span>Affected</span>
+                <strong id="affectedPercentage">0%</strong>
+            </div>
+
+            <div class="chart-card wide">
+                <h3>Anomalies by type</h3>
+                <div id="anomalyChart"></div>
+            </div>
+
+            <div class="chart-card wide">
+                <h3>Severity</h3>
+                <div id="severityChart"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/ol@v10.6.1/dist/ol.js"
+></script>
+<!-- ======================================================
+     ADMIN LOGIN
+====================================================== -->
+
+<button
+    id="adminButton"
+    class="admin-login-button"
+    type="button"
+>
+    Admin
+</button>
+
+
+<div
+    id="adminLoginOverlay"
+    class="admin-login-overlay"
+    hidden
+>
+
+    <div class="admin-login-modal">
+
+        <button
+            id="closeAdminLogin"
+            class="admin-login-close"
+            type="button"
+            aria-label="Închide"
+        >
+            ×
+        </button>
+
+
+        <h2>Administrator</h2>
+
+        <p class="admin-login-subtitle">
+            Autentificare pentru editorul proiectului
+        </p>
+
+
+        <form id="adminLoginForm">
+
+            <label for="adminUsername">
+                Utilizator
+            </label>
+
+            <input
+                id="adminUsername"
+                type="text"
+                autocomplete="username"
+                required
+            >
+
+
+            <label for="adminPassword">
+                Parolă
+            </label>
+
+            <input
+                id="adminPassword"
+                type="password"
+                autocomplete="current-password"
+                required
+            >
+
+
+            <button
+                class="admin-login-submit"
+                type="submit"
+            >
+                Autentificare
+            </button>
+
+
+            <div
+                id="adminLoginError"
+                class="admin-login-error"
+            ></div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- END ADMIN LOGIN -->
+
+
+<script src="/static/app.js"></script>
+
+
+<script src="/static/admin_editor.js"></script>
+</body>
+
+</html>
+
+
+

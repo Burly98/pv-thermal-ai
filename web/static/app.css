@@ -1,0 +1,675 @@
+$path = ".\web\static\app.css"
+
+@'
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #2e3337;
+    background: #f4f5f6;
+}
+
+body {
+    overflow: hidden;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.topbar {
+    height: 56px;
+    background: #ffffff;
+    border-bottom: 1px solid #dfe3e5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+.project-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.project-site {
+    color: #687076;
+}
+
+.project-divider {
+    color: #b0b5b8;
+}
+
+.main-nav {
+    display: flex;
+    gap: 5px;
+}
+
+.nav-btn {
+    height: 38px;
+    min-width: 74px;
+    border: 1px solid #d8dddf;
+    border-radius: 6px;
+    background: #ffffff;
+    color: #42484c;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    background: #f2f4f4;
+}
+
+.nav-btn.active {
+    background: #edf1ef;
+    color: #172019;
+    font-weight: 600;
+}
+
+.workspace {
+    height: calc(100vh - 56px);
+}
+
+.view {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.active-view {
+    display: block;
+}
+
+#mapView {
+    position: relative;
+    background: #1c1d1e;
+}
+
+#map {
+    position: absolute;
+    inset: 0;
+}
+
+
+/* ==========================================================
+   RIGHT LAYERS
+   ========================================================== */
+
+.layers-panel {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 320px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.97);
+    border-left: 1px solid #d9dddf;
+    z-index: 30;
+    overflow-y: auto;
+}
+
+.layers-header {
+    height: 58px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid #e1e4e6;
+}
+
+.layer-section {
+    padding: 15px 18px;
+    border-bottom: 1px solid #e4e7e8;
+}
+
+.layer-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.switch-row,
+.radio-row {
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.switch-row input,
+.radio-row input {
+    width: 18px;
+    height: 18px;
+}
+
+.disabled {
+    color: #a7adb1;
+}
+
+.legend {
+    margin-top: 12px;
+}
+
+.legend-row {
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-swatch {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    flex: none;
+}
+
+.legend-label {
+    flex: 1;
+    font-size: 14px;
+}
+
+.legend-count {
+    color: #737b80;
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   DETAIL CARD
+   ========================================================== */
+
+.detail-card {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 420px;
+    max-height: calc(100% - 40px);
+    background: rgba(255, 255, 255, 0.985);
+    border-radius: 8px;
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.27);
+    overflow-y: auto;
+    z-index: 40;
+}
+
+.hidden {
+    display: none;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 17px 18px;
+    border-bottom: 1px solid #e0e4e6;
+}
+
+.detail-title {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.detail-subtitle {
+    margin-top: 3px;
+    color: #6e767b;
+}
+
+.close-btn {
+    background: transparent;
+    border: 0;
+    font-size: 27px;
+    cursor: pointer;
+    color: #43484b;
+}
+
+.detail-grid {
+    padding: 13px 18px;
+}
+
+.detail-grid > div,
+.location-grid > div {
+    min-height: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-grid span,
+.location-grid span {
+    color: #687076;
+}
+
+.status-confirmed {
+    color: #18a15d;
+}
+
+.section-label {
+    margin: 0 18px;
+    padding: 12px 0 7px;
+    border-top: 1px solid #e1e5e6;
+    color: #50575b;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.location-grid {
+    padding: 0 18px 12px;
+}
+
+.thermal-wrap {
+    margin: 0 18px 17px;
+    min-height: 210px;
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.thermal-wrap img {
+    display: block;
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+}
+
+.detail-meta {
+    border-top: 1px solid #e1e5e6;
+    padding: 12px 18px 18px;
+}
+
+.detail-meta div + div {
+    margin-top: 10px;
+}
+
+.detail-meta span {
+    display: block;
+    color: #80878b;
+    font-size: 12px;
+}
+
+.detail-meta strong {
+    display: block;
+    margin-top: 2px;
+    font-size: 13px;
+}
+
+
+/* ==========================================================
+   TABLE
+   ========================================================== */
+
+.content-page {
+    height: 100%;
+    overflow: auto;
+    padding: 24px;
+}
+
+.page-header {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 1px solid #e1e4e6;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+th {
+    text-align: left;
+    background: #f0f2f3;
+    border-bottom: 1px solid #dce0e2;
+    padding: 12px;
+}
+
+td {
+    padding: 11px 12px;
+    border-bottom: 1px solid #eceeef;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+tbody tr:hover {
+    background: #f2f7f4;
+}
+
+
+/* ==========================================================
+   DASHBOARD
+   ========================================================== */
+
+.dashboard {
+    height: 100%;
+    overflow: auto;
+    padding: 24px;
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.metric-card,
+.chart-card {
+    background: white;
+    border: 1px solid #dfe3e5;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.metric-card span {
+    color: #70777c;
+}
+
+.metric-card strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 34px;
+}
+
+.chart-card.wide {
+    grid-column: span 3;
+    min-height: 310px;
+}
+
+.bar-row {
+    margin: 14px 0;
+}
+
+.bar-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.bar-track {
+    height: 16px;
+    background: #edf0f1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: #4fae68;
+}
+
+
+/* ==========================================================
+   OPENLAYERS
+   ========================================================== */
+
+.ol-zoom {
+    left: auto !important;
+    right: 340px !important;
+    top: 15px !important;
+}
+
+.ol-control button {
+    background: rgba(255, 255, 255, 0.96) !important;
+    color: #333 !important;
+    border: 1px solid #d5dade !important;
+}
+'@ | Set-Content -Path $path -Encoding UTF8
+/* ==========================================================
+   THERMAL IMAGE VIEWER
+   ========================================================== */
+
+.thermal-toolbar {
+    margin: 0 18px 6px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.thermal-toolbar button {
+    height: 30px;
+    min-width: 34px;
+    border: 1px solid #d4d9dc;
+    border-radius: 5px;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+.thermal-toolbar button:hover {
+    background: #f0f3f2;
+}
+
+.thermal-wrap {
+    margin: 0 18px 18px;
+    height: 340px;
+    background: #101010;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+}
+
+.thermal-wrap.dragging {
+    cursor: grabbing;
+}
+
+.thermal-wrap img {
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    user-select: none;
+    pointer-events: none;
+    transform-origin: center center;
+    will-change: transform;
+}
+
+/* ==========================================================
+   PV-WEB-V3-STYLES
+   ========================================================== */
+
+.thermal-toolbar {
+    margin: 0 18px 7px 18px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.thermal-toolbar button {
+    height: 31px;
+    min-width: 35px;
+    padding: 0 10px;
+    border: 1px solid #cfd6da;
+    border-radius: 5px;
+    background: #fff;
+    color: #343a3e;
+    cursor: pointer;
+}
+
+.thermal-toolbar button:hover {
+    background: #edf2ef;
+}
+
+#thermalViewer {
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+    background: #070707;
+    cursor: grab;
+    touch-action: none;
+}
+
+#thermalViewer.dragging {
+    cursor: grabbing;
+}
+
+#thermalPhoto {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 100%;
+    max-width: none;
+    max-height: none;
+
+    transform-origin: center center;
+
+    user-select: none;
+    pointer-events: none;
+
+    will-change: transform;
+}
+
+.anomaly-toggle-row {
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+}
+
+.anomaly-toggle-row input {
+    width: 16px;
+    height: 16px;
+}
+
+.anomaly-toggle-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex: none;
+}
+
+.anomaly-toggle-name {
+    flex: 1;
+}
+
+.anomaly-toggle-count {
+    color: #70787d;
+    font-size: 13px;
+}
+
+
+/* Panel rectangle is baked directly into thermal.jpg */
+#pvIrPanelBox {
+    display: none !important;
+}
+
+/* ============================================================
+   RGB + IR MAP LAYER CONTROLS
+   ============================================================ */
+
+.pv-map-raster-controls {
+    border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.pv-layer-order-hint {
+    font-size: 11px;
+    color: #7f8993;
+    margin: 4px 0 12px 0;
+}
+
+.pv-map-layer-control {
+    margin: 13px 0 17px 0;
+}
+
+.pv-map-layer-control-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.pv-map-layer-control-top label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.pv-map-layer-control-top strong {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pv-map-layer-percent {
+    min-width: 42px;
+    text-align: right;
+    font-size: 12px;
+    color: #7d8790;
+}
+
+.pv-map-opacity-slider {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   FAST FINAL RGB / IR
+   ============================================================ */
+
+.pv-raster-controls {
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+.pv-raster-note {
+    margin-top: 3px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    opacity: .55;
+}
+
+.pv-raster-control {
+    margin-bottom: 16px;
+}
+
+.pv-raster-control-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 7px;
+}
+
+.pv-raster-control-header label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.pv-raster-control-header label span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.pv-raster-percent {
+    font-size: 12px;
+    opacity: .65;
+}
+
+.pv-raster-slider {
+    width: 100%;
+    cursor: pointer;
+}
+

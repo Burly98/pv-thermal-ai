@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: pv-thermal-ai
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: PV_THERMAL_IMAGE_ROOT
+        value: /app/deployment_assets/thermal_images
+      - key: PV_USE_WEB_RASTERS
+        value: "1"
+      - key: PV_ADMIN_SECRET_KEY
+        generateValue: true

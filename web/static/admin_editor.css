@@ -1,0 +1,292 @@
+﻿body.admin-mode #adminButton,
+body.admin-mode #adminLoginOverlay {
+    display: none !important;
+}
+
+
+/* ==========================================================
+   TOP ADMIN BAR
+   ========================================================== */
+
+#pvAdminRail {
+    position: fixed;
+    z-index: 6000;
+
+    top: 78px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    background: rgba(17,24,29,.96);
+
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 9px;
+
+    box-shadow: 0 7px 26px rgba(0,0,0,.30);
+
+    overflow: hidden;
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        width .2s ease,
+        opacity .2s ease;
+}
+
+
+.pv-admin-head {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 12px;
+
+    border-right: 1px solid rgba(255,255,255,.10);
+}
+
+
+.pv-admin-logo {
+    color: #45e38a;
+
+    font-size: 19px;
+
+    margin-right: 7px;
+}
+
+
+.pv-admin-title {
+    font-size: 12px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================================
+   BUTTONS
+   ========================================================== */
+
+.pv-admin-tool {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    border: 0;
+    border-right: 1px solid rgba(255,255,255,.06);
+
+    border-radius: 0;
+
+    padding: 0 12px;
+
+    background: transparent;
+
+    color: #e7edf0;
+
+    cursor: pointer;
+}
+
+
+.pv-admin-tool:hover {
+    background: rgba(255,255,255,.09);
+}
+
+
+.pv-admin-tool.active {
+    background: rgba(38,132,205,.35);
+}
+
+
+.pv-admin-icon {
+    font-size: 17px;
+
+    margin-right: 6px;
+}
+
+
+.pv-admin-label {
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+
+/* ==========================================================
+   FLYOUT
+   ========================================================== */
+
+#pvAdminPanel {
+    position: fixed;
+
+    z-index: 5999;
+
+    top: 133px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 420px;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    background: rgba(20,27,32,.98);
+
+    border-radius: 9px;
+
+    box-shadow: 0 8px 30px rgba(0,0,0,.35);
+
+    transition:
+        max-height .22s ease,
+        opacity .18s ease;
+
+    backdrop-filter: blur(8px);
+}
+
+
+#pvAdminPanel.visible {
+    max-height: 550px;
+
+    opacity: 1;
+}
+
+
+.pv-admin-panel-inner {
+    padding: 15px;
+
+    max-height: 550px;
+
+    overflow-y: auto;
+}
+
+
+.pv-admin-panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+
+.pv-admin-panel-title h3 {
+    margin: 0;
+
+    font-size: 17px;
+}
+
+
+.pv-admin-close {
+    border: 0;
+
+    background: transparent;
+
+    font-size: 23px;
+
+    cursor: pointer;
+}
+
+
+.pv-admin-info {
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: #bac5cb;
+
+    margin-bottom: 8px;
+}
+
+
+.pv-admin-primary {
+    display: block;
+
+    width: 100%;
+
+    margin: 6px 0;
+
+    padding: 10px 12px;
+
+    border: 1px solid #3a4851;
+    border-radius: 6px;
+
+    background: #24313a;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+
+.pv-admin-primary:hover {
+    background: #30414d;
+}
+
+
+.pv-admin-primary.active {
+    background: #1769a5;
+
+    border-color: #2e91d4;
+}
+
+
+.pv-admin-danger {
+    background: #8e3434;
+
+    border-color: #b44b4b;
+}
+
+
+.pv-admin-success {
+    background: #287749;
+
+    border-color: #3d9963;
+}
+
+
+.pv-admin-separator {
+    height: 1px;
+
+    margin: 13px 0;
+
+    background: rgba(255,255,255,.10);
+}
+
+
+.pv-admin-badge {
+    position: fixed;
+
+    right: 12px;
+    bottom: 10px;
+
+    z-index: 5000;
+
+    padding: 7px 10px;
+
+    border-radius: 5px;
+
+    background: rgba(17,24,29,.88);
+
+    color: #57dc99;
+
+    font-size: 12px;
+
+    pointer-events: none;
+}
+
+
+/* Selected anomaly is made unmistakable */
+.pv-admin-selected-hint {
+    color: #ffd84d;
+
+    font-weight: 700;
+}

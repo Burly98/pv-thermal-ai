@@ -1,0 +1,9 @@
+Flask>=3.1,<4
+gunicorn>=23,<24
+numpy>=2.0,<3
+pandas>=2.2,<3
+Pillow>=11,<13
+geopandas>=1.0,<2
+pyogrio>=0.10,<1
+rasterio>=1.4,<2
+shapely>=2.0,<3

@@ -1,0 +1,222 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PV Thermal AI - Active Learning</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/ol@v9.2.4/ol.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/static/active_learning.css"
+    >
+</head>
+
+<body>
+
+<div class="topbar">
+
+    <div class="title">
+        PV Thermal AI — Active Learning
+    </div>
+
+    <div class="controls">
+
+        <button id="prevBtn">
+            ◀ Previous
+        </button>
+
+        <span id="counter">
+            -
+        </span>
+
+        <button id="nextBtn">
+            Next ▶
+        </button>
+
+        <button id="saveBtn" class="primary">
+            Save + Next
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="workspace">
+
+    <!-- ===================================================
+         LEFT - ORIGINAL IR IMAGE
+         =================================================== -->
+
+    <div class="left-panel">
+
+        <div class="panel-header">
+
+            <div>
+                <strong>IR IMAGE</strong>
+                <span id="imageName"></span>
+            </div>
+
+            <div class="annotation-tools">
+
+                <button
+                    id="panelTool"
+                    class="tool active"
+                >
+                    Draw Panel
+                </button>
+
+                <button
+                    id="anomalyTool"
+                    class="tool"
+                >
+                    Draw Anomaly
+                </button>
+
+                <button
+                    id="deleteTool"
+                    class="tool danger"
+                >
+                    Delete selected
+                </button>
+
+                <button
+                    id="clearTool"
+                    class="tool danger"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div id="imageStage">
+
+            <div class="image-zoom-controls">
+
+                <button
+                    id="zoomOutBtn"
+                    title="Zoom out"
+                >
+                    ?
+                </button>
+
+                <button
+                    id="zoomFitBtn"
+                    title="Fit image"
+                >
+                    Fit
+                </button>
+
+                <button
+                    id="zoomInBtn"
+                    title="Zoom in"
+                >
+                    +
+                </button>
+
+                <span id="zoomLabel">
+                    100%
+                </span>
+
+            </div>
+
+            <img
+                id="thermalImage"
+                draggable="false"
+            >
+
+            <canvas
+                id="annotationCanvas"
+            ></canvas>
+
+        </div>
+
+
+        <div class="statusbar">
+
+            <span>
+                Panel:
+                <strong id="panelCount">0</strong>
+            </span>
+
+            <span>
+                Anomalies:
+                <strong id="anomalyCount">0</strong>
+            </span>
+
+            <span id="annotationStatus">
+                Draw Panel first
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================================
+         RIGHT - IR ORTHO + MASTER
+         =================================================== -->
+
+    <div class="right-panel">
+
+        <div class="panel-header">
+
+            <div>
+                <strong>IR ORTHOPHOTO + MASTER PANELS</strong>
+            </div>
+
+            <div>
+                Selected panel:
+                <strong id="selectedPanel">
+                    NONE
+                </strong>
+
+                <button
+                    id="activateBtn"
+                    class="activate"
+                    disabled
+                    style="margin-left:12px;"
+                >
+                    Activate selected panel
+                </button>
+            </div>
+
+        </div>
+
+        <div id="map"></div>
+
+        <div class="map-footer">
+
+            
+
+            <span id="gpsStatus">
+                Waiting for image...
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="toast"></div>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/ol@v9.2.4/dist/ol.js"
+></script>
+
+<script
+    src="/static/active_learning.js"
+></script>
+
+</body>
+</html>

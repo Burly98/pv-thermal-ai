@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+.deploy-venv/
+env/
+
+# Data (large files — download via prepare script)
+data/raw/*.zip
+data/raw/InfraredSolarModules/
+
+# Model checkpoints & outputs
+outputs/
+models/*.pth
+models/*.pt
+!models/.gitkeep
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Deployment exclusions
+backups/
+temp/
+runs/
+*.tif
+*.tiff
+*.zip
+*.bak
+*.bak.*
+*before_*
+*backup*
+real_data/raw/
+real_data/processed/park_01/classified_full/
+real_data/processed/park_01/oblique70_corrected_FULL_web/
+real_data/processed/park_01/confirmed45*/
