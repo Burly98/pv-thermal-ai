@@ -197,8 +197,10 @@
                             extent
                     }),
 
+                // OLD IR disabled.
+                // IR Pulkovo HD WebP is now the active IR layer.
                 visible:
-                    true,
+                    false,
 
                 opacity:
                     0.72
@@ -627,15 +629,12 @@
                             );
 
 
-                        if (
-                            !activePanelIds.has(
-                                panelId
-                            )
-                        ) {
-
+                        // Every MASTER panel is inspectable.
+                        // activePanelIds controls STYLE only.
+                        // Clicking an inactive panel does NOT activate it.
+                        if (!panelId) {
                             return false;
                         }
-
 
                         selected =
                             feature;
@@ -1073,3 +1072,354 @@
     waitForEverything();
 
 })();
+
+
+
+/* === IR_PULKOVO_WEBP_V1 === */
+
+(function installIrPulkovoWebP() {
+
+    function tryInstall() {
+
+        if (
+            typeof map === "undefined"
+            ||
+            !map
+        ) {
+            setTimeout(
+                tryInstall,
+                250
+            );
+            return;
+        }
+
+        /*
+         * New IR GeoTIFF:
+         *
+         * EPSG:3844
+         * 39962 x 45261
+         *
+         * Native raster bounds:
+         * L = 296273.84966294124
+         * B = 651549.5298370887
+         * R = 296792.34777301387
+         * T = 652136.7812999784
+         *
+         * Main Web raster:
+         * 40438 x 45701
+         *
+         * Main Web affine:
+         * pixel size = 0.012794887495054233
+         * origin X   = 296274.36155876954
+         * origin Y   = 652136.2321107029
+         */
+
+        const MAIN_H =
+            45701;
+
+        const MAIN_PIXEL =
+            0.012794887495054233;
+
+        const MAIN_X0 =
+            296274.36155876954;
+
+        const MAIN_Y0 =
+            652136.2321107029;
+
+
+        const IR_LEFT =
+            296273.84966294124;
+
+        const IR_BOTTOM =
+            651549.5298370887;
+
+        const IR_RIGHT =
+            296792.34777301387;
+
+        const IR_TOP =
+            652136.7812999784;
+
+
+        function worldToPv(
+            x,
+            y
+        ) {
+
+            const col =
+                (
+                    x
+                    -
+                    MAIN_X0
+                )
+                /
+                MAIN_PIXEL;
+
+            const row =
+                (
+                    MAIN_Y0
+                    -
+                    y
+                )
+                /
+                MAIN_PIXEL;
+
+            return [
+                col,
+                MAIN_H - row
+            ];
+        }
+
+
+        const bottomLeft =
+            worldToPv(
+                IR_LEFT,
+                IR_BOTTOM
+            );
+
+        const topRight =
+            worldToPv(
+                IR_RIGHT,
+                IR_TOP
+            );
+
+
+        const irExtent = [
+            Math.min(
+                bottomLeft[0],
+                topRight[0]
+            ),
+
+            Math.min(
+                bottomLeft[1],
+                topRight[1]
+            ),
+
+            Math.max(
+                bottomLeft[0],
+                topRight[0]
+            ),
+
+            Math.max(
+                bottomLeft[1],
+                topRight[1]
+            )
+        ];
+
+
+        /*
+         * WebP pyramid:
+         *
+         * z0 = 157 x 177
+         * ...
+         * z8 = 39962 x 45261
+         *
+         * At z8:
+         * one tile-image pixel corresponds to one
+         * source IR pixel.
+         *
+         * Convert source-pixel resolution to
+         * PV_IMAGE pixels.
+         */
+
+        const IR_W =
+            39962;
+
+        const IR_H =
+            45261;
+
+        const MAX_ZOOM =
+            8;
+
+        const TILE_SIZE =
+            256;
+
+
+        const pvWidth =
+            irExtent[2]
+            -
+            irExtent[0];
+
+        const pvHeight =
+            irExtent[3]
+            -
+            irExtent[1];
+
+
+        const nativeResolution =
+            Math.max(
+                pvWidth / IR_W,
+                pvHeight / IR_H
+            );
+
+
+        const resolutions = [];
+
+        for (
+            let z = 0;
+            z <= MAX_ZOOM;
+            z++
+        ) {
+
+            resolutions.push(
+                nativeResolution
+                *
+                Math.pow(
+                    2,
+                    MAX_ZOOM - z
+                )
+            );
+        }
+
+
+        const tileGrid =
+            new ol.tilegrid.TileGrid({
+
+                extent:
+                    irExtent,
+
+                origin: [
+                    irExtent[0],
+                    irExtent[3]
+                ],
+
+                tileSize:
+                    TILE_SIZE,
+
+                resolutions:
+                    resolutions
+            });
+
+
+        const source =
+            new ol.source.TileImage({
+
+                projection:
+                    map
+                    .getView()
+                    .getProjection(),
+
+                tileGrid:
+                    tileGrid,
+
+                wrapX:
+                    false,
+
+                tileUrlFunction:
+                    function(tileCoord) {
+
+                        if (!tileCoord) {
+                            return undefined;
+                        }
+
+                        const z =
+                            tileCoord[0];
+
+                        const x =
+                            tileCoord[1];
+
+                        const y =
+                            tileCoord[2];
+
+                        if (
+                            z < 0
+                            ||
+                            z > MAX_ZOOM
+                            ||
+                            x < 0
+                            ||
+                            y < 0
+                        ) {
+                            return undefined;
+                        }
+
+                        /*
+                         * Pyramid layout generated earlier:
+                         *
+                         * z / y / x.webp
+                         */
+
+                        return (
+                            "/static/ir_pulkovo_tiles/"
+                            +
+                            z
+                            +
+                            "/"
+                            +
+                            y
+                            +
+                            "/"
+                            +
+                            x
+                            +
+                            ".webp"
+                        );
+                    }
+            });
+
+
+        const layer =
+            new ol.layer.Tile({
+
+                source:
+                    source,
+
+                extent:
+                    irExtent,
+
+                visible:
+                    true,
+
+                opacity:
+                    1.0
+            });
+
+
+        layer.set(
+            "pvLayer",
+            "ir-pulkovo-webp"
+        );
+
+        layer.set(
+            "title",
+            "IR Pulkovo HD"
+        );
+
+
+        /*
+         * Put IR below vector panel layers.
+         */
+        map
+            .getLayers()
+            .insertAt(
+                1,
+                layer
+            );
+
+
+        window.irPulkovoLayer =
+            layer;
+
+        window.irPulkovoExtent =
+            irExtent;
+
+
+        console.log(
+            "[IR PULKOVO] installed",
+            {
+                extent:
+                    irExtent,
+
+                resolutions:
+                    resolutions,
+
+                nativeResolution:
+                    nativeResolution
+            }
+        );
+    }
+
+
+    tryInstall();
+
+})();
+

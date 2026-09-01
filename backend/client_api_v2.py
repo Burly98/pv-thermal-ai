@@ -1,3 +1,5 @@
+import mimetypes
+mimetypes.add_type("image/webp", ".webp")
 import os
 from pathlib import Path
 from io import BytesIO
@@ -92,8 +94,8 @@ ACTIVE_LEARNING_EXACT_JSON = (
     / "real_data"
     / "processed"
     / "park_01"
-    / "active_learning_exact_web"
-    / "findings_active_learning_exact.json"
+    / "active_learning_exact_web_v31_hybrid"
+    / "findings_active_learning_exact_v31_hybrid.json"
 )
 
 ACTIVE_LEARNING_EXACT_GPKG = (
@@ -101,8 +103,8 @@ ACTIVE_LEARNING_EXACT_GPKG = (
     / "real_data"
     / "processed"
     / "park_01"
-    / "active_learning_exact_web"
-    / "panels_active_learning_exact.gpkg"
+    / "active_learning_exact_web_v31_hybrid"
+    / "panels_active_learning_exact_v31_hybrid.gpkg"
 )
 
 IMAGE_ROOT = (
@@ -1290,6 +1292,56 @@ def tile(
 @app.route("/api/all-panels")
 def api_all_panels():
 
+    # ========================================================
+    # MANUAL FINAL GROUND TRUTH
+    # 620 panels validated manually in Active Learning.
+    # This affects Web display only.
+    # ========================================================
+
+    manual_path = (
+        BASE
+        / "real_data"
+        / "qa"
+        / "manual_master_panels.json"
+    )
+
+    manual_affected_ids = set()
+
+    if manual_path.exists():
+
+        try:
+
+            manual_payload = json.loads(
+                manual_path.read_text(
+                    encoding="utf-8-sig"
+                )
+            )
+
+            manual_panels = (
+                manual_payload.get(
+                    "panels",
+                    {}
+                )
+            )
+
+            manual_affected_ids = {
+                str(panel_id)
+                for panel_id, record
+                in manual_panels.items()
+                if isinstance(record, dict)
+                and record.get(
+                    "active",
+                    True
+                )
+            }
+
+        except Exception as exc:
+
+            print(
+                "MANUAL MASTER LOAD ERROR:",
+                exc
+            )
+
     features = []
 
     for _, row in (
@@ -1338,7 +1390,7 @@ def api_all_panels():
                     "affected":
                         panel_id
                         in
-                        affected_ids,
+                        manual_affected_ids,
                 },
             }
         )
@@ -1411,11 +1463,58 @@ if _confirmed45_legacy_json.exists():
 @app.route("/api/findings")
 def api_findings():
 
+    # ========================================================
+    # MANUAL FINAL GROUND TRUTH
+    # PANEL_ID = authoritative MASTER polygon
+    # filename = exact IR image selected in Active Learning
+    # ========================================================
+
+    manual_path = (
+        BASE
+        / "real_data"
+        / "qa"
+        / "manual_master_panels.json"
+    )
+
+    if not manual_path.exists():
+
+        return jsonify(
+            {
+                "type": "FeatureCollection",
+                "features": [],
+            }
+        )
+
+    try:
+
+        payload = json.loads(
+            manual_path.read_text(
+                encoding="utf-8-sig"
+            )
+        )
+
+        manual_panels = payload.get(
+            "panels",
+            {}
+        )
+
+    except Exception as exc:
+
+        print(
+            "MANUAL FINDINGS LOAD ERROR:",
+            exc
+        )
+
+        return jsonify(
+            {
+                "type": "FeatureCollection",
+                "features": [],
+            }
+        )
+
     features = []
 
-    for _, row in (
-        verified_panels.iterrows()
-    ):
+    for _, row in all_panels.iterrows():
 
         panel_id = safe_text(
             row.get(
@@ -1424,21 +1523,29 @@ def api_findings():
             )
         )
 
-        info = (
-            finding_lookup.get(
-                panel_id,
-                {}
-            )
+        manual = manual_panels.get(
+            panel_id
         )
 
-        geometry = (
-            row.geometry
-        )
+        if not isinstance(
+            manual,
+            dict
+        ):
+
+            continue
+
+        if not manual.get(
+            "active",
+            True
+        ):
+
+            continue
+
+        geometry = row.geometry
 
         if (
             geometry is None
-            or
-            geometry.is_empty
+            or geometry.is_empty
         ):
 
             continue
@@ -1449,17 +1556,30 @@ def api_findings():
             )
         )
 
+        # Keep any legacy metadata when available.
+        # Geometry and membership come ONLY from manual MASTER.
+        info = finding_lookup.get(
+            panel_id,
+            {}
+        )
+
+        reference_filename = safe_text(
+            manual.get(
+                "reference_filename",
+                ""
+            )
+        )
+
         features.append(
             {
-                "type":
-                    "Feature",
+                "type": "Feature",
 
-                "geometry":
-                    mapping(
-                        pixel_geometry
-                    ),
+                "geometry": mapping(
+                    pixel_geometry
+                ),
 
                 "properties": {
+
                     "panel_id":
                         panel_id,
 
@@ -1467,7 +1587,7 @@ def api_findings():
                         safe_text(
                             info.get(
                                 "anomaly_type",
-                                ""
+                                "Manual verified defect"
                             )
                         ),
 
@@ -1480,19 +1600,13 @@ def api_findings():
                         ),
 
                     "verified_observations":
-                        safe_int(
-                            info.get(
-                                "verified_observations",
-                                1
-                            ),
-                            1,
-                        ),
+                        1,
 
                     "class_confidence":
                         safe_float(
                             info.get(
                                 "class_confidence",
-                                0
+                                1.0
                             )
                         ),
 
@@ -1518,32 +1632,32 @@ def api_findings():
                             )
                         ),
 
+                    # IMPORTANT:
+                    # exact image selected manually
                     "filename":
-                        safe_text(
-                            info.get(
-                                "filename",
-                                ""
-                            )
-                        ),
+                        reference_filename,
+
+                    "reference_filename":
+                        reference_filename,
 
                     "detection_id":
                         safe_text(
                             info.get(
                                 "detection_id",
-                                ""
+                                "MANUAL_" + panel_id
                             )
                         ),
+
+                    "manual_verified":
+                        True,
                 },
             }
         )
 
     return jsonify(
         {
-            "type":
-                "FeatureCollection",
-
-            "features":
-                features,
+            "type": "FeatureCollection",
+            "features": features,
         }
     )
 
@@ -2060,6 +2174,232 @@ def find_panel_bbox_for_view(row):
     return None
 
 
+
+
+# === MANUAL620_REFERENCE_IMAGE_V1 ===
+
+_MANUAL620_REGISTRY_PATH = (
+    BASE
+    / "real_data"
+    / "qa"
+    / "manual_master_panels.json"
+)
+
+
+def manual620_reference_filename(
+    panel_id,
+):
+
+    try:
+
+        if not _MANUAL620_REGISTRY_PATH.exists():
+            return ""
+
+        data = json.loads(
+            _MANUAL620_REGISTRY_PATH.read_text(
+                encoding="utf-8"
+            )
+        )
+
+        panels = data.get(
+            "panels",
+            {}
+        )
+
+        record = panels.get(
+            str(panel_id),
+            {}
+        )
+
+        if not record:
+            return ""
+
+        if not record.get(
+            "active",
+            False
+        ):
+            return ""
+
+        return str(
+            record.get(
+                "reference_filename",
+                ""
+            )
+            or
+            ""
+        ).strip()
+
+    except Exception as exc:
+
+        print(
+            "[MANUAL620] registry error:",
+            exc
+        )
+
+        return ""
+
+
+def manual620_apply_reference_image(
+    panel_id,
+    row,
+):
+
+    reference_filename = (
+        manual620_reference_filename(
+            panel_id
+        )
+    )
+
+    if not reference_filename:
+        return row
+
+    # pandas Series copy:
+    # never mutate global findings.
+    patched_row = row.copy()
+
+    patched_row["filename"] = (
+        reference_filename
+    )
+
+    patched_row["reference_filename"] = (
+        reference_filename
+    )
+
+    return patched_row
+
+
+
+
+
+# === MANUAL620_PANEL_IMAGE_V3 ===
+
+def _manual620_panel_row_for_view(panel_id):
+
+    panel_id = str(panel_id)
+
+    match = findings[
+        findings[
+            "panel_id"
+        ].astype(str)
+        ==
+        panel_id
+    ]
+
+    manual_path = (
+        BASE
+        / "real_data"
+        / "qa"
+        / "manual_master_panels.json"
+    )
+
+    manual = {}
+
+    if manual_path.exists():
+
+        try:
+            import json
+
+            data = json.loads(
+                manual_path.read_text(
+                    encoding="utf-8"
+                )
+            )
+
+            manual = (
+                data
+                .get(
+                    "panels",
+                    {}
+                )
+                .get(
+                    panel_id,
+                    {}
+                )
+            ) or {}
+
+        except Exception as exc:
+
+            print(
+                "[MANUAL620] registry read error:",
+                exc
+            )
+
+
+    reference_filename = safe_text(
+        manual.get(
+            "reference_filename",
+            ""
+        )
+    )
+
+
+    if not match.empty:
+
+        row = (
+            match
+            .iloc[0]
+            .copy()
+        )
+
+        if reference_filename:
+
+            row["filename"] = (
+                reference_filename
+            )
+
+            row["reference_filename"] = (
+                reference_filename
+            )
+
+        return row
+
+
+    if not reference_filename:
+
+        return None
+
+
+    # Manual-only defective panel.
+    # Enough information for the current panel-view renderer.
+    return {
+        "panel_id":
+            panel_id,
+
+        "filename":
+            reference_filename,
+
+        "reference_filename":
+            reference_filename,
+
+        "anomaly_type":
+            "Manual verified defect",
+
+        "severity":
+            "",
+
+        "verified_observations":
+            1,
+
+        "observations":
+            1,
+
+        "detection_id":
+            "MANUAL_" + panel_id,
+
+        "x1":
+            0,
+
+        "y1":
+            0,
+
+        "x2":
+            0,
+
+        "y2":
+            0,
+    }
+
+
 @app.route(
     "/api/panel-view/<panel_id>"
 )
@@ -2067,16 +2407,11 @@ def api_panel_view(
     panel_id,
 ):
 
-    match = findings[
-        findings[
-            "panel_id"
-        ]
-        .astype(str)
-        ==
-        str(panel_id)
-    ]
+    row = _manual620_panel_row_for_view(
+        panel_id
+    )
 
-    if match.empty:
+    if row is None:
 
         return jsonify(
             {
@@ -2085,7 +2420,12 @@ def api_panel_view(
             }
         ), 404
 
-    row = match.iloc[0]
+    # MANUAL620:
+    # use exact IR filename captured during manual validation
+    row = manual620_apply_reference_image(
+        panel_id,
+        row
+    )
 
     x1 = safe_float(
         row.get("x1", 0)
@@ -2280,23 +2620,23 @@ def api_panel_view_thermal(
     panel_id,
 ):
 
-    match = findings[
-        findings[
-            "panel_id"
-        ]
-        .astype(str)
-        ==
-        str(panel_id)
-    ]
+    row = _manual620_panel_row_for_view(
+        panel_id
+    )
 
-    if match.empty:
+    if row is None:
 
         return (
             "Panel not found",
             404
         )
 
-    row = match.iloc[0]
+    # MANUAL620:
+    # use exact IR filename captured during manual validation
+    row = manual620_apply_reference_image(
+        panel_id,
+        row
+    )
 
     image_path = resolve_ir_image(
         row.get(
@@ -2480,91 +2820,12 @@ app.config["SECRET_KEY"] = (
 # ADMIN LOGIN ROUTES
 # ============================================================
 
-@app.post("/api/admin/login")
-def admin_login():
-
-    data = request.get_json(
-        silent=True
-    ) or {}
-
-    username = str(
-        data.get(
-            "username",
-            ""
-        )
-    ).strip()
-
-    password = str(
-        data.get(
-            "password",
-            ""
-        )
-    )
-
-    if (
-        username != ADMIN_USERNAME
-        or
-        password != ADMIN_PASSWORD
-    ):
-        return jsonify(
-            {
-                "success": False,
-                "message": "Invalid credentials",
-            }
-        ), 401
-
-    session["is_admin"] = True
-    session["admin_username"] = username
-
-    return jsonify(
-        {
-            "success": True,
-            "editor_url": "/admin/editor",
-        }
-    )
 
 
-@app.post("/api/admin/logout")
-def admin_logout():
-
-    session.clear()
-
-    return jsonify(
-        {
-            "success": True
-        }
-    )
 
 
-@app.get("/api/admin/session")
-def admin_session_status():
-
-    return jsonify(
-        {
-            "authenticated":
-                bool(
-                    session.get(
-                        "is_admin"
-                    )
-                )
-        }
-    )
 
 
-@app.get("/admin/editor")
-def admin_editor():
-
-    if not session.get(
-        "is_admin"
-    ):
-        return (
-            "Unauthorized",
-            401
-        )
-
-    return render_template(
-        "admin_editor.html"
-    )
 
 
 
@@ -2582,24 +2843,25 @@ def api_panel_view_thermal_crop(
     panel_id,
 ):
 
-    match = findings[
-        findings[
-            "panel_id"
-        ]
-        .astype(str)
-        ==
-        str(panel_id)
-    ]
+    # === MANUAL620_THERMAL_CROP_V1 ===
 
-    if match.empty:
+    row = _manual620_panel_row_for_view(
+        panel_id
+    )
+
+    if row is None:
 
         return (
             "Panel not found",
             404
         )
 
-
-    row = match.iloc[0]
+    # MANUAL620:
+    # use exact IR filename captured during manual validation
+    row = manual620_apply_reference_image(
+        panel_id,
+        row
+    )
 
 
     image_path = resolve_ir_image(
@@ -3375,21 +3637,162 @@ def api_offset_test():
 
 
 # ============================================================
+# ACTIVE LEARNING - IR ORTHOPHOTO TILES
+# Dedicated endpoint. Does NOT modify the main RGB /tiles route.
+# ============================================================
+
+@app.route(
+    "/active-learning-ir-tiles/<int:z>/<int:x>/<int:y>.png"
+)
+def active_learning_ir_tile(
+    z,
+    x,
+    y,
+):
+
+    from flask import send_file
+    from PIL import Image
+    from io import BytesIO
+
+    ir_raster_path = (
+        BASE
+        / "web"
+        / "static"
+        / "map_layers"
+        / "ir_aligned.jpg"
+    )
+
+    if not ir_raster_path.exists():
+        return (
+            "IR raster not found",
+            404,
+        )
+
+    resolution = (
+        MAX_DIM
+        /
+        (
+            TILE_SIZE
+            *
+            (
+                2 ** z
+            )
+        )
+    )
+
+    source_x = (
+        x
+        *
+        TILE_SIZE
+        *
+        resolution
+    )
+
+    source_y = (
+        y
+        *
+        TILE_SIZE
+        *
+        resolution
+    )
+
+    source_w = (
+        TILE_SIZE
+        *
+        resolution
+    )
+
+    source_h = (
+        TILE_SIZE
+        *
+        resolution
+    )
+
+    with Image.open(
+        ir_raster_path
+    ) as ir_raster:
+
+        scale_x = (
+            ir_raster.width
+            /
+            WIDTH
+        )
+
+        scale_y = (
+            ir_raster.height
+            /
+            HEIGHT
+        )
+
+        image = ir_raster.crop(
+            (
+                int(
+                    source_x
+                    *
+                    scale_x
+                ),
+                int(
+                    source_y
+                    *
+                    scale_y
+                ),
+                int(
+                    (
+                        source_x
+                        +
+                        source_w
+                    )
+                    *
+                    scale_x
+                ),
+                int(
+                    (
+                        source_y
+                        +
+                        source_h
+                    )
+                    *
+                    scale_y
+                ),
+            )
+        ).resize(
+            (
+                TILE_SIZE,
+                TILE_SIZE,
+            ),
+            Image.Resampling.BILINEAR,
+        ).convert(
+            "RGB"
+        )
+
+    buffer = BytesIO()
+
+    image.save(
+        buffer,
+        format="PNG",
+        optimize=True,
+    )
+
+    buffer.seek(0)
+
+    return send_file(
+        buffer,
+        mimetype="image/png",
+    )
+
+
+
+# ============================================================
 # ACTIVE LEARNING - IR + MASTER PANEL
 # ============================================================
 
-ACTIVE_LEARNING_IMAGE_ROOT = Path(
-    os.environ.get(
-        "PV_THERMAL_IMAGE_ROOT",
-        str(
-            BASE
-            / "real_data"
-            / "raw"
-            / "park_01"
-            / "Imagini IR"
-        ),
-    )
-).resolve()
+ACTIVE_LEARNING_IMAGE_ROOT = (
+    BASE
+    / "real_data"
+    / "raw"
+    / "park_01"
+    / "Imagini IR"
+)
 
 ACTIVE_LEARNING_DIR = (
     BASE
@@ -3467,6 +3870,7 @@ def active_learning_page():
     )
 
 
+# QA inspection page removed - workflow retired.
 @app.get("/api/active-learning/images")
 def active_learning_images():
 
@@ -4464,12 +4868,21 @@ def active_learning_predictions(filename):
         BASE
         / "runs"
         / "active_learning_45"
-        / "active_learning_45_constrained_v2_predictions"
+        / "active_learning_45_constrained_v31_predictions"
         / "labels"
         / (Path(filename).stem + ".txt")
     )
 
-    if not label_path.exists():
+    panel_label_path = (
+        BASE
+        / "runs"
+        / "active_learning_45"
+        / "active_learning_45_v1_panels_all4160_predictions"
+        / "labels"
+        / (Path(filename).stem + ".txt")
+    )
+
+    if not label_path.exists() and not panel_label_path.exists():
 
         return jsonify({
             "ok": True,
@@ -4525,17 +4938,91 @@ def active_learning_predictions(filename):
 
 
         if class_id == 0:
-            panels.append(box)
+            continue
 
         elif class_id == 1:
-            anomalies.append(box)
+            if (
+                confidence is None
+                or confidence >= 0.05
+            ):
+                anomalies.append(box)
+
+
+    # PANEL geometry comes exclusively from V1 all4160.
+    # Ignore weak V1 detections below 0.05.
+    if panel_label_path.exists():
+
+        for raw_line in panel_label_path.read_text(
+            encoding="utf-8"
+        ).splitlines():
+
+            parts = raw_line.strip().split()
+
+            if len(parts) < 5:
+                continue
+
+            class_id = int(float(parts[0]))
+
+            if class_id != 0:
+                continue
+
+            confidence = (
+                float(parts[5])
+                if len(parts) >= 6
+                else None
+            )
+
+            if (
+                confidence is not None
+                and confidence < 0.05
+            ):
+                continue
+
+            cx = float(parts[1])
+            cy = float(parts[2])
+            w = float(parts[3])
+            h = float(parts[4])
+
+            panels.append({
+                "x": cx - w / 2,
+                "y": cy - h / 2,
+                "w": w,
+                "h": h,
+                "confidence": confidence,
+                "source": "ai"
+            })
+
+
+    # Keep only anomalies whose CENTER lies inside
+    # one of the accepted V1 panel boxes.
+    filtered_anomalies = []
+
+    for anomaly in anomalies:
+
+        acx = anomaly["x"] + anomaly["w"] / 2
+        acy = anomaly["y"] + anomaly["h"] / 2
+
+        inside_panel = False
+
+        for panel in panels:
+
+            if (
+                panel["x"] <= acx <= panel["x"] + panel["w"]
+                and
+                panel["y"] <= acy <= panel["y"] + panel["h"]
+            ):
+                inside_panel = True
+                break
+
+        if inside_panel:
+            filtered_anomalies.append(anomaly)
 
 
     return jsonify({
         "ok": True,
         "exists": True,
         "panels": panels,
-        "anomalies": anomalies
+        "anomalies": filtered_anomalies
     })
 
 
@@ -4553,8 +5040,8 @@ CONFIRMED45_WEB_JSON = (
     / "real_data"
     / "processed"
     / "park_01"
-    / "active_learning_exact_web"
-    / "findings_active_learning_exact.json"
+    / "active_learning_exact_web_v31_hybrid"
+    / "findings_active_learning_exact_v31_hybrid.json"
 )
 
 CONFIRMED45_WEB_GPKG = (
@@ -4562,8 +5049,8 @@ CONFIRMED45_WEB_GPKG = (
     / "real_data"
     / "processed"
     / "park_01"
-    / "active_learning_exact_web"
-    / "panels_active_learning_exact.gpkg"
+    / "active_learning_exact_web_v31_hybrid"
+    / "panels_active_learning_exact_v31_hybrid.gpkg"
 )
 
 
@@ -4933,11 +5420,12 @@ def api_confirmed45_panel_inclusive(
         str(panel_id)
     )
 
-    if finding is None:
-        return jsonify({
-            "error":
-                "High Recall panel not found"
-        }), 404
+    # --------------------------------------------------------
+    # MASTER INSPECTION
+    # Inactive MASTER panels are valid inspection targets.
+    # Clicking them must NOT activate or modify findings.
+    # --------------------------------------------------------
+    is_active = finding is not None
 
     # --------------------------------------------------------
     # MASTER panel centre.
@@ -4996,6 +5484,13 @@ def api_confirmed45_panel_inclusive(
 
             except Exception:
                 pass
+
+    if finding is None:
+        finding = {
+            "panel_id": str(panel_id),
+            "observations": [],
+            "anomaly_count": 0,
+        }
 
     photos = []
 
@@ -5073,10 +5568,16 @@ def api_confirmed45_panel_inclusive(
             str(panel_id),
 
         "confirmed45":
-            True,
+            bool(is_active),
+
+        "active":
+            bool(is_active),
+
+        "inspection_only":
+            not bool(is_active),
 
         "high_recall":
-            True,
+            bool(is_active),
 
         "latitude":
             latitude,
@@ -6377,14 +6878,12 @@ for _rule in list(
 
     if _rule.rule == "/api/findings":
 
-        app.view_functions[
-            _rule.endpoint
-        ] = (
-            _pv_active_learning_exact_findings
-        )
-
+        # MANUAL620:
+        # Keep the original api_findings handler registered above.
+        # The old ACTIVE LEARNING EXACT dataset is retained on disk
+        # but no longer overrides /api/findings.
         print(
-            "[AL EXACT WEB] /api/findings -> exact dataset"
+            "[MANUAL620] /api/findings -> manual MASTER dataset"
         )
 
         break
@@ -6395,6 +6894,729 @@ for _rule in list(
 print(
     "[AL EXACT WEB] prebuilt dataset is authoritative"
 )
+
+
+
+# ============================================================
+# QA INSPECTION - NEW 90/70 IR ORTHOMOSAIC
+# Completely isolated from the main Web and Active Learning map.
+# GeoTIFF is the georeferencing authority.
+# ============================================================
+
+_QA_ORTHO_TIF = (
+    BASE
+    / "real_data"
+    / "processed"
+    / "park_01"
+    / "orthomosaic_new"
+    / "ir_orthomosaic_90_70_georef.tif"
+)
+
+_QA_ORTHO_WEB = (
+    BASE
+    / "real_data"
+    / "processed"
+    / "park_01"
+    / "orthomosaic_new"
+    / "ir_orthomosaic_90_70_web.jpg"
+)
+
+_QA_TILE_SIZE = 256
+
+
+def _qa_raster_metadata():
+
+    import math
+    import rasterio
+
+    with rasterio.open(
+        _QA_ORTHO_TIF
+    ) as src:
+
+        width = int(
+            src.width
+        )
+
+        height = int(
+            src.height
+        )
+
+        max_dim = max(
+            width,
+            height,
+        )
+
+        max_zoom = int(
+            math.ceil(
+                math.log2(
+                    max_dim
+                    /
+                    _QA_TILE_SIZE
+                )
+            )
+        )
+
+        return {
+            "width":
+                width,
+
+            "height":
+                height,
+
+            "maxDim":
+                max_dim,
+
+            "tileSize":
+                _QA_TILE_SIZE,
+
+            "maxZoom":
+                max_zoom,
+
+            "totalPanels":
+                len(
+                    all_panels
+                ),
+
+            "thermalAvailable":
+                True,
+        }
+
+
+@app.route("/api/qa/meta")
+def api_qa_meta():
+
+    if not _QA_ORTHO_TIF.exists():
+
+        return jsonify(
+            {
+                "ok":
+                    False,
+
+                "error":
+                    "QA GeoTIFF not found",
+
+                "path":
+                    str(
+                        _QA_ORTHO_TIF
+                    ),
+            }
+        ), 404
+
+    return jsonify(
+        _qa_raster_metadata()
+    )
+
+
+@app.route("/api/qa/all-panels")
+def api_qa_all_panels():
+
+    import rasterio
+
+    from shapely.affinity import (
+        affine_transform
+    )
+
+    from shapely.geometry import (
+        mapping
+    )
+
+    if not _QA_ORTHO_TIF.exists():
+
+        return jsonify(
+            {
+                "type":
+                    "FeatureCollection",
+
+                "features":
+                    [],
+
+                "error":
+                    "QA GeoTIFF not found",
+            }
+        ), 404
+
+
+    with rasterio.open(
+        _QA_ORTHO_TIF
+    ) as src:
+
+        raster_crs = (
+            src.crs
+        )
+
+        width = int(
+            src.width
+        )
+
+        height = int(
+            src.height
+        )
+
+        inv = (
+            ~src.transform
+        )
+
+
+    panels_geo = (
+        all_panels
+    )
+
+    if (
+        raster_crs is not None
+        and
+        panels_geo.crs is not None
+        and
+        str(
+            panels_geo.crs
+        )
+        !=
+        str(
+            raster_crs
+        )
+    ):
+
+        panels_geo = (
+            panels_geo.to_crs(
+                raster_crs
+            )
+        )
+
+
+    # Inverse raster transform:
+    #
+    # world -> raster:
+    #   col = a*x + b*y + c
+    #   row = d*x + e*y + f
+    #
+    # OpenLayers PV_IMAGE has Y upwards,
+    # while raster rows grow downwards:
+    #
+    #   pixel_y = height - row
+    #
+    qa_affine = [
+        float(
+            inv.a
+        ),
+
+        float(
+            inv.b
+        ),
+
+        float(
+            -inv.d
+        ),
+
+        float(
+            -inv.e
+        ),
+
+        float(
+            inv.c
+        ),
+
+        float(
+            height
+            -
+            inv.f
+        ),
+    ]
+
+
+    features = []
+
+
+    for _, row in (
+        panels_geo.iterrows()
+    ):
+
+        geometry = (
+            row.geometry
+        )
+
+        if (
+            geometry is None
+            or
+            geometry.is_empty
+        ):
+
+            continue
+
+
+        panel_id = safe_text(
+            row.get(
+                "panel_id",
+                ""
+            )
+        )
+
+
+        pixel_geometry = (
+            affine_transform(
+                geometry,
+                qa_affine
+            )
+        )
+
+
+        features.append(
+            {
+                "type":
+                    "Feature",
+
+                "geometry":
+                    mapping(
+                        pixel_geometry
+                    ),
+
+                "properties": {
+                    "panel_id":
+                        panel_id,
+
+                    "affected":
+                        panel_id
+                        in
+                        affected_ids,
+                },
+            }
+        )
+
+
+    return jsonify(
+        {
+            "type":
+                "FeatureCollection",
+
+            "features":
+                features,
+        }
+    )
+
+
+@app.route(
+    "/qa-ir-tiles/<int:z>/<int:x>/<int:y>.png"
+)
+def qa_ir_tile(
+    z,
+    x,
+    y,
+):
+
+    from flask import send_file
+    from io import BytesIO
+
+    import numpy as np
+    import rasterio
+
+    from rasterio.enums import Resampling
+    from rasterio.windows import Window
+    from PIL import Image
+
+
+    if not _QA_ORTHO_TIF.exists():
+
+        return (
+            "QA IR GeoTIFF not found",
+            404,
+        )
+
+
+    meta = _qa_raster_metadata()
+
+    width = int(meta["width"])
+    height = int(meta["height"])
+    max_dim = int(meta["maxDim"])
+    max_zoom = int(meta["maxZoom"])
+
+
+    if (
+        z < 0
+        or
+        z > max_zoom
+        or
+        x < 0
+        or
+        y < 0
+    ):
+
+        return (
+            "Invalid QA tile",
+            404,
+        )
+
+
+    resolution = (
+        max_dim
+        /
+        (
+            _QA_TILE_SIZE
+            *
+            (2 ** z)
+        )
+    )
+
+
+    source_x = (
+        x
+        *
+        _QA_TILE_SIZE
+        *
+        resolution
+    )
+
+    source_y = (
+        y
+        *
+        _QA_TILE_SIZE
+        *
+        resolution
+    )
+
+    source_w = (
+        _QA_TILE_SIZE
+        *
+        resolution
+    )
+
+    source_h = (
+        _QA_TILE_SIZE
+        *
+        resolution
+    )
+
+
+    # Tile completely outside the real raster.
+    if (
+        source_x >= width
+        or
+        source_y >= height
+        or
+        source_x + source_w <= 0
+        or
+        source_y + source_h <= 0
+    ):
+
+        return (
+            "QA tile outside raster",
+            404,
+        )
+
+
+    with rasterio.open(
+        _QA_ORTHO_TIF
+    ) as src:
+
+        window = Window(
+            col_off=source_x,
+            row_off=source_y,
+            width=source_w,
+            height=source_h,
+        )
+
+
+        # Read only the requested GeoTIFF window.
+        # The browser never loads the entire 49002 x 37416 image.
+        data = src.read(
+            indexes=[1, 2, 3],
+            window=window,
+            out_shape=(
+                3,
+                _QA_TILE_SIZE,
+                _QA_TILE_SIZE,
+            ),
+            boundless=True,
+            fill_value=0,
+            resampling=Resampling.bilinear,
+        )
+
+
+        rgb = np.moveaxis(
+            data,
+            0,
+            2,
+        )
+
+
+        if rgb.dtype != np.uint8:
+
+            rgb = np.clip(
+                rgb,
+                0,
+                255,
+            ).astype(
+                np.uint8
+            )
+
+
+        image = Image.fromarray(
+            rgb,
+            mode="RGB",
+        )
+
+
+        buffer = BytesIO()
+
+        image.save(
+            buffer,
+            format="PNG",
+            optimize=False,
+        )
+
+        buffer.seek(0)
+
+
+        return send_file(
+            buffer,
+            mimetype="image/png",
+        )
+
+
+
+
+# QA inspection support removed - workflow retired.
+
+# ============================================================
+# MANUAL MASTER VALIDATION
+# ============================================================
+
+MANUAL_MASTER_STATE = (
+    BASE
+    / "real_data"
+    / "qa"
+    / "manual_master_panels.json"
+)
+
+
+def _manual_master_read():
+
+    try:
+        data = json.loads(
+            MANUAL_MASTER_STATE.read_text(
+                encoding="utf-8-sig"
+            )
+        )
+    except Exception:
+        data = {
+            "version": 1,
+            "panels": {}
+        }
+
+    if not isinstance(
+        data.get("panels"),
+        dict
+    ):
+        data["panels"] = {}
+
+    return data
+
+
+def _manual_master_write(data):
+
+    MANUAL_MASTER_STATE.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    MANUAL_MASTER_STATE.write_text(
+        json.dumps(
+            data,
+            indent=2
+        ),
+        encoding="utf-8"
+    )
+
+
+@app.get("/api/manual-master/state")
+def manual_master_state():
+
+    return jsonify(
+        _manual_master_read()
+    )
+
+
+@app.post("/api/manual-master/activate")
+def manual_master_activate():
+
+    payload = request.get_json(
+        silent=True
+    ) or {}
+
+    panel_id = str(
+        payload.get("panel_id", "")
+    ).strip()
+
+    filename = str(
+        payload.get("filename", "")
+    ).strip()
+
+    if not panel_id or not filename:
+        return jsonify({
+            "ok": False,
+            "error":
+                "panel_id and filename required"
+        }), 400
+
+    data = _manual_master_read()
+
+    data["panels"][panel_id] = {
+        "active": True,
+        "reference_filename":
+            filename,
+        "updated_at":
+            datetime.now().isoformat()
+    }
+
+    _manual_master_write(data)
+
+    return jsonify({
+        "ok": True,
+        "panel_id": panel_id,
+        "reference_filename":
+            filename
+    })
+
+
+@app.post("/api/manual-master/delete")
+def manual_master_delete():
+
+    payload = request.get_json(
+        silent=True
+    ) or {}
+
+    panel_id = str(
+        payload.get("panel_id", "")
+    ).strip()
+
+    if not panel_id:
+        return jsonify({
+            "ok": False,
+            "error": "panel_id required"
+        }), 400
+
+    data = _manual_master_read()
+
+    data["panels"].pop(
+        panel_id,
+        None
+    )
+
+    _manual_master_write(data)
+
+    return jsonify({
+        "ok": True,
+        "panel_id": panel_id
+    })
+
+
+
+
+
+# === MANUAL620_DIRECT_PDF_V1 ===
+
+@app.route(
+    "/api/export/manual620.pdf"
+)
+def export_manual620_pdf():
+
+    import importlib.util
+    import tempfile
+    from flask import send_file
+
+    generator_path = (
+        BASE
+        / "tools"
+        / "generate_manual620_pdf.py"
+    )
+
+    spec = (
+        importlib.util
+        .spec_from_file_location(
+            "manual620_pdf_generator",
+            generator_path
+        )
+    )
+
+    module = (
+        importlib.util
+        .module_from_spec(
+            spec
+        )
+    )
+
+    spec.loader.exec_module(
+        module
+    )
+
+    output_dir = (
+        BASE
+        / "real_data"
+        / "qa"
+        / "exports"
+    )
+
+    output_dir.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    output = (
+        output_dir
+        / "PV_Thermal_Validated_620.pdf"
+    )
+
+    module.generate_manual620_pdf(
+        output
+    )
+
+    return send_file(
+        output,
+        mimetype="application/pdf",
+        as_attachment=True,
+        download_name=(
+            "PV_Thermal_Validated_620.pdf"
+        ),
+        max_age=0,
+    )
+
+
+
+
+# === MANUAL620_CACHED_PDF_V2 ===
+
+@app.route(
+    "/api/export/manual620-ready.pdf"
+)
+def export_manual620_ready_pdf():
+
+    from flask import (
+        send_file,
+        abort,
+    )
+
+    pdf_path = (
+        BASE
+        / "real_data"
+        / "qa"
+        / "exports"
+        / "PV_Thermal_Validated_620.pdf"
+    )
+
+    if not pdf_path.exists():
+        abort(
+            404,
+            description=(
+                "PDF not generated yet."
+            )
+        )
+
+    return send_file(
+        pdf_path,
+        mimetype="application/pdf",
+        as_attachment=True,
+        download_name=(
+            "PV_Thermal_Validated_620.pdf"
+        ),
+        max_age=0,
+    )
 
 
 if __name__ == "__main__":
@@ -6445,6 +7667,11 @@ if __name__ == "__main__":
         threaded=
             True,
     )
+
+
+
+
+
 
 
 

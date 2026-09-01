@@ -1,0 +1,3106 @@
+{
+  "version": 1,
+  "source": "manual_active_learning_final",
+  "panels": {
+    "PANEL_05414": {
+      "active": true,
+      "reference_filename": "DJI_20260811170113_0001_T.jpeg",
+      "saved_at": "2026-08-31T11:15:03.902Z"
+    },
+    "PANEL_05330": {
+      "active": true,
+      "reference_filename": "DJI_20260811170113_0001_T.jpeg",
+      "saved_at": "2026-08-31T11:15:07.013Z"
+    },
+    "PANEL_05418": {
+      "active": true,
+      "reference_filename": "DJI_20260811170115_0004_T.jpeg",
+      "saved_at": "2026-08-31T11:15:31.346Z"
+    },
+    "PANEL_05316": {
+      "active": true,
+      "reference_filename": "DJI_20260811170116_0005_T.jpeg",
+      "saved_at": "2026-08-31T11:15:39.303Z"
+    },
+    "PANEL_05390": {
+      "active": true,
+      "reference_filename": "DJI_20260811170120_0008_T.jpeg",
+      "saved_at": "2026-08-31T11:15:55.478Z"
+    },
+    "PANEL_05500": {
+      "active": true,
+      "reference_filename": "DJI_20260811170123_0011_T.jpeg",
+      "saved_at": "2026-08-31T11:17:03.249Z"
+    },
+    "PANEL_05502": {
+      "active": true,
+      "reference_filename": "DJI_20260811170123_0011_T.jpeg",
+      "saved_at": "2026-08-31T11:17:05.096Z"
+    },
+    "PANEL_05466": {
+      "active": true,
+      "reference_filename": "DJI_20260811170123_0011_T.jpeg",
+      "saved_at": "2026-08-31T11:17:18.178Z"
+    },
+    "PANEL_05464": {
+      "active": true,
+      "reference_filename": "DJI_20260811170123_0011_T.jpeg",
+      "saved_at": "2026-08-31T11:17:19.913Z"
+    },
+    "PANEL_05484": {
+      "active": true,
+      "reference_filename": "DJI_20260811170126_0014_T.jpeg",
+      "saved_at": "2026-08-31T11:17:35.034Z"
+    },
+    "PANEL_05444": {
+      "active": true,
+      "reference_filename": "DJI_20260811170126_0014_T.jpeg",
+      "saved_at": "2026-08-31T11:17:41.823Z"
+    },
+    "PANEL_05364": {
+      "active": true,
+      "reference_filename": "DJI_20260811170126_0014_T.jpeg",
+      "saved_at": "2026-08-31T11:17:45.814Z"
+    },
+    "PANEL_05370": {
+      "active": true,
+      "reference_filename": "DJI_20260811170126_0014_T.jpeg",
+      "saved_at": "2026-08-31T11:17:51.291Z"
+    },
+    "PANEL_05372": {
+      "active": true,
+      "reference_filename": "DJI_20260811170126_0014_T.jpeg",
+      "saved_at": "2026-08-31T11:17:52.778Z"
+    },
+    "PANEL_03146": {
+      "active": true,
+      "reference_filename": "DJI_20260811170134_0023_T.jpeg",
+      "saved_at": "2026-08-31T11:18:21.750Z"
+    },
+    "PANEL_03144": {
+      "active": true,
+      "reference_filename": "DJI_20260811170134_0023_T.jpeg",
+      "saved_at": "2026-08-31T11:18:24.468Z"
+    },
+    "PANEL_03154": {
+      "active": true,
+      "reference_filename": "DJI_20260811170136_0025_T.jpeg",
+      "saved_at": "2026-08-31T11:18:36.415Z"
+    },
+    "PANEL_03052": {
+      "active": true,
+      "reference_filename": "DJI_20260811170136_0025_T.jpeg",
+      "saved_at": "2026-08-31T11:18:48.585Z"
+    },
+    "PANEL_03050": {
+      "active": true,
+      "reference_filename": "DJI_20260811170136_0025_T.jpeg",
+      "saved_at": "2026-08-31T11:18:50.832Z"
+    },
+    "PANEL_03048": {
+      "active": true,
+      "reference_filename": "DJI_20260811170136_0025_T.jpeg",
+      "saved_at": "2026-08-31T11:18:52.679Z"
+    },
+    "PANEL_03112": {
+      "active": true,
+      "reference_filename": "DJI_20260811170145_0033_T.jpeg",
+      "saved_at": "2026-08-31T11:19:13.302Z"
+    },
+    "PANEL_03104": {
+      "active": true,
+      "reference_filename": "DJI_20260811170145_0033_T.jpeg",
+      "saved_at": "2026-08-31T11:19:16.229Z"
+    },
+    "PANEL_03102": {
+      "active": true,
+      "reference_filename": "DJI_20260811170145_0033_T.jpeg",
+      "saved_at": "2026-08-31T11:19:18.668Z"
+    },
+    "PANEL_03100": {
+      "active": true,
+      "reference_filename": "DJI_20260811170145_0033_T.jpeg",
+      "saved_at": "2026-08-31T11:19:21.267Z"
+    },
+    "PANEL_03098": {
+      "active": true,
+      "reference_filename": "DJI_20260811170145_0033_T.jpeg",
+      "saved_at": "2026-08-31T11:19:23.522Z"
+    },
+    "PANEL_03092": {
+      "active": true,
+      "reference_filename": "DJI_20260811170145_0033_T.jpeg",
+      "saved_at": "2026-08-31T11:19:28.863Z"
+    },
+    "PANEL_05594": {
+      "active": true,
+      "reference_filename": "DJI_20260811170157_0045_T.jpeg",
+      "saved_at": "2026-08-31T11:20:03.304Z"
+    },
+    "PANEL_05596": {
+      "active": true,
+      "reference_filename": "DJI_20260811170157_0045_T.jpeg",
+      "saved_at": "2026-08-31T11:20:05.591Z"
+    },
+    "PANEL_05586": {
+      "active": true,
+      "reference_filename": "DJI_20260811170157_0045_T.jpeg",
+      "saved_at": "2026-08-31T11:20:09.932Z"
+    },
+    "PANEL_05582": {
+      "active": true,
+      "reference_filename": "DJI_20260811170157_0045_T.jpeg",
+      "saved_at": "2026-08-31T11:20:13.011Z"
+    },
+    "PANEL_05580": {
+      "active": true,
+      "reference_filename": "DJI_20260811170157_0045_T.jpeg",
+      "saved_at": "2026-08-31T11:20:15.930Z"
+    },
+    "PANEL_02988": {
+      "active": true,
+      "reference_filename": "DJI_20260811170231_0078_T.jpeg",
+      "saved_at": "2026-08-31T11:20:52.889Z"
+    },
+    "PANEL_02984": {
+      "active": true,
+      "reference_filename": "DJI_20260811170231_0078_T.jpeg",
+      "saved_at": "2026-08-31T11:20:55.816Z"
+    },
+    "PANEL_02920": {
+      "active": true,
+      "reference_filename": "DJI_20260811170231_0078_T.jpeg",
+      "saved_at": "2026-08-31T11:20:59.455Z"
+    },
+    "PANEL_02918": {
+      "active": true,
+      "reference_filename": "DJI_20260811170231_0078_T.jpeg",
+      "saved_at": "2026-08-31T11:21:01.862Z"
+    },
+    "PANEL_02938": {
+      "active": true,
+      "reference_filename": "DJI_20260811170235_0082_T.jpeg",
+      "saved_at": "2026-08-31T11:21:51.583Z"
+    },
+    "PANEL_02936": {
+      "active": true,
+      "reference_filename": "DJI_20260811170235_0082_T.jpeg",
+      "saved_at": "2026-08-31T11:21:54.231Z"
+    },
+    "PANEL_05266": {
+      "active": true,
+      "reference_filename": "DJI_20260811170245_0092_T.jpeg",
+      "saved_at": "2026-08-31T11:22:57.562Z"
+    },
+    "PANEL_05290": {
+      "active": true,
+      "reference_filename": "DJI_20260811170245_0092_T.jpeg",
+      "saved_at": "2026-08-31T11:23:01.768Z"
+    },
+    "PANEL_05288": {
+      "active": true,
+      "reference_filename": "DJI_20260811170245_0092_T.jpeg",
+      "saved_at": "2026-08-31T11:23:03.534Z"
+    },
+    "PANEL_05286": {
+      "active": true,
+      "reference_filename": "DJI_20260811170245_0092_T.jpeg",
+      "saved_at": "2026-08-31T11:23:06.126Z"
+    },
+    "PANEL_05200": {
+      "active": true,
+      "reference_filename": "DJI_20260811170245_0092_T.jpeg",
+      "saved_at": "2026-08-31T11:23:10.723Z"
+    },
+    "PANEL_05202": {
+      "active": true,
+      "reference_filename": "DJI_20260811170245_0092_T.jpeg",
+      "saved_at": "2026-08-31T11:23:12.874Z"
+    },
+    "PANEL_05204": {
+      "active": true,
+      "reference_filename": "DJI_20260811170245_0092_T.jpeg",
+      "saved_at": "2026-08-31T11:23:16.522Z"
+    },
+    "PANEL_05206": {
+      "active": true,
+      "reference_filename": "DJI_20260811170245_0092_T.jpeg",
+      "saved_at": "2026-08-31T11:23:20.031Z"
+    },
+    "PANEL_13886": {
+      "active": true,
+      "reference_filename": "DJI_20260811170306_0112_T.jpeg",
+      "saved_at": "2026-08-31T11:24:04.724Z"
+    },
+    "PANEL_13884": {
+      "active": true,
+      "reference_filename": "DJI_20260811170306_0112_T.jpeg",
+      "saved_at": "2026-08-31T11:24:06.771Z"
+    },
+    "PANEL_13882": {
+      "active": true,
+      "reference_filename": "DJI_20260811170306_0112_T.jpeg",
+      "saved_at": "2026-08-31T11:24:08.706Z"
+    },
+    "PANEL_13872": {
+      "active": true,
+      "reference_filename": "DJI_20260811170306_0112_T.jpeg",
+      "saved_at": "2026-08-31T11:24:10.681Z"
+    },
+    "PANEL_05086": {
+      "active": true,
+      "reference_filename": "DJI_20260811170307_0113_T.jpeg",
+      "saved_at": "2026-08-31T11:24:20.885Z"
+    },
+    "PANEL_13854": {
+      "active": true,
+      "reference_filename": "DJI_20260811170307_0113_T.jpeg",
+      "saved_at": "2026-08-31T11:24:24.251Z"
+    },
+    "PANEL_03012": {
+      "active": true,
+      "reference_filename": "DJI_20260811170346_0152_T.jpeg",
+      "saved_at": "2026-08-31T11:25:42.080Z"
+    },
+    "PANEL_02832": {
+      "active": true,
+      "reference_filename": "DJI_20260811170346_0152_T.jpeg",
+      "saved_at": "2026-08-31T11:25:53.355Z"
+    },
+    "PANEL_02830": {
+      "active": true,
+      "reference_filename": "DJI_20260811170346_0152_T.jpeg",
+      "saved_at": "2026-08-31T11:25:55.090Z"
+    },
+    "PANEL_02840": {
+      "active": true,
+      "reference_filename": "DJI_20260811170346_0152_T.jpeg",
+      "saved_at": "2026-08-31T11:26:00.368Z"
+    },
+    "PANEL_03026": {
+      "active": true,
+      "reference_filename": "DJI_20260811170346_0152_T.jpeg",
+      "saved_at": "2026-08-31T11:26:08.771Z"
+    },
+    "PANEL_02814": {
+      "active": true,
+      "reference_filename": "DJI_20260811170352_0158_T.jpeg",
+      "saved_at": "2026-08-31T11:26:54.903Z"
+    },
+    "PANEL_02896": {
+      "active": true,
+      "reference_filename": "DJI_20260811170352_0158_T.jpeg",
+      "saved_at": "2026-08-31T11:26:57.630Z"
+    },
+    "PANEL_02870": {
+      "active": true,
+      "reference_filename": "DJI_20260811170357_0162_T.jpeg",
+      "saved_at": "2026-08-31T11:27:16.822Z"
+    },
+    "PANEL_02866": {
+      "active": true,
+      "reference_filename": "DJI_20260811170357_0162_T.jpeg",
+      "saved_at": "2026-08-31T11:27:22.811Z"
+    },
+    "PANEL_02864": {
+      "active": true,
+      "reference_filename": "DJI_20260811170357_0162_T.jpeg",
+      "saved_at": "2026-08-31T11:27:24.506Z"
+    },
+    "PANEL_02858": {
+      "active": true,
+      "reference_filename": "DJI_20260811170357_0162_T.jpeg",
+      "saved_at": "2026-08-31T11:27:32.966Z"
+    },
+    "PANEL_03016": {
+      "active": true,
+      "reference_filename": "DJI_20260811170416_0181_T.jpeg",
+      "saved_at": "2026-08-31T11:27:58.554Z"
+    },
+    "PANEL_03014": {
+      "active": true,
+      "reference_filename": "DJI_20260811170416_0181_T.jpeg",
+      "saved_at": "2026-08-31T11:28:01.337Z"
+    },
+    "PANEL_02768": {
+      "active": true,
+      "reference_filename": "DJI_20260811170416_0181_T.jpeg",
+      "saved_at": "2026-08-31T11:28:08.703Z"
+    },
+    "PANEL_02772": {
+      "active": true,
+      "reference_filename": "DJI_20260811170416_0181_T.jpeg",
+      "saved_at": "2026-08-31T11:28:12.492Z"
+    },
+    "PANEL_02668": {
+      "active": true,
+      "reference_filename": "DJI_20260811170416_0181_T.jpeg",
+      "saved_at": "2026-08-31T11:28:24.439Z"
+    },
+    "PANEL_02666": {
+      "active": true,
+      "reference_filename": "DJI_20260811170416_0181_T.jpeg",
+      "saved_at": "2026-08-31T11:28:26.254Z"
+    },
+    "PANEL_02664": {
+      "active": true,
+      "reference_filename": "DJI_20260811170416_0181_T.jpeg",
+      "saved_at": "2026-08-31T11:28:27.918Z"
+    },
+    "PANEL_02662": {
+      "active": true,
+      "reference_filename": "DJI_20260811170416_0181_T.jpeg",
+      "saved_at": "2026-08-31T11:28:29.765Z"
+    },
+    "PANEL_02600": {
+      "active": true,
+      "reference_filename": "DJI_20260811170419_0184_T.jpeg",
+      "saved_at": "2026-08-31T11:29:01.255Z"
+    },
+    "PANEL_02604": {
+      "active": true,
+      "reference_filename": "DJI_20260811170419_0184_T.jpeg",
+      "saved_at": "2026-08-31T11:29:03.901Z"
+    },
+    "PANEL_02608": {
+      "active": true,
+      "reference_filename": "DJI_20260811170419_0184_T.jpeg",
+      "saved_at": "2026-08-31T11:29:05.788Z"
+    },
+    "PANEL_05176": {
+      "active": true,
+      "reference_filename": "DJI_20260811170439_0204_T.jpeg",
+      "saved_at": "2026-08-31T11:37:37.279Z"
+    },
+    "PANEL_05170": {
+      "active": true,
+      "reference_filename": "DJI_20260811170439_0204_T.jpeg",
+      "saved_at": "2026-08-31T11:37:41.622Z"
+    },
+    "PANEL_05180": {
+      "active": true,
+      "reference_filename": "DJI_20260811170439_0204_T.jpeg",
+      "saved_at": "2026-08-31T11:37:44.924Z"
+    },
+    "PANEL_05182": {
+      "active": true,
+      "reference_filename": "DJI_20260811170439_0204_T.jpeg",
+      "saved_at": "2026-08-31T11:37:47.707Z"
+    },
+    "PANEL_05138": {
+      "active": true,
+      "reference_filename": "DJI_20260811170449_0213_T.jpeg",
+      "saved_at": "2026-08-31T11:38:06.091Z"
+    },
+    "PANEL_04940": {
+      "active": true,
+      "reference_filename": "DJI_20260811170510_0233_T.jpeg",
+      "saved_at": "2026-08-31T11:38:49.400Z"
+    },
+    "PANEL_04938": {
+      "active": true,
+      "reference_filename": "DJI_20260811170510_0233_T.jpeg",
+      "saved_at": "2026-08-31T11:38:51.118Z"
+    },
+    "PANEL_04936": {
+      "active": true,
+      "reference_filename": "DJI_20260811170510_0233_T.jpeg",
+      "saved_at": "2026-08-31T11:38:53.893Z"
+    },
+    "PANEL_04992": {
+      "active": true,
+      "reference_filename": "DJI_20260811170516_0239_T.jpeg",
+      "saved_at": "2026-08-31T11:39:20.289Z"
+    },
+    "PANEL_04990": {
+      "active": true,
+      "reference_filename": "DJI_20260811170516_0239_T.jpeg",
+      "saved_at": "2026-08-31T11:39:21.953Z"
+    },
+    "PANEL_04988": {
+      "active": true,
+      "reference_filename": "DJI_20260811170516_0239_T.jpeg",
+      "saved_at": "2026-08-31T11:39:23.920Z"
+    },
+    "PANEL_05060": {
+      "active": true,
+      "reference_filename": "DJI_20260811170521_0244_T.jpeg",
+      "saved_at": "2026-08-31T11:39:50.588Z"
+    },
+    "PANEL_02742": {
+      "active": true,
+      "reference_filename": "DJI_20260811170530_0253_T.jpeg",
+      "saved_at": "2026-08-31T11:40:27.259Z"
+    },
+    "PANEL_02744": {
+      "active": true,
+      "reference_filename": "DJI_20260811170530_0253_T.jpeg",
+      "saved_at": "2026-08-31T11:40:29.890Z"
+    },
+    "PANEL_02572": {
+      "active": true,
+      "reference_filename": "DJI_20260811170530_0253_T.jpeg",
+      "saved_at": "2026-08-31T11:40:42.748Z"
+    },
+    "PANEL_02570": {
+      "active": true,
+      "reference_filename": "DJI_20260811170530_0253_T.jpeg",
+      "saved_at": "2026-08-31T11:40:45.099Z"
+    },
+    "PANEL_02568": {
+      "active": true,
+      "reference_filename": "DJI_20260811170530_0253_T.jpeg",
+      "saved_at": "2026-08-31T11:40:46.891Z"
+    },
+    "PANEL_02566": {
+      "active": true,
+      "reference_filename": "DJI_20260811170530_0253_T.jpeg",
+      "saved_at": "2026-08-31T11:40:49.577Z"
+    },
+    "PANEL_02730": {
+      "active": true,
+      "reference_filename": "DJI_20260811170534_0257_T.jpeg",
+      "saved_at": "2026-08-31T11:41:26.904Z"
+    },
+    "PANEL_02678": {
+      "active": true,
+      "reference_filename": "DJI_20260811170557_0280_T.jpeg",
+      "saved_at": "2026-08-31T11:42:10.157Z"
+    },
+    "PANEL_02686": {
+      "active": true,
+      "reference_filename": "DJI_20260811170557_0280_T.jpeg",
+      "saved_at": "2026-08-31T11:42:25.582Z"
+    },
+    "PANEL_02688": {
+      "active": true,
+      "reference_filename": "DJI_20260811170557_0280_T.jpeg",
+      "saved_at": "2026-08-31T11:42:27.542Z"
+    },
+    "PANEL_02508": {
+      "active": true,
+      "reference_filename": "DJI_20260811170606_0289_T.jpeg",
+      "saved_at": "2026-08-31T11:43:07.443Z"
+    },
+    "PANEL_02506": {
+      "active": true,
+      "reference_filename": "DJI_20260811170606_0289_T.jpeg",
+      "saved_at": "2026-08-31T11:43:09.058Z"
+    },
+    "PANEL_02502": {
+      "active": true,
+      "reference_filename": "DJI_20260811170606_0289_T.jpeg",
+      "saved_at": "2026-08-31T11:43:12.097Z"
+    },
+    "PANEL_02490": {
+      "active": true,
+      "reference_filename": "DJI_20260811170604_0287_T.jpeg",
+      "saved_at": "2026-08-31T11:43:32.704Z"
+    },
+    "PANEL_02602": {
+      "active": true,
+      "reference_filename": "DJI_20260811170622_0304_T.jpeg",
+      "saved_at": "2026-08-31T11:51:58.053Z"
+    },
+    "PANEL_02398": {
+      "active": true,
+      "reference_filename": "DJI_20260811170622_0304_T.jpeg",
+      "saved_at": "2026-08-31T11:52:19.236Z"
+    },
+    "PANEL_02418": {
+      "active": true,
+      "reference_filename": "DJI_20260811170622_0304_T.jpeg",
+      "saved_at": "2026-08-31T11:52:23.906Z"
+    },
+    "PANEL_02434": {
+      "active": true,
+      "reference_filename": "DJI_20260811170622_0304_T.jpeg",
+      "saved_at": "2026-08-31T11:52:45.489Z"
+    },
+    "PANEL_02432": {
+      "active": true,
+      "reference_filename": "DJI_20260811170622_0304_T.jpeg",
+      "saved_at": "2026-08-31T11:52:47.424Z"
+    },
+    "PANEL_02348": {
+      "active": true,
+      "reference_filename": "DJI_20260811170625_0307_T.jpeg",
+      "saved_at": "2026-08-31T11:53:04.007Z"
+    },
+    "PANEL_02392": {
+      "active": true,
+      "reference_filename": "DJI_20260811170632_0314_T.jpeg",
+      "saved_at": "2026-08-31T11:53:18.337Z"
+    },
+    "PANEL_02390": {
+      "active": true,
+      "reference_filename": "DJI_20260811170632_0314_T.jpeg",
+      "saved_at": "2026-08-31T11:53:21.049Z"
+    },
+    "PANEL_02386": {
+      "active": true,
+      "reference_filename": "DJI_20260811170632_0314_T.jpeg",
+      "saved_at": "2026-08-31T11:53:25.702Z"
+    },
+    "PANEL_02376": {
+      "active": true,
+      "reference_filename": "DJI_20260811170632_0314_T.jpeg",
+      "saved_at": "2026-08-31T11:53:30.780Z"
+    },
+    "PANEL_02738": {
+      "active": true,
+      "reference_filename": "DJI_20260811170632_0314_T.jpeg",
+      "saved_at": "2026-08-31T11:53:51.379Z"
+    },
+    "PANEL_02736": {
+      "active": true,
+      "reference_filename": "DJI_20260811170632_0314_T.jpeg",
+      "saved_at": "2026-08-31T11:53:54.138Z"
+    },
+    "PANEL_04910": {
+      "active": true,
+      "reference_filename": "DJI_20260811170638_0320_T.jpeg",
+      "saved_at": "2026-08-31T11:54:21.973Z"
+    },
+    "PANEL_05018": {
+      "active": true,
+      "reference_filename": "DJI_20260811170638_0320_T.jpeg",
+      "saved_at": "2026-08-31T11:54:25.364Z"
+    },
+    "PANEL_04832": {
+      "active": true,
+      "reference_filename": "DJI_20260811170644_0325_T.jpeg",
+      "saved_at": "2026-08-31T11:54:46.833Z"
+    },
+    "PANEL_04922": {
+      "active": true,
+      "reference_filename": "DJI_20260811170644_0325_T.jpeg",
+      "saved_at": "2026-08-31T11:54:48.481Z"
+    },
+    "PANEL_04848": {
+      "active": true,
+      "reference_filename": "DJI_20260811170646_0327_T.jpeg",
+      "saved_at": "2026-08-31T11:55:29.567Z"
+    },
+    "PANEL_04846": {
+      "active": true,
+      "reference_filename": "DJI_20260811170646_0327_T.jpeg",
+      "saved_at": "2026-08-31T11:55:31.062Z"
+    },
+    "PANEL_04862": {
+      "active": true,
+      "reference_filename": "DJI_20260811170648_0329_T.jpeg",
+      "saved_at": "2026-08-31T11:55:46.463Z"
+    },
+    "PANEL_04790": {
+      "active": true,
+      "reference_filename": "DJI_20260811170651_0332_T.jpeg",
+      "saved_at": "2026-08-31T11:56:16.169Z"
+    },
+    "PANEL_04792": {
+      "active": true,
+      "reference_filename": "DJI_20260811170651_0332_T.jpeg",
+      "saved_at": "2026-08-31T11:56:17.841Z"
+    },
+    "PANEL_04796": {
+      "active": true,
+      "reference_filename": "DJI_20260811170651_0332_T.jpeg",
+      "saved_at": "2026-08-31T11:56:20.160Z"
+    },
+    "PANEL_04830": {
+      "active": true,
+      "reference_filename": "DJI_20260811170656_0337_T.jpeg",
+      "saved_at": "2026-08-31T11:56:29.212Z"
+    },
+    "PANEL_04676": {
+      "active": true,
+      "reference_filename": "DJI_20260811170709_0350_T.jpeg",
+      "saved_at": "2026-08-31T11:56:47.692Z"
+    },
+    "PANEL_04674": {
+      "active": true,
+      "reference_filename": "DJI_20260811170709_0350_T.jpeg",
+      "saved_at": "2026-08-31T11:56:50.778Z"
+    },
+    "PANEL_04662": {
+      "active": true,
+      "reference_filename": "DJI_20260811170709_0350_T.jpeg",
+      "saved_at": "2026-08-31T11:57:02.317Z"
+    },
+    "PANEL_04660": {
+      "active": true,
+      "reference_filename": "DJI_20260811170709_0350_T.jpeg",
+      "saved_at": "2026-08-31T11:57:04.045Z"
+    },
+    "PANEL_04650": {
+      "active": true,
+      "reference_filename": "DJI_20260811170709_0350_T.jpeg",
+      "saved_at": "2026-08-31T11:57:08.099Z"
+    },
+    "PANEL_04654": {
+      "active": true,
+      "reference_filename": "DJI_20260811170709_0350_T.jpeg",
+      "saved_at": "2026-08-31T11:57:10.314Z"
+    },
+    "PANEL_04718": {
+      "active": true,
+      "reference_filename": "DJI_20260811170716_0357_T.jpeg",
+      "saved_at": "2026-08-31T11:57:26.923Z"
+    },
+    "PANEL_04714": {
+      "active": true,
+      "reference_filename": "DJI_20260811170716_0357_T.jpeg",
+      "saved_at": "2026-08-31T11:57:33.359Z"
+    },
+    "PANEL_04712": {
+      "active": true,
+      "reference_filename": "DJI_20260811170716_0357_T.jpeg",
+      "saved_at": "2026-08-31T11:57:38.516Z"
+    },
+    "PANEL_04710": {
+      "active": true,
+      "reference_filename": "DJI_20260811170716_0357_T.jpeg",
+      "saved_at": "2026-08-31T11:57:41.628Z"
+    },
+    "PANEL_04708": {
+      "active": true,
+      "reference_filename": "DJI_20260811170716_0357_T.jpeg",
+      "saved_at": "2026-08-31T11:57:43.474Z"
+    },
+    "PANEL_04764": {
+      "active": true,
+      "reference_filename": "DJI_20260811170725_0365_T.jpeg",
+      "saved_at": "2026-08-31T11:57:57.197Z"
+    },
+    "PANEL_04762": {
+      "active": true,
+      "reference_filename": "DJI_20260811170725_0365_T.jpeg",
+      "saved_at": "2026-08-31T11:58:01.762Z"
+    },
+    "PANEL_04760": {
+      "active": true,
+      "reference_filename": "DJI_20260811170725_0365_T.jpeg",
+      "saved_at": "2026-08-31T11:58:07.256Z"
+    },
+    "PANEL_04758": {
+      "active": true,
+      "reference_filename": "DJI_20260811170725_0365_T.jpeg",
+      "saved_at": "2026-08-31T11:58:08.799Z"
+    },
+    "PANEL_04754": {
+      "active": true,
+      "reference_filename": "DJI_20260811170725_0365_T.jpeg",
+      "saved_at": "2026-08-31T11:58:10.327Z"
+    },
+    "PANEL_02198": {
+      "active": true,
+      "reference_filename": "DJI_20260811170730_0371_T.jpeg",
+      "saved_at": "2026-08-31T11:58:46.799Z"
+    },
+    "PANEL_02184": {
+      "active": true,
+      "reference_filename": "DJI_20260811170735_0376_T.jpeg",
+      "saved_at": "2026-08-31T11:59:00.320Z"
+    },
+    "PANEL_02182": {
+      "active": true,
+      "reference_filename": "DJI_20260811170735_0376_T.jpeg",
+      "saved_at": "2026-08-31T11:59:02.327Z"
+    },
+    "PANEL_02180": {
+      "active": true,
+      "reference_filename": "DJI_20260811170735_0376_T.jpeg",
+      "saved_at": "2026-08-31T11:59:04.047Z"
+    },
+    "PANEL_02252": {
+      "active": true,
+      "reference_filename": "DJI_20260811170742_0382_T.jpeg",
+      "saved_at": "2026-08-31T11:59:28.747Z"
+    },
+    "PANEL_02250": {
+      "active": true,
+      "reference_filename": "DJI_20260811170742_0382_T.jpeg",
+      "saved_at": "2026-08-31T11:59:30.546Z"
+    },
+    "PANEL_02244": {
+      "active": true,
+      "reference_filename": "DJI_20260811170742_0382_T.jpeg",
+      "saved_at": "2026-08-31T11:59:35.296Z"
+    },
+    "PANEL_02210": {
+      "active": true,
+      "reference_filename": "DJI_20260811170748_0388_T.jpeg",
+      "saved_at": "2026-08-31T11:59:43.294Z"
+    },
+    "PANEL_02300": {
+      "active": true,
+      "reference_filename": "DJI_20260811170748_0388_T.jpeg",
+      "saved_at": "2026-08-31T11:59:45.788Z"
+    },
+    "PANEL_02280": {
+      "active": true,
+      "reference_filename": "DJI_20260811170748_0388_T.jpeg",
+      "saved_at": "2026-08-31T11:59:52.865Z"
+    },
+    "PANEL_02340": {
+      "active": true,
+      "reference_filename": "DJI_20260811170753_0393_T.jpeg",
+      "saved_at": "2026-08-31T12:00:08.570Z"
+    },
+    "PANEL_02262": {
+      "active": true,
+      "reference_filename": "DJI_20260811170753_0393_T.jpeg",
+      "saved_at": "2026-08-31T12:00:10.665Z"
+    },
+    "PANEL_02332": {
+      "active": true,
+      "reference_filename": "DJI_20260811170757_0397_T.jpeg",
+      "saved_at": "2026-08-31T12:00:36.197Z"
+    },
+    "PANEL_02318": {
+      "active": true,
+      "reference_filename": "DJI_20260811170757_0397_T.jpeg",
+      "saved_at": "2026-08-31T12:00:43.729Z"
+    },
+    "PANEL_02316": {
+      "active": true,
+      "reference_filename": "DJI_20260811170757_0397_T.jpeg",
+      "saved_at": "2026-08-31T12:00:45.809Z"
+    },
+    "PANEL_04546": {
+      "active": true,
+      "reference_filename": "DJI_20260811170907_0465_T.jpeg",
+      "saved_at": "2026-08-31T12:01:41.592Z"
+    },
+    "PANEL_04522": {
+      "active": true,
+      "reference_filename": "DJI_20260811170911_0469_T.jpeg",
+      "saved_at": "2026-08-31T12:01:59.009Z"
+    },
+    "PANEL_04518": {
+      "active": true,
+      "reference_filename": "DJI_20260811170911_0469_T.jpeg",
+      "saved_at": "2026-08-31T12:02:04.045Z"
+    },
+    "PANEL_04562": {
+      "active": true,
+      "reference_filename": "DJI_20260811170919_0477_T.jpeg",
+      "saved_at": "2026-08-31T12:02:21.599Z"
+    },
+    "PANEL_04630": {
+      "active": true,
+      "reference_filename": "DJI_20260811170924_0482_T.jpeg",
+      "saved_at": "2026-08-31T12:02:33.233Z"
+    },
+    "PANEL_04608": {
+      "active": true,
+      "reference_filename": "DJI_20260811170928_0486_T.jpeg",
+      "saved_at": "2026-08-31T12:02:46.859Z"
+    },
+    "PANEL_04610": {
+      "active": true,
+      "reference_filename": "DJI_20260811170928_0486_T.jpeg",
+      "saved_at": "2026-08-31T12:02:52.296Z"
+    },
+    "PANEL_02004": {
+      "active": true,
+      "reference_filename": "DJI_20260811170932_0490_T.jpeg",
+      "saved_at": "2026-08-31T12:03:03.475Z"
+    },
+    "PANEL_02006": {
+      "active": true,
+      "reference_filename": "DJI_20260811170932_0490_T.jpeg",
+      "saved_at": "2026-08-31T12:03:05.387Z"
+    },
+    "PANEL_01988": {
+      "active": true,
+      "reference_filename": "DJI_20260811170937_0495_T.jpeg",
+      "saved_at": "2026-08-31T12:03:19.324Z"
+    },
+    "PANEL_02050": {
+      "active": true,
+      "reference_filename": "DJI_20260811170941_0499_T.jpeg",
+      "saved_at": "2026-08-31T12:03:40.258Z"
+    },
+    "PANEL_02030": {
+      "active": true,
+      "reference_filename": "DJI_20260811170943_0501_T.jpeg",
+      "saved_at": "2026-08-31T12:03:56.796Z"
+    },
+    "PANEL_02040": {
+      "active": true,
+      "reference_filename": "DJI_20260811170943_0501_T.jpeg",
+      "saved_at": "2026-08-31T12:04:06.023Z"
+    },
+    "PANEL_02080": {
+      "active": true,
+      "reference_filename": "DJI_20260811170952_0509_T.jpeg",
+      "saved_at": "2026-08-31T12:04:45.926Z"
+    },
+    "PANEL_02082": {
+      "active": true,
+      "reference_filename": "DJI_20260811170952_0509_T.jpeg",
+      "saved_at": "2026-08-31T12:04:47.901Z"
+    },
+    "PANEL_02092": {
+      "active": true,
+      "reference_filename": "DJI_20260811170952_0509_T.jpeg",
+      "saved_at": "2026-08-31T12:04:54.234Z"
+    },
+    "PANEL_02134": {
+      "active": true,
+      "reference_filename": "DJI_20260811171001_0518_T.jpeg",
+      "saved_at": "2026-08-31T12:05:09.738Z"
+    },
+    "PANEL_02132": {
+      "active": true,
+      "reference_filename": "DJI_20260811171001_0518_T.jpeg",
+      "saved_at": "2026-08-31T12:05:11.897Z"
+    },
+    "PANEL_02124": {
+      "active": true,
+      "reference_filename": "DJI_20260811171001_0518_T.jpeg",
+      "saved_at": "2026-08-31T12:05:18.942Z"
+    },
+    "PANEL_01944": {
+      "active": true,
+      "reference_filename": "DJI_20260811171007_0524_T.jpeg",
+      "saved_at": "2026-08-31T12:05:50.712Z"
+    },
+    "PANEL_01962": {
+      "active": true,
+      "reference_filename": "DJI_20260811171009_0526_T.jpeg",
+      "saved_at": "2026-08-31T12:07:29.676Z"
+    },
+    "PANEL_01966": {
+      "active": true,
+      "reference_filename": "DJI_20260811171009_0526_T.jpeg",
+      "saved_at": "2026-08-31T12:07:31.923Z"
+    },
+    "PANEL_01888": {
+      "active": true,
+      "reference_filename": "DJI_20260811171011_0528_T.jpeg",
+      "saved_at": "2026-08-31T12:07:42.311Z"
+    },
+    "PANEL_01896": {
+      "active": true,
+      "reference_filename": "DJI_20260811171014_0531_T.jpeg",
+      "saved_at": "2026-08-31T12:07:51.291Z"
+    },
+    "PANEL_01898": {
+      "active": true,
+      "reference_filename": "DJI_20260811171014_0531_T.jpeg",
+      "saved_at": "2026-08-31T12:07:53.242Z"
+    },
+    "PANEL_01844": {
+      "active": true,
+      "reference_filename": "DJI_20260811171020_0537_T.jpeg",
+      "saved_at": "2026-08-31T12:08:18.334Z"
+    },
+    "PANEL_01850": {
+      "active": true,
+      "reference_filename": "DJI_20260811171020_0537_T.jpeg",
+      "saved_at": "2026-08-31T12:08:21.254Z"
+    },
+    "PANEL_01800": {
+      "active": true,
+      "reference_filename": "DJI_20260811171028_0545_T.jpeg",
+      "saved_at": "2026-08-31T12:08:32.576Z"
+    },
+    "PANEL_04508": {
+      "active": true,
+      "reference_filename": "DJI_20260811171046_0562_T.jpeg",
+      "saved_at": "2026-08-31T12:08:59.724Z"
+    },
+    "PANEL_04419": {
+      "active": true,
+      "reference_filename": "DJI_20260811171048_0564_T.jpeg",
+      "saved_at": "2026-08-31T12:09:10.687Z"
+    },
+    "PANEL_04417": {
+      "active": true,
+      "reference_filename": "DJI_20260811171048_0564_T.jpeg",
+      "saved_at": "2026-08-31T12:09:12.566Z"
+    },
+    "PANEL_04421": {
+      "active": true,
+      "reference_filename": "DJI_20260811171048_0564_T.jpeg",
+      "saved_at": "2026-08-31T12:09:15.133Z"
+    },
+    "PANEL_04438": {
+      "active": true,
+      "reference_filename": "DJI_20260811171048_0564_T.jpeg",
+      "saved_at": "2026-08-31T12:09:22.738Z"
+    },
+    "PANEL_04436": {
+      "active": true,
+      "reference_filename": "DJI_20260811171048_0564_T.jpeg",
+      "saved_at": "2026-08-31T12:09:25.049Z"
+    },
+    "PANEL_04428": {
+      "active": true,
+      "reference_filename": "DJI_20260811171048_0564_T.jpeg",
+      "saved_at": "2026-08-31T12:09:27.911Z"
+    },
+    "PANEL_04582": {
+      "active": true,
+      "reference_filename": "DJI_20260811171053_0569_T.jpeg",
+      "saved_at": "2026-08-31T12:09:50.556Z"
+    },
+    "PANEL_04584": {
+      "active": true,
+      "reference_filename": "DJI_20260811171053_0569_T.jpeg",
+      "saved_at": "2026-08-31T12:09:52.644Z"
+    },
+    "PANEL_04564": {
+      "active": true,
+      "reference_filename": "DJI_20260811171053_0569_T.jpeg",
+      "saved_at": "2026-08-31T12:10:09.708Z"
+    },
+    "PANEL_04450": {
+      "active": true,
+      "reference_filename": "DJI_20260811171053_0569_T.jpeg",
+      "saved_at": "2026-08-31T12:10:20.584Z"
+    },
+    "PANEL_04404": {
+      "active": true,
+      "reference_filename": "DJI_20260811171101_0577_T.jpeg",
+      "saved_at": "2026-08-31T12:10:42.224Z"
+    },
+    "PANEL_04406": {
+      "active": true,
+      "reference_filename": "DJI_20260811171101_0577_T.jpeg",
+      "saved_at": "2026-08-31T12:10:44.373Z"
+    },
+    "PANEL_04254": {
+      "active": true,
+      "reference_filename": "DJI_20260811171112_0587_T.jpeg",
+      "saved_at": "2026-08-31T12:11:06.530Z"
+    },
+    "PANEL_04256": {
+      "active": true,
+      "reference_filename": "DJI_20260811171112_0587_T.jpeg",
+      "saved_at": "2026-08-31T12:11:08.313Z"
+    },
+    "PANEL_04252": {
+      "active": true,
+      "reference_filename": "DJI_20260811171112_0587_T.jpeg",
+      "saved_at": "2026-08-31T12:11:10.274Z"
+    },
+    "PANEL_04308": {
+      "active": true,
+      "reference_filename": "DJI_20260811171118_0593_T.jpeg",
+      "saved_at": "2026-08-31T12:11:54.501Z"
+    },
+    "PANEL_04310": {
+      "active": true,
+      "reference_filename": "DJI_20260811171118_0593_T.jpeg",
+      "saved_at": "2026-08-31T12:11:56.141Z"
+    },
+    "PANEL_04282": {
+      "active": true,
+      "reference_filename": "DJI_20260811171123_0598_T.jpeg",
+      "saved_at": "2026-08-31T12:12:16.955Z"
+    },
+    "PANEL_04280": {
+      "active": true,
+      "reference_filename": "DJI_20260811171123_0598_T.jpeg",
+      "saved_at": "2026-08-31T12:12:18.739Z"
+    },
+    "PANEL_04332": {
+      "active": true,
+      "reference_filename": "DJI_20260811171129_0604_T.jpeg",
+      "saved_at": "2026-08-31T12:12:30.820Z"
+    },
+    "PANEL_04340": {
+      "active": true,
+      "reference_filename": "DJI_20260811171129_0604_T.jpeg",
+      "saved_at": "2026-08-31T12:12:38.610Z"
+    },
+    "PANEL_01634": {
+      "active": true,
+      "reference_filename": "DJI_20260811171137_0612_T.jpeg",
+      "saved_at": "2026-08-31T12:13:46.363Z"
+    },
+    "PANEL_01632": {
+      "active": true,
+      "reference_filename": "DJI_20260811171139_0614_T.jpeg",
+      "saved_at": "2026-08-31T12:13:56.063Z"
+    },
+    "PANEL_01624": {
+      "active": true,
+      "reference_filename": "DJI_20260811171139_0614_T.jpeg",
+      "saved_at": "2026-08-31T12:14:02.532Z"
+    },
+    "PANEL_01658": {
+      "active": true,
+      "reference_filename": "DJI_20260811171147_0622_T.jpeg",
+      "saved_at": "2026-08-31T12:14:14.862Z"
+    },
+    "PANEL_01770": {
+      "active": true,
+      "reference_filename": "DJI_20260811171200_0635_T.jpeg",
+      "saved_at": "2026-08-31T12:14:29.799Z"
+    },
+    "PANEL_01566": {
+      "active": true,
+      "reference_filename": "DJI_20260811171210_0644_T.jpeg",
+      "saved_at": "2026-08-31T12:14:43.210Z"
+    },
+    "PANEL_01568": {
+      "active": true,
+      "reference_filename": "DJI_20260811171210_0644_T.jpeg",
+      "saved_at": "2026-08-31T12:14:44.993Z"
+    },
+    "PANEL_01570": {
+      "active": true,
+      "reference_filename": "DJI_20260811171210_0644_T.jpeg",
+      "saved_at": "2026-08-31T12:14:47.312Z"
+    },
+    "PANEL_01544": {
+      "active": true,
+      "reference_filename": "DJI_20260811171218_0652_T.jpeg",
+      "saved_at": "2026-08-31T12:14:59.842Z"
+    },
+    "PANEL_01496": {
+      "active": true,
+      "reference_filename": "DJI_20260811171224_0658_T.jpeg",
+      "saved_at": "2026-08-31T12:15:23.888Z"
+    },
+    "PANEL_01494": {
+      "active": true,
+      "reference_filename": "DJI_20260811171224_0658_T.jpeg",
+      "saved_at": "2026-08-31T12:15:26.103Z"
+    },
+    "PANEL_01490": {
+      "active": true,
+      "reference_filename": "DJI_20260811171224_0658_T.jpeg",
+      "saved_at": "2026-08-31T12:15:30.676Z"
+    },
+    "PANEL_01473": {
+      "active": true,
+      "reference_filename": "DJI_20260811171224_0658_T.jpeg",
+      "saved_at": "2026-08-31T12:15:36.802Z"
+    },
+    "PANEL_01477": {
+      "active": true,
+      "reference_filename": "DJI_20260811171224_0658_T.jpeg",
+      "saved_at": "2026-08-31T12:15:38.673Z"
+    },
+    "PANEL_01444": {
+      "active": true,
+      "reference_filename": "DJI_20260811171233_0667_T.jpeg",
+      "saved_at": "2026-08-31T12:15:55.953Z"
+    },
+    "PANEL_01470": {
+      "active": true,
+      "reference_filename": "DJI_20260811171236_0670_T.jpeg",
+      "saved_at": "2026-08-31T12:16:07.356Z"
+    },
+    "PANEL_01460": {
+      "active": true,
+      "reference_filename": "DJI_20260811171236_0670_T.jpeg",
+      "saved_at": "2026-08-31T12:16:16.520Z"
+    },
+    "PANEL_04198": {
+      "active": true,
+      "reference_filename": "DJI_20260811171245_0677_T.jpeg",
+      "saved_at": "2026-08-31T12:16:42.237Z"
+    },
+    "PANEL_04142": {
+      "active": true,
+      "reference_filename": "DJI_20260811171249_0681_T.jpeg",
+      "saved_at": "2026-08-31T12:16:56.118Z"
+    },
+    "PANEL_04228": {
+      "active": true,
+      "reference_filename": "DJI_20260811171249_0681_T.jpeg",
+      "saved_at": "2026-08-31T12:16:58.245Z"
+    },
+    "PANEL_04226": {
+      "active": true,
+      "reference_filename": "DJI_20260811171249_0681_T.jpeg",
+      "saved_at": "2026-08-31T12:17:01.140Z"
+    },
+    "PANEL_04182": {
+      "active": true,
+      "reference_filename": "DJI_20260811171256_0688_T.jpeg",
+      "saved_at": "2026-08-31T12:17:17.308Z"
+    },
+    "PANEL_04098": {
+      "active": true,
+      "reference_filename": "DJI_20260811171256_0688_T.jpeg",
+      "saved_at": "2026-08-31T12:17:22.122Z"
+    },
+    "PANEL_01362": {
+      "active": true,
+      "reference_filename": "DJI_20260811171421_0771_T.jpeg",
+      "saved_at": "2026-08-31T12:18:46.116Z"
+    },
+    "PANEL_01290": {
+      "active": true,
+      "reference_filename": "DJI_20260811171426_0776_T.jpeg",
+      "saved_at": "2026-08-31T12:18:58.847Z"
+    },
+    "PANEL_01294": {
+      "active": true,
+      "reference_filename": "DJI_20260811171426_0776_T.jpeg",
+      "saved_at": "2026-08-31T12:19:00.822Z"
+    },
+    "PANEL_01272": {
+      "active": true,
+      "reference_filename": "DJI_20260811171439_0789_T.jpeg",
+      "saved_at": "2026-08-31T12:19:25.475Z"
+    },
+    "PANEL_01274": {
+      "active": true,
+      "reference_filename": "DJI_20260811171439_0789_T.jpeg",
+      "saved_at": "2026-08-31T12:19:27.338Z"
+    },
+    "PANEL_01282": {
+      "active": true,
+      "reference_filename": "DJI_20260811171439_0789_T.jpeg",
+      "saved_at": "2026-08-31T12:19:30.609Z"
+    },
+    "PANEL_01280": {
+      "active": true,
+      "reference_filename": "DJI_20260811171439_0789_T.jpeg",
+      "saved_at": "2026-08-31T12:19:32.544Z"
+    },
+    "PANEL_04050": {
+      "active": true,
+      "reference_filename": "DJI_20260811171452_0802_T.jpeg",
+      "saved_at": "2026-08-31T12:19:55.622Z"
+    },
+    "PANEL_04052": {
+      "active": true,
+      "reference_filename": "DJI_20260811171452_0802_T.jpeg",
+      "saved_at": "2026-08-31T12:19:57.781Z"
+    },
+    "PANEL_04064": {
+      "active": true,
+      "reference_filename": "DJI_20260811171452_0802_T.jpeg",
+      "saved_at": "2026-08-31T12:20:04.466Z"
+    },
+    "PANEL_04090": {
+      "active": true,
+      "reference_filename": "DJI_20260811171500_0809_T.jpeg",
+      "saved_at": "2026-08-31T12:20:16.516Z"
+    },
+    "PANEL_04048": {
+      "active": true,
+      "reference_filename": "DJI_20260811171506_0815_T.jpeg",
+      "saved_at": "2026-08-31T12:20:26.783Z"
+    },
+    "PANEL_04030": {
+      "active": true,
+      "reference_filename": "DJI_20260811171506_0815_T.jpeg",
+      "saved_at": "2026-08-31T12:20:29.310Z"
+    },
+    "PANEL_04028": {
+      "active": true,
+      "reference_filename": "DJI_20260811171506_0815_T.jpeg",
+      "saved_at": "2026-08-31T12:20:32.029Z"
+    },
+    "PANEL_03882": {
+      "active": true,
+      "reference_filename": "DJI_20260811171517_0826_T.jpeg",
+      "saved_at": "2026-08-31T12:20:48.014Z"
+    },
+    "PANEL_03880": {
+      "active": true,
+      "reference_filename": "DJI_20260811171517_0826_T.jpeg",
+      "saved_at": "2026-08-31T12:20:49.797Z"
+    },
+    "PANEL_03948": {
+      "active": true,
+      "reference_filename": "DJI_20260811171522_0831_T.jpeg",
+      "saved_at": "2026-08-31T12:21:11.220Z"
+    },
+    "PANEL_03946": {
+      "active": true,
+      "reference_filename": "DJI_20260811171522_0831_T.jpeg",
+      "saved_at": "2026-08-31T12:21:13.235Z"
+    },
+    "PANEL_03944": {
+      "active": true,
+      "reference_filename": "DJI_20260811171522_0831_T.jpeg",
+      "saved_at": "2026-08-31T12:21:14.874Z"
+    },
+    "PANEL_03932": {
+      "active": true,
+      "reference_filename": "DJI_20260811171522_0831_T.jpeg",
+      "saved_at": "2026-08-31T12:21:19.200Z"
+    },
+    "PANEL_03930": {
+      "active": true,
+      "reference_filename": "DJI_20260811171522_0831_T.jpeg",
+      "saved_at": "2026-08-31T12:21:23.455Z"
+    },
+    "PANEL_03982": {
+      "active": true,
+      "reference_filename": "DJI_20260811171529_0838_T.jpeg",
+      "saved_at": "2026-08-31T12:21:37.543Z"
+    },
+    "PANEL_01104": {
+      "active": true,
+      "reference_filename": "DJI_20260811171537_0847_T.jpeg",
+      "saved_at": "2026-08-31T12:21:55.975Z"
+    },
+    "PANEL_01102": {
+      "active": true,
+      "reference_filename": "DJI_20260811171537_0847_T.jpeg",
+      "saved_at": "2026-08-31T12:21:57.455Z"
+    },
+    "PANEL_01114": {
+      "active": true,
+      "reference_filename": "DJI_20260811171549_0858_T.jpeg",
+      "saved_at": "2026-08-31T12:22:20.437Z"
+    },
+    "PANEL_01116": {
+      "active": true,
+      "reference_filename": "DJI_20260811171549_0858_T.jpeg",
+      "saved_at": "2026-08-31T12:22:22.444Z"
+    },
+    "PANEL_01118": {
+      "active": true,
+      "reference_filename": "DJI_20260811171549_0858_T.jpeg",
+      "saved_at": "2026-08-31T12:22:24.563Z"
+    },
+    "PANEL_01178": {
+      "active": true,
+      "reference_filename": "DJI_20260811171554_0863_T.jpeg",
+      "saved_at": "2026-08-31T12:22:47.001Z"
+    },
+    "PANEL_01166": {
+      "active": true,
+      "reference_filename": "DJI_20260811171558_0867_T.jpeg",
+      "saved_at": "2026-08-31T12:23:06.312Z"
+    },
+    "PANEL_01164": {
+      "active": true,
+      "reference_filename": "DJI_20260811171558_0867_T.jpeg",
+      "saved_at": "2026-08-31T12:23:08.232Z"
+    },
+    "PANEL_01226": {
+      "active": true,
+      "reference_filename": "DJI_20260811171602_0871_T.jpeg",
+      "saved_at": "2026-08-31T12:23:25.399Z"
+    },
+    "PANEL_01228": {
+      "active": true,
+      "reference_filename": "DJI_20260811171602_0871_T.jpeg",
+      "saved_at": "2026-08-31T12:23:26.999Z"
+    },
+    "PANEL_01212": {
+      "active": true,
+      "reference_filename": "DJI_20260811171606_0875_T.jpeg",
+      "saved_at": "2026-08-31T12:23:43.863Z"
+    },
+    "PANEL_01210": {
+      "active": true,
+      "reference_filename": "DJI_20260811171606_0875_T.jpeg",
+      "saved_at": "2026-08-31T12:23:45.959Z"
+    },
+    "PANEL_01208": {
+      "active": true,
+      "reference_filename": "DJI_20260811171606_0875_T.jpeg",
+      "saved_at": "2026-08-31T12:23:54.866Z"
+    },
+    "PANEL_01022": {
+      "active": true,
+      "reference_filename": "DJI_20260811171610_0879_T.jpeg",
+      "saved_at": "2026-08-31T12:24:11.291Z"
+    },
+    "PANEL_01030": {
+      "active": true,
+      "reference_filename": "DJI_20260811171610_0879_T.jpeg",
+      "saved_at": "2026-08-31T12:24:16.305Z"
+    },
+    "PANEL_01048": {
+      "active": true,
+      "reference_filename": "DJI_20260811171616_0885_T.jpeg",
+      "saved_at": "2026-08-31T12:24:39.150Z"
+    },
+    "PANEL_00978": {
+      "active": true,
+      "reference_filename": "DJI_20260811171616_0885_T.jpeg",
+      "saved_at": "2026-08-31T12:25:57.476Z"
+    },
+    "PANEL_00984": {
+      "active": true,
+      "reference_filename": "DJI_20260811171616_0885_T.jpeg",
+      "saved_at": "2026-08-31T12:26:02.810Z"
+    },
+    "PANEL_00986": {
+      "active": true,
+      "reference_filename": "DJI_20260811171616_0885_T.jpeg",
+      "saved_at": "2026-08-31T12:26:04.016Z"
+    },
+    "PANEL_01012": {
+      "active": true,
+      "reference_filename": "DJI_20260811171621_0890_T.jpeg",
+      "saved_at": "2026-08-31T12:26:24.823Z"
+    },
+    "PANEL_01002": {
+      "active": true,
+      "reference_filename": "DJI_20260811171621_0890_T.jpeg",
+      "saved_at": "2026-08-31T12:26:29.381Z"
+    },
+    "PANEL_00966": {
+      "active": true,
+      "reference_filename": "DJI_20260811171631_0899_T.jpeg",
+      "saved_at": "2026-08-31T12:26:43.983Z"
+    },
+    "PANEL_00964": {
+      "active": true,
+      "reference_filename": "DJI_20260811171631_0899_T.jpeg",
+      "saved_at": "2026-08-31T12:26:45.590Z"
+    },
+    "PANEL_00898": {
+      "active": true,
+      "reference_filename": "DJI_20260811171634_0902_T.jpeg",
+      "saved_at": "2026-08-31T12:26:54.762Z"
+    },
+    "PANEL_00896": {
+      "active": true,
+      "reference_filename": "DJI_20260811171634_0902_T.jpeg",
+      "saved_at": "2026-08-31T12:26:56.201Z"
+    },
+    "PANEL_00914": {
+      "active": true,
+      "reference_filename": "DJI_20260811171639_0907_T.jpeg",
+      "saved_at": "2026-08-31T12:27:07.204Z"
+    },
+    "PANEL_03794": {
+      "active": true,
+      "reference_filename": "DJI_20260811171653_0920_T.jpeg",
+      "saved_at": "2026-08-31T12:27:32.200Z"
+    },
+    "PANEL_03752": {
+      "active": true,
+      "reference_filename": "DJI_20260811171702_0929_T.jpeg",
+      "saved_at": "2026-08-31T12:27:46.226Z"
+    },
+    "PANEL_03760": {
+      "active": true,
+      "reference_filename": "DJI_20260811171702_0929_T.jpeg",
+      "saved_at": "2026-08-31T12:27:50.393Z"
+    },
+    "PANEL_03762": {
+      "active": true,
+      "reference_filename": "DJI_20260811171702_0929_T.jpeg",
+      "saved_at": "2026-08-31T12:27:52.304Z"
+    },
+    "PANEL_03764": {
+      "active": true,
+      "reference_filename": "DJI_20260811171702_0929_T.jpeg",
+      "saved_at": "2026-08-31T12:27:53.815Z"
+    },
+    "PANEL_03618": {
+      "active": true,
+      "reference_filename": "DJI_20260811171713_0940_T.jpeg",
+      "saved_at": "2026-08-31T12:28:13.031Z"
+    },
+    "PANEL_03620": {
+      "active": true,
+      "reference_filename": "DJI_20260811171713_0940_T.jpeg",
+      "saved_at": "2026-08-31T12:28:15.662Z"
+    },
+    "PANEL_03666": {
+      "active": true,
+      "reference_filename": "DJI_20260811171721_0947_T.jpeg",
+      "saved_at": "2026-08-31T12:28:28.968Z"
+    },
+    "PANEL_03668": {
+      "active": true,
+      "reference_filename": "DJI_20260811171721_0947_T.jpeg",
+      "saved_at": "2026-08-31T12:28:30.719Z"
+    },
+    "PANEL_03638": {
+      "active": true,
+      "reference_filename": "DJI_20260811171726_0952_T.jpeg",
+      "saved_at": "2026-08-31T12:28:53.917Z"
+    },
+    "PANEL_03636": {
+      "active": true,
+      "reference_filename": "DJI_20260811171726_0952_T.jpeg",
+      "saved_at": "2026-08-31T12:28:56.291Z"
+    },
+    "PANEL_03714": {
+      "active": true,
+      "reference_filename": "DJI_20260811171729_0956_T.jpeg",
+      "saved_at": "2026-08-31T12:29:16.162Z"
+    },
+    "PANEL_03704": {
+      "active": true,
+      "reference_filename": "DJI_20260811171730_0957_T.jpeg",
+      "saved_at": "2026-08-31T12:29:21.728Z"
+    },
+    "PANEL_00724": {
+      "active": true,
+      "reference_filename": "DJI_20260811171738_0965_T.jpeg",
+      "saved_at": "2026-08-31T12:29:52.090Z"
+    },
+    "PANEL_00726": {
+      "active": true,
+      "reference_filename": "DJI_20260811171738_0965_T.jpeg",
+      "saved_at": "2026-08-31T12:29:53.610Z"
+    },
+    "PANEL_00714": {
+      "active": true,
+      "reference_filename": "DJI_20260811171738_0965_T.jpeg",
+      "saved_at": "2026-08-31T12:29:56.520Z"
+    },
+    "PANEL_00712": {
+      "active": true,
+      "reference_filename": "DJI_20260811171738_0965_T.jpeg",
+      "saved_at": "2026-08-31T12:29:58.440Z"
+    },
+    "PANEL_00754": {
+      "active": true,
+      "reference_filename": "DJI_20260811171750_0977_T.jpeg",
+      "saved_at": "2026-08-31T12:30:23.061Z"
+    },
+    "PANEL_00752": {
+      "active": true,
+      "reference_filename": "DJI_20260811171750_0977_T.jpeg",
+      "saved_at": "2026-08-31T12:30:24.900Z"
+    },
+    "PANEL_00742": {
+      "active": true,
+      "reference_filename": "DJI_20260811171750_0977_T.jpeg",
+      "saved_at": "2026-08-31T12:30:27.539Z"
+    },
+    "PANEL_00808": {
+      "active": true,
+      "reference_filename": "DJI_20260811171754_0981_T.jpeg",
+      "saved_at": "2026-08-31T12:30:38.302Z"
+    },
+    "PANEL_00860": {
+      "active": true,
+      "reference_filename": "DJI_20260811171801_0987_T.jpeg",
+      "saved_at": "2026-08-31T12:30:48.273Z"
+    },
+    "PANEL_00840": {
+      "active": true,
+      "reference_filename": "DJI_20260811171805_0991_T.jpeg",
+      "saved_at": "2026-08-31T12:31:02.611Z"
+    },
+    "PANEL_00668": {
+      "active": true,
+      "reference_filename": "DJI_20260811171813_0999_T.jpeg",
+      "saved_at": "2026-08-31T12:31:31.254Z"
+    },
+    "PANEL_00678": {
+      "active": true,
+      "reference_filename": "DJI_20260811171813_0999_T.jpeg",
+      "saved_at": "2026-08-31T12:31:38.595Z"
+    },
+    "PANEL_00624": {
+      "active": true,
+      "reference_filename": "DJI_20260811171818_1004_T.jpeg",
+      "saved_at": "2026-08-31T12:31:44.928Z"
+    },
+    "PANEL_00554": {
+      "active": true,
+      "reference_filename": "DJI_20260811171822_1008_T.jpeg",
+      "saved_at": "2026-08-31T12:31:49.030Z"
+    },
+    "PANEL_00580": {
+      "active": true,
+      "reference_filename": "DJI_20260811171825_1011_T.jpeg",
+      "saved_at": "2026-08-31T12:31:54.124Z"
+    },
+    "PANEL_00530": {
+      "active": true,
+      "reference_filename": "DJI_20260811171833_1019_T.jpeg",
+      "saved_at": "2026-08-31T12:32:01.440Z"
+    },
+    "PANEL_00524": {
+      "active": true,
+      "reference_filename": "DJI_20260811171833_1019_T.jpeg",
+      "saved_at": "2026-08-31T12:32:03.687Z"
+    },
+    "PANEL_03546": {
+      "active": true,
+      "reference_filename": "DJI_20260811171843_1028_T.jpeg",
+      "saved_at": "2026-08-31T12:32:09.740Z"
+    },
+    "PANEL_03518": {
+      "active": true,
+      "reference_filename": "DJI_20260811171852_1036_T.jpeg",
+      "saved_at": "2026-08-31T12:32:15.290Z"
+    },
+    "PANEL_03528": {
+      "active": true,
+      "reference_filename": "DJI_20260811171852_1036_T.jpeg",
+      "saved_at": "2026-08-31T12:32:17.945Z"
+    },
+    "PANEL_03472": {
+      "active": true,
+      "reference_filename": "DJI_20260811171901_1045_T.jpeg",
+      "saved_at": "2026-08-31T12:32:30.475Z"
+    },
+    "PANEL_03488": {
+      "active": true,
+      "reference_filename": "DJI_20260811171901_1045_T.jpeg",
+      "saved_at": "2026-08-31T12:32:39.135Z"
+    },
+    "PANEL_00645": {
+      "active": true,
+      "reference_filename": "DJI_20260811172011_1114_T.jpeg",
+      "saved_at": "2026-08-31T12:33:17.271Z"
+    },
+    "PANEL_00466": {
+      "active": true,
+      "reference_filename": "DJI_20260811172011_1114_T.jpeg",
+      "saved_at": "2026-08-31T12:33:22.796Z"
+    },
+    "PANEL_00440": {
+      "active": true,
+      "reference_filename": "DJI_20260811172018_1121_T.jpeg",
+      "saved_at": "2026-08-31T12:33:45.034Z"
+    },
+    "PANEL_00432": {
+      "active": true,
+      "reference_filename": "DJI_20260811172018_1121_T.jpeg",
+      "saved_at": "2026-08-31T12:33:47.672Z"
+    },
+    "PANEL_00372": {
+      "active": true,
+      "reference_filename": "DJI_20260811172024_1127_T.jpeg",
+      "saved_at": "2026-08-31T12:33:59.251Z"
+    },
+    "PANEL_00340": {
+      "active": true,
+      "reference_filename": "DJI_20260811172034_1137_T.jpeg",
+      "saved_at": "2026-08-31T12:34:12.510Z"
+    },
+    "PANEL_00338": {
+      "active": true,
+      "reference_filename": "DJI_20260811172034_1137_T.jpeg",
+      "saved_at": "2026-08-31T12:34:14.485Z"
+    },
+    "PANEL_00354": {
+      "active": true,
+      "reference_filename": "DJI_20260811172034_1137_T.jpeg",
+      "saved_at": "2026-08-31T12:34:18.931Z"
+    },
+    "PANEL_00360": {
+      "active": true,
+      "reference_filename": "DJI_20260811172034_1137_T.jpeg",
+      "saved_at": "2026-08-31T12:34:22.321Z"
+    },
+    "PANEL_03426": {
+      "active": true,
+      "reference_filename": "DJI_20260811172045_1147_T.jpeg",
+      "saved_at": "2026-08-31T12:34:37.667Z"
+    },
+    "PANEL_03432": {
+      "active": true,
+      "reference_filename": "DJI_20260811172045_1147_T.jpeg",
+      "saved_at": "2026-08-31T12:34:42.105Z"
+    },
+    "PANEL_03430": {
+      "active": true,
+      "reference_filename": "DJI_20260811172045_1147_T.jpeg",
+      "saved_at": "2026-08-31T12:34:44.336Z"
+    },
+    "PANEL_03440": {
+      "active": true,
+      "reference_filename": "DJI_20260811172045_1147_T.jpeg",
+      "saved_at": "2026-08-31T12:34:50.574Z"
+    },
+    "PANEL_03384": {
+      "active": true,
+      "reference_filename": "DJI_20260811172052_1154_T.jpeg",
+      "saved_at": "2026-08-31T12:35:06.382Z"
+    },
+    "PANEL_03338": {
+      "active": true,
+      "reference_filename": "DJI_20260811172059_1161_T.jpeg",
+      "saved_at": "2026-08-31T12:35:16.065Z"
+    },
+    "PANEL_03210": {
+      "active": true,
+      "reference_filename": "DJI_20260811172112_1173_T.jpeg",
+      "saved_at": "2026-08-31T12:35:29.060Z"
+    },
+    "PANEL_03256": {
+      "active": true,
+      "reference_filename": "DJI_20260811172118_1179_T.jpeg",
+      "saved_at": "2026-08-31T12:35:44.340Z"
+    },
+    "PANEL_03226": {
+      "active": true,
+      "reference_filename": "DJI_20260811172123_1184_T.jpeg",
+      "saved_at": "2026-08-31T12:35:57.599Z"
+    },
+    "PANEL_03228": {
+      "active": true,
+      "reference_filename": "DJI_20260811172123_1184_T.jpeg",
+      "saved_at": "2026-08-31T12:35:59.518Z"
+    },
+    "PANEL_03312": {
+      "active": true,
+      "reference_filename": "DJI_20260811172123_1184_T.jpeg",
+      "saved_at": "2026-08-31T12:36:03.948Z"
+    },
+    "PANEL_03302": {
+      "active": true,
+      "reference_filename": "DJI_20260811172123_1184_T.jpeg",
+      "saved_at": "2026-08-31T12:36:13.664Z"
+    },
+    "PANEL_03300": {
+      "active": true,
+      "reference_filename": "DJI_20260811172125_1186_T.jpeg",
+      "saved_at": "2026-08-31T12:36:43.162Z"
+    },
+    "PANEL_00224": {
+      "active": true,
+      "reference_filename": "DJI_20260811172143_1204_T.jpeg",
+      "saved_at": "2026-08-31T12:37:00.691Z"
+    },
+    "PANEL_00238": {
+      "active": true,
+      "reference_filename": "DJI_20260811172155_1216_T.jpeg",
+      "saved_at": "2026-08-31T12:37:12.253Z"
+    },
+    "PANEL_00240": {
+      "active": true,
+      "reference_filename": "DJI_20260811172155_1216_T.jpeg",
+      "saved_at": "2026-08-31T12:37:15.404Z"
+    },
+    "PANEL_00244": {
+      "active": true,
+      "reference_filename": "DJI_20260811172155_1216_T.jpeg",
+      "saved_at": "2026-08-31T12:37:18.554Z"
+    },
+    "PANEL_00110": {
+      "active": true,
+      "reference_filename": "DJI_20260811172236_1227_T.jpeg",
+      "saved_at": "2026-08-31T12:37:31.820Z"
+    },
+    "PANEL_00112": {
+      "active": true,
+      "reference_filename": "DJI_20260811172236_1227_T.jpeg",
+      "saved_at": "2026-08-31T12:37:33.388Z"
+    },
+    "PANEL_00058": {
+      "active": true,
+      "reference_filename": "DJI_20260811172243_1234_T.jpeg",
+      "saved_at": "2026-08-31T12:37:50.964Z"
+    },
+    "PANEL_00060": {
+      "active": true,
+      "reference_filename": "DJI_20260811172243_1234_T.jpeg",
+      "saved_at": "2026-08-31T12:37:55.354Z"
+    },
+    "PANEL_00076": {
+      "active": true,
+      "reference_filename": "DJI_20260811172243_1234_T.jpeg",
+      "saved_at": "2026-08-31T12:38:01.735Z"
+    },
+    "PANEL_00078": {
+      "active": true,
+      "reference_filename": "DJI_20260811172243_1234_T.jpeg",
+      "saved_at": "2026-08-31T12:38:03.406Z"
+    },
+    "PANEL_00080": {
+      "active": true,
+      "reference_filename": "DJI_20260811172243_1234_T.jpeg",
+      "saved_at": "2026-08-31T12:38:06.564Z"
+    },
+    "PANEL_00014": {
+      "active": true,
+      "reference_filename": "DJI_20260811172252_1242_T.jpeg",
+      "saved_at": "2026-08-31T12:38:40.309Z"
+    },
+    "PANEL_00034": {
+      "active": true,
+      "reference_filename": "DJI_20260811172254_1244_T.jpeg",
+      "saved_at": "2026-08-31T12:38:50.041Z"
+    },
+    "PANEL_05564": {
+      "active": true,
+      "reference_filename": "DJI_20260811172346_1253_T.jpeg",
+      "saved_at": "2026-08-31T12:40:41.016Z"
+    },
+    "PANEL_06500": {
+      "active": true,
+      "reference_filename": "DJI_20260811172522_1276_T.jpeg",
+      "saved_at": "2026-08-31T12:41:45.564Z"
+    },
+    "PANEL_06498": {
+      "active": true,
+      "reference_filename": "DJI_20260811172522_1276_T.jpeg",
+      "saved_at": "2026-08-31T12:41:47.474Z"
+    },
+    "PANEL_06496": {
+      "active": true,
+      "reference_filename": "DJI_20260811172522_1276_T.jpeg",
+      "saved_at": "2026-08-31T12:41:49.530Z"
+    },
+    "PANEL_06606": {
+      "active": true,
+      "reference_filename": "DJI_20260811172526_1280_T.jpeg",
+      "saved_at": "2026-08-31T12:42:03.771Z"
+    },
+    "PANEL_06704": {
+      "active": true,
+      "reference_filename": "DJI_20260811172526_1280_T.jpeg",
+      "saved_at": "2026-08-31T12:42:11.879Z"
+    },
+    "PANEL_06592": {
+      "active": true,
+      "reference_filename": "DJI_20260811172528_1282_T.jpeg",
+      "saved_at": "2026-08-31T12:42:27.744Z"
+    },
+    "PANEL_06468": {
+      "active": true,
+      "reference_filename": "DJI_20260811172528_1282_T.jpeg",
+      "saved_at": "2026-08-31T12:42:31.734Z"
+    },
+    "PANEL_06470": {
+      "active": true,
+      "reference_filename": "DJI_20260811172528_1282_T.jpeg",
+      "saved_at": "2026-08-31T12:42:33.231Z"
+    },
+    "PANEL_06460": {
+      "active": true,
+      "reference_filename": "DJI_20260811172528_1282_T.jpeg",
+      "saved_at": "2026-08-31T12:42:42.905Z"
+    },
+    "PANEL_06458": {
+      "active": true,
+      "reference_filename": "DJI_20260811172528_1282_T.jpeg",
+      "saved_at": "2026-08-31T12:42:45.136Z"
+    },
+    "PANEL_06454": {
+      "active": true,
+      "reference_filename": "DJI_20260811172528_1282_T.jpeg",
+      "saved_at": "2026-08-31T12:42:47.352Z"
+    },
+    "PANEL_06440": {
+      "active": true,
+      "reference_filename": "DJI_20260811172531_1285_T.jpeg",
+      "saved_at": "2026-08-31T12:43:07.623Z"
+    },
+    "PANEL_06572": {
+      "active": true,
+      "reference_filename": "DJI_20260811172531_1285_T.jpeg",
+      "saved_at": "2026-08-31T12:43:12.708Z"
+    },
+    "PANEL_06570": {
+      "active": true,
+      "reference_filename": "DJI_20260811172531_1285_T.jpeg",
+      "saved_at": "2026-08-31T12:43:14.540Z"
+    },
+    "PANEL_06568": {
+      "active": true,
+      "reference_filename": "DJI_20260811172531_1285_T.jpeg",
+      "saved_at": "2026-08-31T12:43:16.378Z"
+    },
+    "PANEL_06430": {
+      "active": true,
+      "reference_filename": "DJI_20260811172536_1290_T.jpeg",
+      "saved_at": "2026-08-31T12:43:37.177Z"
+    },
+    "PANEL_05872": {
+      "active": true,
+      "reference_filename": "DJI_20260811172544_1298_T.jpeg",
+      "saved_at": "2026-08-31T12:43:47.420Z"
+    },
+    "PANEL_05876": {
+      "active": true,
+      "reference_filename": "DJI_20260811172544_1298_T.jpeg",
+      "saved_at": "2026-08-31T12:43:50.027Z"
+    },
+    "PANEL_05878": {
+      "active": true,
+      "reference_filename": "DJI_20260811172544_1298_T.jpeg",
+      "saved_at": "2026-08-31T12:43:51.634Z"
+    },
+    "PANEL_05902": {
+      "active": true,
+      "reference_filename": "DJI_20260811172544_1298_T.jpeg",
+      "saved_at": "2026-08-31T12:44:00.471Z"
+    },
+    "PANEL_05822": {
+      "active": true,
+      "reference_filename": "DJI_20260811172554_1308_T.jpeg",
+      "saved_at": "2026-08-31T12:44:11.371Z"
+    },
+    "PANEL_05814": {
+      "active": true,
+      "reference_filename": "DJI_20260811172554_1308_T.jpeg",
+      "saved_at": "2026-08-31T12:44:15.256Z"
+    },
+    "PANEL_05842": {
+      "active": true,
+      "reference_filename": "DJI_20260811172558_1312_T.jpeg",
+      "saved_at": "2026-08-31T12:44:30.153Z"
+    },
+    "PANEL_06310": {
+      "active": true,
+      "reference_filename": "DJI_20260811172608_1322_T.jpeg",
+      "saved_at": "2026-08-31T12:44:50.977Z"
+    },
+    "PANEL_06312": {
+      "active": true,
+      "reference_filename": "DJI_20260811172608_1322_T.jpeg",
+      "saved_at": "2026-08-31T12:44:53.088Z"
+    },
+    "PANEL_06344": {
+      "active": true,
+      "reference_filename": "DJI_20260811172613_1326_T.jpeg",
+      "saved_at": "2026-08-31T12:45:14.358Z"
+    },
+    "PANEL_06342": {
+      "active": true,
+      "reference_filename": "DJI_20260811172613_1326_T.jpeg",
+      "saved_at": "2026-08-31T12:45:16.014Z"
+    },
+    "PANEL_06340": {
+      "active": true,
+      "reference_filename": "DJI_20260811172613_1326_T.jpeg",
+      "saved_at": "2026-08-31T12:45:17.596Z"
+    },
+    "PANEL_06366": {
+      "active": true,
+      "reference_filename": "DJI_20260811172617_1330_T.jpeg",
+      "saved_at": "2026-08-31T12:45:33.093Z"
+    },
+    "PANEL_06376": {
+      "active": true,
+      "reference_filename": "DJI_20260811172617_1330_T.jpeg",
+      "saved_at": "2026-08-31T12:45:37.331Z"
+    },
+    "PANEL_06388": {
+      "active": true,
+      "reference_filename": "DJI_20260811172619_1332_T.jpeg",
+      "saved_at": "2026-08-31T12:45:47.055Z"
+    },
+    "PANEL_06220": {
+      "active": true,
+      "reference_filename": "DJI_20260811172631_1344_T.jpeg",
+      "saved_at": "2026-08-31T12:46:12.476Z"
+    },
+    "PANEL_06222": {
+      "active": true,
+      "reference_filename": "DJI_20260811172631_1344_T.jpeg",
+      "saved_at": "2026-08-31T12:46:14.115Z"
+    },
+    "PANEL_06210": {
+      "active": true,
+      "reference_filename": "DJI_20260811172633_1346_T.jpeg",
+      "saved_at": "2026-08-31T12:46:28.404Z"
+    },
+    "PANEL_06208": {
+      "active": true,
+      "reference_filename": "DJI_20260811172633_1346_T.jpeg",
+      "saved_at": "2026-08-31T12:46:30.915Z"
+    },
+    "PANEL_06206": {
+      "active": true,
+      "reference_filename": "DJI_20260811172633_1346_T.jpeg",
+      "saved_at": "2026-08-31T12:46:32.786Z"
+    },
+    "PANEL_06178": {
+      "active": true,
+      "reference_filename": "DJI_20260811172640_1353_T.jpeg",
+      "saved_at": "2026-08-31T12:46:51.634Z"
+    },
+    "PANEL_06160": {
+      "active": true,
+      "reference_filename": "DJI_20260811172645_1357_T.jpeg",
+      "saved_at": "2026-08-31T12:47:03.717Z"
+    },
+    "PANEL_06130": {
+      "active": true,
+      "reference_filename": "DJI_20260811172652_1364_T.jpeg",
+      "saved_at": "2026-08-31T12:47:17.566Z"
+    },
+    "PANEL_05790": {
+      "active": true,
+      "reference_filename": "DJI_20260811172652_1364_T.jpeg",
+      "saved_at": "2026-08-31T12:47:24.268Z"
+    },
+    "PANEL_05776": {
+      "active": true,
+      "reference_filename": "DJI_20260811172652_1364_T.jpeg",
+      "saved_at": "2026-08-31T12:47:28.130Z"
+    },
+    "PANEL_05774": {
+      "active": true,
+      "reference_filename": "DJI_20260811172652_1364_T.jpeg",
+      "saved_at": "2026-08-31T12:47:30.137Z"
+    },
+    "PANEL_05758": {
+      "active": true,
+      "reference_filename": "DJI_20260811175728_0010_T.jpeg",
+      "saved_at": "2026-08-31T12:47:53.647Z"
+    },
+    "PANEL_06074": {
+      "active": true,
+      "reference_filename": "DJI_20260811175810_0051_T.jpeg",
+      "saved_at": "2026-08-31T12:48:17.252Z"
+    },
+    "PANEL_06076": {
+      "active": true,
+      "reference_filename": "DJI_20260811175810_0051_T.jpeg",
+      "saved_at": "2026-08-31T12:48:19.316Z"
+    },
+    "PANEL_06048": {
+      "active": true,
+      "reference_filename": "DJI_20260811175817_0058_T.jpeg",
+      "saved_at": "2026-08-31T12:48:28.055Z"
+    },
+    "PANEL_06042": {
+      "active": true,
+      "reference_filename": "DJI_20260811175817_0058_T.jpeg",
+      "saved_at": "2026-08-31T12:48:33.580Z"
+    },
+    "PANEL_06038": {
+      "active": true,
+      "reference_filename": "DJI_20260811175817_0058_T.jpeg",
+      "saved_at": "2026-08-31T12:48:40.841Z"
+    },
+    "PANEL_06036": {
+      "active": true,
+      "reference_filename": "DJI_20260811175817_0058_T.jpeg",
+      "saved_at": "2026-08-31T12:48:42.792Z"
+    },
+    "PANEL_06034": {
+      "active": true,
+      "reference_filename": "DJI_20260811175817_0058_T.jpeg",
+      "saved_at": "2026-08-31T12:48:44.312Z"
+    },
+    "PANEL_05726": {
+      "active": true,
+      "reference_filename": "DJI_20260811175823_0064_T.jpeg",
+      "saved_at": "2026-08-31T12:48:55.307Z"
+    },
+    "PANEL_05730": {
+      "active": true,
+      "reference_filename": "DJI_20260811175823_0064_T.jpeg",
+      "saved_at": "2026-08-31T12:49:00.457Z"
+    },
+    "PANEL_05736": {
+      "active": true,
+      "reference_filename": "DJI_20260811175823_0064_T.jpeg",
+      "saved_at": "2026-08-31T12:49:04.303Z"
+    },
+    "PANEL_05984": {
+      "active": true,
+      "reference_filename": "DJI_20260811175836_0077_T.jpeg",
+      "saved_at": "2026-08-31T12:49:19.191Z"
+    },
+    "PANEL_05986": {
+      "active": true,
+      "reference_filename": "DJI_20260811175836_0077_T.jpeg",
+      "saved_at": "2026-08-31T12:49:21.607Z"
+    },
+    "PANEL_06006": {
+      "active": true,
+      "reference_filename": "DJI_20260811175851_0091_T.jpeg",
+      "saved_at": "2026-08-31T12:49:34.449Z"
+    },
+    "PANEL_06010": {
+      "active": true,
+      "reference_filename": "DJI_20260811175851_0091_T.jpeg",
+      "saved_at": "2026-08-31T12:49:36.793Z"
+    },
+    "PANEL_05988": {
+      "active": true,
+      "reference_filename": "DJI_20260811175853_0093_T.jpeg",
+      "saved_at": "2026-08-31T12:49:45.748Z"
+    },
+    "PANEL_05658": {
+      "active": true,
+      "reference_filename": "DJI_20260811175857_0097_T.jpeg",
+      "saved_at": "2026-08-31T12:49:52.209Z"
+    },
+    "PANEL_05660": {
+      "active": true,
+      "reference_filename": "DJI_20260811175901_0101_T.jpeg",
+      "saved_at": "2026-08-31T12:50:18.621Z"
+    },
+    "PANEL_05662": {
+      "active": true,
+      "reference_filename": "DJI_20260811175901_0101_T.jpeg",
+      "saved_at": "2026-08-31T12:50:20.541Z"
+    },
+    "PANEL_05664": {
+      "active": true,
+      "reference_filename": "DJI_20260811175901_0101_T.jpeg",
+      "saved_at": "2026-08-31T12:50:22.484Z"
+    },
+    "PANEL_05666": {
+      "active": true,
+      "reference_filename": "DJI_20260811175901_0101_T.jpeg",
+      "saved_at": "2026-08-31T12:50:24.314Z"
+    },
+    "PANEL_05668": {
+      "active": true,
+      "reference_filename": "DJI_20260811175901_0101_T.jpeg",
+      "saved_at": "2026-08-31T12:50:26.258Z"
+    },
+    "PANEL_05670": {
+      "active": true,
+      "reference_filename": "DJI_20260811175901_0101_T.jpeg",
+      "saved_at": "2026-08-31T12:50:28.377Z"
+    },
+    "PANEL_06718": {
+      "active": true,
+      "reference_filename": "DJI_20260811180422_0006_T.jpeg",
+      "saved_at": "2026-08-31T12:59:24.880Z"
+    },
+    "PANEL_06720": {
+      "active": true,
+      "reference_filename": "DJI_20260811180422_0006_T.jpeg",
+      "saved_at": "2026-08-31T12:59:28.543Z"
+    },
+    "PANEL_06724": {
+      "active": true,
+      "reference_filename": "DJI_20260811180422_0006_T.jpeg",
+      "saved_at": "2026-08-31T12:59:31.134Z"
+    },
+    "PANEL_06726": {
+      "active": true,
+      "reference_filename": "DJI_20260811180422_0006_T.jpeg",
+      "saved_at": "2026-08-31T12:59:33.101Z"
+    },
+    "PANEL_07002": {
+      "active": true,
+      "reference_filename": "DJI_20260811180422_0006_T.jpeg",
+      "saved_at": "2026-08-31T12:59:47.335Z"
+    },
+    "PANEL_07004": {
+      "active": true,
+      "reference_filename": "DJI_20260811180422_0006_T.jpeg",
+      "saved_at": "2026-08-31T12:59:49.710Z"
+    },
+    "PANEL_07006": {
+      "active": true,
+      "reference_filename": "DJI_20260811180422_0006_T.jpeg",
+      "saved_at": "2026-08-31T12:59:51.556Z"
+    },
+    "PANEL_07018": {
+      "active": true,
+      "reference_filename": "DJI_20260811180422_0006_T.jpeg",
+      "saved_at": "2026-08-31T12:59:54.315Z"
+    },
+    "PANEL_07078": {
+      "active": true,
+      "reference_filename": "DJI_20260811180435_0019_T.jpeg",
+      "saved_at": "2026-08-31T13:00:09.404Z"
+    },
+    "PANEL_07076": {
+      "active": true,
+      "reference_filename": "DJI_20260811180435_0019_T.jpeg",
+      "saved_at": "2026-08-31T13:00:11.788Z"
+    },
+    "PANEL_08000": {
+      "active": true,
+      "reference_filename": "DJI_20260811180442_0026_T.jpeg",
+      "saved_at": "2026-08-31T13:00:20.280Z"
+    },
+    "PANEL_08700": {
+      "active": true,
+      "reference_filename": "DJI_20260811180447_0030_T.jpeg",
+      "saved_at": "2026-08-31T13:00:30.531Z"
+    },
+    "PANEL_08702": {
+      "active": true,
+      "reference_filename": "DJI_20260811180447_0030_T.jpeg",
+      "saved_at": "2026-08-31T13:00:32.538Z"
+    },
+    "PANEL_08710": {
+      "active": true,
+      "reference_filename": "DJI_20260811180447_0030_T.jpeg",
+      "saved_at": "2026-08-31T13:00:38.136Z"
+    },
+    "PANEL_08770": {
+      "active": true,
+      "reference_filename": "DJI_20260811180454_0036_T.jpeg",
+      "saved_at": "2026-08-31T13:00:46.516Z"
+    },
+    "PANEL_08754": {
+      "active": true,
+      "reference_filename": "DJI_20260811180454_0036_T.jpeg",
+      "saved_at": "2026-08-31T13:01:03.524Z"
+    },
+    "PANEL_08044": {
+      "active": true,
+      "reference_filename": "DJI_20260811180458_0040_T.jpeg",
+      "saved_at": "2026-08-31T13:01:10.129Z"
+    },
+    "PANEL_07118": {
+      "active": true,
+      "reference_filename": "DJI_20260811180506_0049_T.jpeg",
+      "saved_at": "2026-08-31T13:01:25.458Z"
+    },
+    "PANEL_07120": {
+      "active": true,
+      "reference_filename": "DJI_20260811180506_0049_T.jpeg",
+      "saved_at": "2026-08-31T13:01:27.761Z"
+    },
+    "PANEL_07172": {
+      "active": true,
+      "reference_filename": "DJI_20260811180523_0066_T.jpeg",
+      "saved_at": "2026-08-31T13:02:08.128Z"
+    },
+    "PANEL_08058": {
+      "active": true,
+      "reference_filename": "DJI_20260811180526_0069_T.jpeg",
+      "saved_at": "2026-08-31T13:02:31.485Z"
+    },
+    "PANEL_08810": {
+      "active": true,
+      "reference_filename": "DJI_20260811180533_0075_T.jpeg",
+      "saved_at": "2026-08-31T13:02:46.343Z"
+    },
+    "PANEL_08808": {
+      "active": true,
+      "reference_filename": "DJI_20260811180533_0075_T.jpeg",
+      "saved_at": "2026-08-31T13:02:48.878Z"
+    },
+    "PANEL_08820": {
+      "active": true,
+      "reference_filename": "DJI_20260811180536_0078_T.jpeg",
+      "saved_at": "2026-08-31T13:03:00.320Z"
+    },
+    "PANEL_15308": {
+      "active": true,
+      "reference_filename": "DJI_20260811180615_0110_T.jpeg",
+      "saved_at": "2026-08-31T13:03:25.454Z"
+    },
+    "PANEL_08152": {
+      "active": true,
+      "reference_filename": "DJI_20260811180621_0116_T.jpeg",
+      "saved_at": "2026-08-31T13:03:37.823Z"
+    },
+    "PANEL_08184": {
+      "active": true,
+      "reference_filename": "DJI_20260811180627_0122_T.jpeg",
+      "saved_at": "2026-08-31T13:03:51.633Z"
+    },
+    "PANEL_08882": {
+      "active": true,
+      "reference_filename": "DJI_20260811180629_0124_T.jpeg",
+      "saved_at": "2026-08-31T13:04:07.090Z"
+    },
+    "PANEL_08886": {
+      "active": true,
+      "reference_filename": "DJI_20260811180629_0124_T.jpeg",
+      "saved_at": "2026-08-31T13:04:10.025Z"
+    },
+    "PANEL_08888": {
+      "active": true,
+      "reference_filename": "DJI_20260811180629_0124_T.jpeg",
+      "saved_at": "2026-08-31T13:04:12.183Z"
+    },
+    "PANEL_08894": {
+      "active": true,
+      "reference_filename": "DJI_20260811180629_0124_T.jpeg",
+      "saved_at": "2026-08-31T13:04:17.365Z"
+    },
+    "PANEL_08124": {
+      "active": true,
+      "reference_filename": "DJI_20260811180632_0127_T.jpeg",
+      "saved_at": "2026-08-31T13:04:27.713Z"
+    },
+    "PANEL_08132": {
+      "active": true,
+      "reference_filename": "DJI_20260811180632_0127_T.jpeg",
+      "saved_at": "2026-08-31T13:04:30.271Z"
+    },
+    "PANEL_08842": {
+      "active": true,
+      "reference_filename": "DJI_20260811180639_0133_T.jpeg",
+      "saved_at": "2026-08-31T13:04:47.280Z"
+    },
+    "PANEL_09128": {
+      "active": true,
+      "reference_filename": "DJI_20260811180639_0133_T.jpeg",
+      "saved_at": "2026-08-31T13:04:57.196Z"
+    },
+    "PANEL_09126": {
+      "active": true,
+      "reference_filename": "DJI_20260811180639_0133_T.jpeg",
+      "saved_at": "2026-08-31T13:04:59.331Z"
+    },
+    "PANEL_09124": {
+      "active": true,
+      "reference_filename": "DJI_20260811180639_0133_T.jpeg",
+      "saved_at": "2026-08-31T13:05:02.401Z"
+    },
+    "PANEL_07232": {
+      "active": true,
+      "reference_filename": "DJI_20260811180723_0176_T.jpeg",
+      "saved_at": "2026-08-31T13:05:52.699Z"
+    },
+    "PANEL_08934": {
+      "active": true,
+      "reference_filename": "DJI_20260811180740_0193_T.jpeg",
+      "saved_at": "2026-08-31T13:06:11.786Z"
+    },
+    "PANEL_08962": {
+      "active": true,
+      "reference_filename": "DJI_20260811180747_0199_T.jpeg",
+      "saved_at": "2026-08-31T13:06:22.206Z"
+    },
+    "PANEL_09064": {
+      "active": true,
+      "reference_filename": "DJI_20260811180750_0202_T.jpeg",
+      "saved_at": "2026-08-31T13:06:28.348Z"
+    },
+    "PANEL_09078": {
+      "active": true,
+      "reference_filename": "DJI_20260811180750_0202_T.jpeg",
+      "saved_at": "2026-08-31T13:06:36.040Z"
+    },
+    "PANEL_09080": {
+      "active": true,
+      "reference_filename": "DJI_20260811180750_0202_T.jpeg",
+      "saved_at": "2026-08-31T13:06:40.358Z"
+    },
+    "PANEL_09504": {
+      "active": true,
+      "reference_filename": "DJI_20260811180801_0211_T.jpeg",
+      "saved_at": "2026-08-31T13:06:50.184Z"
+    },
+    "PANEL_09506": {
+      "active": true,
+      "reference_filename": "DJI_20260811180801_0211_T.jpeg",
+      "saved_at": "2026-08-31T13:06:52.463Z"
+    },
+    "PANEL_09198": {
+      "active": true,
+      "reference_filename": "DJI_20260811180804_0214_T.jpeg",
+      "saved_at": "2026-08-31T13:06:59.469Z"
+    },
+    "PANEL_09156": {
+      "active": true,
+      "reference_filename": "DJI_20260811180812_0222_T.jpeg",
+      "saved_at": "2026-08-31T13:07:10.272Z"
+    },
+    "PANEL_07278": {
+      "active": true,
+      "reference_filename": "DJI_20260811180829_0239_T.jpeg",
+      "saved_at": "2026-08-31T13:07:28.144Z"
+    },
+    "PANEL_15226": {
+      "active": true,
+      "reference_filename": "DJI_20260811180829_0239_T.jpeg",
+      "saved_at": "2026-08-31T13:07:30.504Z"
+    },
+    "PANEL_15212": {
+      "active": true,
+      "reference_filename": "DJI_20260811180832_0242_T.jpeg",
+      "saved_at": "2026-08-31T13:07:38.779Z"
+    },
+    "PANEL_15202": {
+      "active": true,
+      "reference_filename": "DJI_20260811180832_0242_T.jpeg",
+      "saved_at": "2026-08-31T13:07:42.266Z"
+    },
+    "PANEL_15234": {
+      "active": true,
+      "reference_filename": "DJI_20260811180838_0247_T.jpeg",
+      "saved_at": "2026-08-31T13:07:52.141Z"
+    },
+    "PANEL_15236": {
+      "active": true,
+      "reference_filename": "DJI_20260811180838_0247_T.jpeg",
+      "saved_at": "2026-08-31T13:07:58.371Z"
+    },
+    "PANEL_15640": {
+      "active": true,
+      "reference_filename": "DJI_20260811180843_0252_T.jpeg",
+      "saved_at": "2026-08-31T13:08:15.443Z"
+    },
+    "PANEL_15638": {
+      "active": true,
+      "reference_filename": "DJI_20260811180843_0252_T.jpeg",
+      "saved_at": "2026-08-31T13:08:18.586Z"
+    },
+    "PANEL_07316": {
+      "active": true,
+      "reference_filename": "DJI_20260811180843_0252_T.jpeg",
+      "saved_at": "2026-08-31T13:08:21.616Z"
+    },
+    "PANEL_07318": {
+      "active": true,
+      "reference_filename": "DJI_20260811180843_0252_T.jpeg",
+      "saved_at": "2026-08-31T13:08:23.464Z"
+    },
+    "PANEL_15630": {
+      "active": true,
+      "reference_filename": "DJI_20260811180843_0252_T.jpeg",
+      "saved_at": "2026-08-31T13:08:27.702Z"
+    },
+    "PANEL_07336": {
+      "active": true,
+      "reference_filename": "DJI_20260811180846_0254_T.jpeg",
+      "saved_at": "2026-08-31T13:08:34.283Z"
+    },
+    "PANEL_09214": {
+      "active": true,
+      "reference_filename": "DJI_20260811180911_0279_T.jpeg",
+      "saved_at": "2026-08-31T13:09:14.352Z"
+    },
+    "PANEL_09548": {
+      "active": true,
+      "reference_filename": "DJI_20260811180919_0287_T.jpeg",
+      "saved_at": "2026-08-31T13:09:25.627Z"
+    },
+    "PANEL_09444": {
+      "active": true,
+      "reference_filename": "DJI_20260811180937_0304_T.jpeg",
+      "saved_at": "2026-08-31T13:09:49.409Z"
+    },
+    "PANEL_09446": {
+      "active": true,
+      "reference_filename": "DJI_20260811180937_0304_T.jpeg",
+      "saved_at": "2026-08-31T13:09:51.256Z"
+    },
+    "PANEL_15004": {
+      "active": true,
+      "reference_filename": "DJI_20260811180955_0322_T.jpeg",
+      "saved_at": "2026-08-31T13:10:03.723Z"
+    },
+    "PANEL_15006": {
+      "active": true,
+      "reference_filename": "DJI_20260811180955_0322_T.jpeg",
+      "saved_at": "2026-08-31T13:10:07.025Z"
+    },
+    "PANEL_08268": {
+      "active": true,
+      "reference_filename": "DJI_20260811180958_0325_T.jpeg",
+      "saved_at": "2026-08-31T13:10:25.800Z"
+    },
+    "PANEL_07386": {
+      "active": true,
+      "reference_filename": "DJI_20260811181014_0334_T.jpeg",
+      "saved_at": "2026-08-31T13:10:43.992Z"
+    },
+    "PANEL_07400": {
+      "active": true,
+      "reference_filename": "DJI_20260811181015_0336_T.jpeg",
+      "saved_at": "2026-08-31T13:10:52.988Z"
+    },
+    "PANEL_07398": {
+      "active": true,
+      "reference_filename": "DJI_20260811181015_0336_T.jpeg",
+      "saved_at": "2026-08-31T13:10:54.891Z"
+    },
+    "PANEL_08254": {
+      "active": true,
+      "reference_filename": "DJI_20260811181020_0341_T.jpeg",
+      "saved_at": "2026-08-31T13:11:11.284Z"
+    },
+    "PANEL_08262": {
+      "active": true,
+      "reference_filename": "DJI_20260811181022_0342_T.jpeg",
+      "saved_at": "2026-08-31T13:11:20.736Z"
+    },
+    "PANEL_08264": {
+      "active": true,
+      "reference_filename": "DJI_20260811181022_0342_T.jpeg",
+      "saved_at": "2026-08-31T13:11:22.863Z"
+    },
+    "PANEL_08318": {
+      "active": true,
+      "reference_filename": "DJI_20260811181122_0402_T.jpeg",
+      "saved_at": "2026-08-31T13:12:06.467Z"
+    },
+    "PANEL_07452": {
+      "active": true,
+      "reference_filename": "DJI_20260811181126_0406_T.jpeg",
+      "saved_at": "2026-08-31T13:12:18.038Z"
+    },
+    "PANEL_08290": {
+      "active": true,
+      "reference_filename": "DJI_20260811181126_0406_T.jpeg",
+      "saved_at": "2026-08-31T13:12:21.678Z"
+    },
+    "PANEL_07444": {
+      "active": true,
+      "reference_filename": "DJI_20260811181126_0406_T.jpeg",
+      "saved_at": "2026-08-31T13:12:26.723Z"
+    },
+    "PANEL_14910": {
+      "active": true,
+      "reference_filename": "DJI_20260811181157_0435_T.jpeg",
+      "saved_at": "2026-08-31T13:12:50.456Z"
+    },
+    "PANEL_09372": {
+      "active": true,
+      "reference_filename": "DJI_20260811181209_0447_T.jpeg",
+      "saved_at": "2026-08-31T13:13:02.043Z"
+    },
+    "PANEL_09382": {
+      "active": true,
+      "reference_filename": "DJI_20260811181229_0459_T.jpeg",
+      "saved_at": "2026-08-31T13:13:15.140Z"
+    },
+    "PANEL_08416": {
+      "active": true,
+      "reference_filename": "DJI_20260811181243_0473_T.jpeg",
+      "saved_at": "2026-08-31T13:13:30.030Z"
+    },
+    "PANEL_08330": {
+      "active": true,
+      "reference_filename": "DJI_20260811181251_0480_T.jpeg",
+      "saved_at": "2026-08-31T13:13:39.106Z"
+    },
+    "PANEL_08396": {
+      "active": true,
+      "reference_filename": "DJI_20260811181315_0505_T.jpeg",
+      "saved_at": "2026-08-31T13:14:00.720Z"
+    },
+    "PANEL_15124": {
+      "active": true,
+      "reference_filename": "DJI_20260811181332_0521_T.jpeg",
+      "saved_at": "2026-08-31T13:14:15.490Z"
+    },
+    "PANEL_08424": {
+      "active": true,
+      "reference_filename": "DJI_20260811181400_0549_T.jpeg",
+      "saved_at": "2026-08-31T13:14:49.186Z"
+    },
+    "PANEL_07550": {
+      "active": true,
+      "reference_filename": "DJI_20260811181408_0557_T.jpeg",
+      "saved_at": "2026-08-31T13:14:59.127Z"
+    },
+    "PANEL_06804": {
+      "active": true,
+      "reference_filename": "DJI_20260811181408_0557_T.jpeg",
+      "saved_at": "2026-08-31T13:15:05.267Z"
+    },
+    "PANEL_06828": {
+      "active": true,
+      "reference_filename": "DJI_20260811181419_0562_T.jpeg",
+      "saved_at": "2026-08-31T13:15:17.286Z"
+    },
+    "PANEL_06842": {
+      "active": true,
+      "reference_filename": "DJI_20260811181421_0564_T.jpeg",
+      "saved_at": "2026-08-31T13:15:30.912Z"
+    },
+    "PANEL_07600": {
+      "active": true,
+      "reference_filename": "DJI_20260811181423_0566_T.jpeg",
+      "saved_at": "2026-08-31T13:15:39.684Z"
+    },
+    "PANEL_08498": {
+      "active": true,
+      "reference_filename": "DJI_20260811181435_0578_T.jpeg",
+      "saved_at": "2026-08-31T13:15:54.422Z"
+    },
+    "PANEL_07664": {
+      "active": true,
+      "reference_filename": "DJI_20260811181505_0608_T.jpeg",
+      "saved_at": "2026-08-31T13:16:18.419Z"
+    },
+    "PANEL_07666": {
+      "active": true,
+      "reference_filename": "DJI_20260811181505_0608_T.jpeg",
+      "saved_at": "2026-08-31T13:16:20.401Z"
+    },
+    "PANEL_07668": {
+      "active": true,
+      "reference_filename": "DJI_20260811181505_0608_T.jpeg",
+      "saved_at": "2026-08-31T13:16:22.872Z"
+    },
+    "PANEL_07670": {
+      "active": true,
+      "reference_filename": "DJI_20260811181505_0608_T.jpeg",
+      "saved_at": "2026-08-31T13:16:25.256Z"
+    },
+    "PANEL_06894": {
+      "active": true,
+      "reference_filename": "DJI_20260811181512_0615_T.jpeg",
+      "saved_at": "2026-08-31T13:16:42.000Z"
+    },
+    "PANEL_06890": {
+      "active": true,
+      "reference_filename": "DJI_20260811181512_0615_T.jpeg",
+      "saved_at": "2026-08-31T13:16:44.471Z"
+    },
+    "PANEL_07684": {
+      "active": true,
+      "reference_filename": "DJI_20260811181532_0634_T.jpeg",
+      "saved_at": "2026-08-31T13:17:18.568Z"
+    },
+    "PANEL_07702": {
+      "active": true,
+      "reference_filename": "DJI_20260811181532_0634_T.jpeg",
+      "saved_at": "2026-08-31T13:17:24.413Z"
+    },
+    "PANEL_07700": {
+      "active": true,
+      "reference_filename": "DJI_20260811181532_0634_T.jpeg",
+      "saved_at": "2026-08-31T13:17:26.492Z"
+    },
+    "PANEL_08562": {
+      "active": true,
+      "reference_filename": "DJI_20260811181609_0671_T.jpeg",
+      "saved_at": "2026-08-31T13:17:48.643Z"
+    },
+    "PANEL_08564": {
+      "active": true,
+      "reference_filename": "DJI_20260811181609_0671_T.jpeg",
+      "saved_at": "2026-08-31T13:17:50.713Z"
+    },
+    "PANEL_08648": {
+      "active": true,
+      "reference_filename": "DJI_20260811181609_0671_T.jpeg",
+      "saved_at": "2026-08-31T13:17:53.496Z"
+    },
+    "PANEL_07788": {
+      "active": true,
+      "reference_filename": "DJI_20260811181632_0692_T.jpeg",
+      "saved_at": "2026-08-31T13:18:18.701Z"
+    },
+    "PANEL_08628": {
+      "active": true,
+      "reference_filename": "DJI_20260811181641_0701_T.jpeg",
+      "saved_at": "2026-08-31T13:19:31.301Z"
+    },
+    "PANEL_08560": {
+      "active": true,
+      "reference_filename": "DJI_20260811181642_0702_T.jpeg",
+      "saved_at": "2026-08-31T13:19:48.892Z"
+    },
+    "PANEL_08672": {
+      "active": true,
+      "reference_filename": "DJI_20260811181708_0727_T.jpeg",
+      "saved_at": "2026-08-31T13:20:13.274Z"
+    },
+    "PANEL_06974": {
+      "active": true,
+      "reference_filename": "DJI_20260811181727_0746_T.jpeg",
+      "saved_at": "2026-08-31T13:20:30.506Z"
+    },
+    "PANEL_06962": {
+      "active": true,
+      "reference_filename": "DJI_20260811181727_0746_T.jpeg",
+      "saved_at": "2026-08-31T13:20:39.445Z"
+    },
+    "PANEL_06960": {
+      "active": true,
+      "reference_filename": "DJI_20260811181727_0746_T.jpeg",
+      "saved_at": "2026-08-31T13:20:41.469Z"
+    },
+    "PANEL_07840": {
+      "active": true,
+      "reference_filename": "DJI_20260811181732_0751_T.jpeg",
+      "saved_at": "2026-08-31T13:20:53.976Z"
+    },
+    "PANEL_07836": {
+      "active": true,
+      "reference_filename": "DJI_20260811181732_0751_T.jpeg",
+      "saved_at": "2026-08-31T13:20:57.046Z"
+    },
+    "PANEL_07904": {
+      "active": true,
+      "reference_filename": "DJI_20260811181747_0766_T.jpeg",
+      "saved_at": "2026-08-31T13:21:11.391Z"
+    },
+    "PANEL_15970": {
+      "active": true,
+      "reference_filename": "DJI_20260811182258_0007_T.jpeg",
+      "saved_at": "2026-08-31T13:21:54.524Z"
+    },
+    "PANEL_16018": {
+      "active": true,
+      "reference_filename": "DJI_20260811182303_0011_T.jpeg",
+      "saved_at": "2026-08-31T13:22:06.015Z"
+    },
+    "PANEL_15826": {
+      "active": true,
+      "reference_filename": "DJI_20260811182346_0054_T.jpeg",
+      "saved_at": "2026-08-31T13:22:22.359Z"
+    },
+    "PANEL_16264": {
+      "active": true,
+      "reference_filename": "DJI_20260811182453_0110_T.jpeg",
+      "saved_at": "2026-08-31T13:22:57.376Z"
+    },
+    "PANEL_16338": {
+      "active": true,
+      "reference_filename": "DJI_20260811182455_0112_T.jpeg",
+      "saved_at": "2026-08-31T13:23:02.142Z"
+    },
+    "PANEL_16542": {
+      "active": true,
+      "reference_filename": "DJI_20260811182546_0163_T.jpeg",
+      "saved_at": "2026-08-31T13:23:28.067Z"
+    },
+    "PANEL_16478": {
+      "active": true,
+      "reference_filename": "DJI_20260811182550_0167_T.jpeg",
+      "saved_at": "2026-08-31T13:23:37.413Z"
+    },
+    "PANEL_16586": {
+      "active": true,
+      "reference_filename": "DJI_20260811182606_0183_T.jpeg",
+      "saved_at": "2026-08-31T13:23:45.915Z"
+    },
+    "PANEL_16688": {
+      "active": true,
+      "reference_filename": "DJI_20260811182648_0224_T.jpeg",
+      "saved_at": "2026-08-31T13:24:22.866Z"
+    },
+    "PANEL_16758": {
+      "active": true,
+      "reference_filename": "DJI_20260811182713_0248_T.jpeg",
+      "saved_at": "2026-08-31T13:24:43.872Z"
+    },
+    "PANEL_15728": {
+      "active": true,
+      "reference_filename": "DJI_20260812173431_0013_T.jpeg",
+      "saved_at": "2026-08-31T13:32:53.597Z"
+    },
+    "PANEL_15676": {
+      "active": true,
+      "reference_filename": "DJI_20260812173431_0013_T.jpeg",
+      "saved_at": "2026-08-31T13:33:03.624Z"
+    },
+    "PANEL_09578": {
+      "active": true,
+      "reference_filename": "DJI_20260812173443_0025_T.jpeg",
+      "saved_at": "2026-08-31T13:33:15.803Z"
+    },
+    "PANEL_09682": {
+      "active": true,
+      "reference_filename": "DJI_20260812173515_0050_T.jpeg",
+      "saved_at": "2026-08-31T13:33:42.855Z"
+    },
+    "PANEL_09720": {
+      "active": true,
+      "reference_filename": "DJI_20260812173546_0073_T.jpeg",
+      "saved_at": "2026-08-31T13:34:13.602Z"
+    },
+    "PANEL_09722": {
+      "active": true,
+      "reference_filename": "DJI_20260812173546_0073_T.jpeg",
+      "saved_at": "2026-08-31T13:34:15.944Z"
+    },
+    "PANEL_12444": {
+      "active": true,
+      "reference_filename": "DJI_20260812173613_0100_T.jpeg",
+      "saved_at": "2026-08-31T13:34:30.793Z"
+    },
+    "PANEL_12442": {
+      "active": true,
+      "reference_filename": "DJI_20260812173613_0100_T.jpeg",
+      "saved_at": "2026-08-31T13:34:32.928Z"
+    },
+    "PANEL_12434": {
+      "active": true,
+      "reference_filename": "DJI_20260812173613_0100_T.jpeg",
+      "saved_at": "2026-08-31T13:34:40.581Z"
+    },
+    "PANEL_09790": {
+      "active": true,
+      "reference_filename": "DJI_20260812173635_0122_T.jpeg",
+      "saved_at": "2026-08-31T13:35:01.549Z"
+    },
+    "PANEL_10122": {
+      "active": true,
+      "reference_filename": "DJI_20260812173909_0260_T.jpeg",
+      "saved_at": "2026-08-31T13:36:08.941Z"
+    },
+    "PANEL_10126": {
+      "active": true,
+      "reference_filename": "DJI_20260812173909_0260_T.jpeg",
+      "saved_at": "2026-08-31T13:36:10.876Z"
+    },
+    "PANEL_10266": {
+      "active": true,
+      "reference_filename": "DJI_20260812173909_0260_T.jpeg",
+      "saved_at": "2026-08-31T13:36:16.274Z"
+    },
+    "PANEL_10268": {
+      "active": true,
+      "reference_filename": "DJI_20260812173909_0260_T.jpeg",
+      "saved_at": "2026-08-31T13:36:18.337Z"
+    },
+    "PANEL_10288": {
+      "active": true,
+      "reference_filename": "DJI_20260812173911_0262_T.jpeg",
+      "saved_at": "2026-08-31T13:36:25.990Z"
+    },
+    "PANEL_10290": {
+      "active": true,
+      "reference_filename": "DJI_20260812173911_0262_T.jpeg",
+      "saved_at": "2026-08-31T13:36:29.884Z"
+    },
+    "PANEL_10370": {
+      "active": true,
+      "reference_filename": "DJI_20260812173916_0267_T.jpeg",
+      "saved_at": "2026-08-31T13:36:38.168Z"
+    },
+    "PANEL_10372": {
+      "active": true,
+      "reference_filename": "DJI_20260812173916_0267_T.jpeg",
+      "saved_at": "2026-08-31T13:36:40.112Z"
+    },
+    "PANEL_10374": {
+      "active": true,
+      "reference_filename": "DJI_20260812173916_0267_T.jpeg",
+      "saved_at": "2026-08-31T13:36:42.359Z"
+    },
+    "PANEL_10476": {
+      "active": true,
+      "reference_filename": "DJI_20260812174016_0326_T.jpeg",
+      "saved_at": "2026-08-31T13:37:05.397Z"
+    },
+    "PANEL_10514": {
+      "active": true,
+      "reference_filename": "DJI_20260812174025_0335_T.jpeg",
+      "saved_at": "2026-08-31T13:37:16.855Z"
+    },
+    "PANEL_10494": {
+      "active": true,
+      "reference_filename": "DJI_20260812174028_0338_T.jpeg",
+      "saved_at": "2026-08-31T13:37:23.947Z"
+    },
+    "PANEL_10399": {
+      "active": true,
+      "reference_filename": "DJI_20260812174034_0344_T.jpeg",
+      "saved_at": "2026-08-31T13:37:31.664Z"
+    },
+    "PANEL_10397": {
+      "active": true,
+      "reference_filename": "DJI_20260812174034_0344_T.jpeg",
+      "saved_at": "2026-08-31T13:37:34.136Z"
+    },
+    "PANEL_10554": {
+      "active": true,
+      "reference_filename": "DJI_20260812174037_0347_T.jpeg",
+      "saved_at": "2026-08-31T13:37:41.556Z"
+    },
+    "PANEL_10556": {
+      "active": true,
+      "reference_filename": "DJI_20260812174037_0347_T.jpeg",
+      "saved_at": "2026-08-31T13:37:43.171Z"
+    },
+    "PANEL_13028": {
+      "active": true,
+      "reference_filename": "DJI_20260812174137_0406_T.jpeg",
+      "saved_at": "2026-08-31T13:38:12.366Z"
+    },
+    "PANEL_13110": {
+      "active": true,
+      "reference_filename": "DJI_20260812174142_0411_T.jpeg",
+      "saved_at": "2026-08-31T13:38:17.284Z"
+    },
+    "PANEL_10810": {
+      "active": true,
+      "reference_filename": "DJI_20260812174159_0428_T.jpeg",
+      "saved_at": "2026-08-31T13:38:27.640Z"
+    },
+    "PANEL_10804": {
+      "active": true,
+      "reference_filename": "DJI_20260812174159_0428_T.jpeg",
+      "saved_at": "2026-08-31T13:38:31.142Z"
+    },
+    "PANEL_10811": {
+      "active": true,
+      "reference_filename": "DJI_20260812174216_0444_T.jpeg",
+      "saved_at": "2026-08-31T13:38:46.343Z"
+    },
+    "PANEL_10813": {
+      "active": true,
+      "reference_filename": "DJI_20260812174216_0444_T.jpeg",
+      "saved_at": "2026-08-31T13:38:50.149Z"
+    },
+    "PANEL_10815": {
+      "active": true,
+      "reference_filename": "DJI_20260812174216_0444_T.jpeg",
+      "saved_at": "2026-08-31T13:38:52.052Z"
+    },
+    "PANEL_10833": {
+      "active": true,
+      "reference_filename": "DJI_20260812174221_0448_T.jpeg",
+      "saved_at": "2026-08-31T13:38:58.441Z"
+    },
+    "PANEL_12974": {
+      "active": true,
+      "reference_filename": "DJI_20260812174328_0515_T.jpeg",
+      "saved_at": "2026-08-31T13:39:29.220Z"
+    },
+    "PANEL_10874": {
+      "active": true,
+      "reference_filename": "DJI_20260812174334_0521_T.jpeg",
+      "saved_at": "2026-08-31T13:39:40.391Z"
+    },
+    "PANEL_10872": {
+      "active": true,
+      "reference_filename": "DJI_20260812174334_0521_T.jpeg",
+      "saved_at": "2026-08-31T13:39:42.310Z"
+    },
+    "PANEL_10968": {
+      "active": true,
+      "reference_filename": "DJI_20260812174359_0546_T.jpeg",
+      "saved_at": "2026-08-31T13:40:00.574Z"
+    },
+    "PANEL_10994": {
+      "active": true,
+      "reference_filename": "DJI_20260812174401_0548_T.jpeg",
+      "saved_at": "2026-08-31T13:40:06.691Z"
+    },
+    "PANEL_10988": {
+      "active": true,
+      "reference_filename": "DJI_20260812174401_0548_T.jpeg",
+      "saved_at": "2026-08-31T13:40:10.650Z"
+    },
+    "PANEL_10986": {
+      "active": true,
+      "reference_filename": "DJI_20260812174401_0548_T.jpeg",
+      "saved_at": "2026-08-31T13:40:13.880Z"
+    },
+    "PANEL_11052": {
+      "active": true,
+      "reference_filename": "DJI_20260812174405_0552_T.jpeg",
+      "saved_at": "2026-08-31T13:40:34.454Z"
+    },
+    "PANEL_11026": {
+      "active": true,
+      "reference_filename": "DJI_20260812174414_0561_T.jpeg",
+      "saved_at": "2026-08-31T13:50:57.175Z"
+    },
+    "PANEL_13282": {
+      "active": true,
+      "reference_filename": "DJI_20260812174423_0570_T.jpeg",
+      "saved_at": "2026-08-31T13:51:17.446Z"
+    },
+    "PANEL_13284": {
+      "active": true,
+      "reference_filename": "DJI_20260812174423_0570_T.jpeg",
+      "saved_at": "2026-08-31T13:51:19.781Z"
+    },
+    "PANEL_11108": {
+      "active": true,
+      "reference_filename": "DJI_20260812174530_0635_T.jpeg",
+      "saved_at": "2026-08-31T13:51:56.365Z"
+    },
+    "PANEL_11225": {
+      "active": true,
+      "reference_filename": "DJI_20260812174539_0644_T.jpeg",
+      "saved_at": "2026-08-31T13:52:05.218Z"
+    },
+    "PANEL_11227": {
+      "active": true,
+      "reference_filename": "DJI_20260812174539_0644_T.jpeg",
+      "saved_at": "2026-08-31T13:52:08.375Z"
+    },
+    "PANEL_11232": {
+      "active": true,
+      "reference_filename": "DJI_20260812174539_0644_T.jpeg",
+      "saved_at": "2026-08-31T13:52:14.677Z"
+    },
+    "PANEL_11234": {
+      "active": true,
+      "reference_filename": "DJI_20260812174539_0644_T.jpeg",
+      "saved_at": "2026-08-31T13:52:16.572Z"
+    },
+    "PANEL_11126": {
+      "active": true,
+      "reference_filename": "DJI_20260812174544_0649_T.jpeg",
+      "saved_at": "2026-08-31T13:52:33.796Z"
+    },
+    "PANEL_11332": {
+      "active": true,
+      "reference_filename": "DJI_20260812174550_0655_T.jpeg",
+      "saved_at": "2026-08-31T13:52:45.271Z"
+    },
+    "PANEL_11272": {
+      "active": true,
+      "reference_filename": "DJI_20260812174555_0661_T.jpeg",
+      "saved_at": "2026-08-31T13:52:53.771Z"
+    },
+    "PANEL_11274": {
+      "active": true,
+      "reference_filename": "DJI_20260812174555_0661_T.jpeg",
+      "saved_at": "2026-08-31T13:52:56.474Z"
+    },
+    "PANEL_11288": {
+      "active": true,
+      "reference_filename": "DJI_20260812174555_0661_T.jpeg",
+      "saved_at": "2026-08-31T13:53:01.024Z"
+    },
+    "PANEL_13370": {
+      "active": true,
+      "reference_filename": "DJI_20260812174603_0669_T.jpeg",
+      "saved_at": "2026-08-31T13:53:10.740Z"
+    },
+    "PANEL_13496": {
+      "active": true,
+      "reference_filename": "DJI_20260812174637_0702_T.jpeg",
+      "saved_at": "2026-08-31T13:53:27.757Z"
+    },
+    "PANEL_13550": {
+      "active": true,
+      "reference_filename": "DJI_20260812174646_0711_T.jpeg",
+      "saved_at": "2026-08-31T13:53:35.305Z"
+    },
+    "PANEL_13542": {
+      "active": true,
+      "reference_filename": "DJI_20260812174646_0711_T.jpeg",
+      "saved_at": "2026-08-31T13:53:40.559Z"
+    },
+    "PANEL_11452": {
+      "active": true,
+      "reference_filename": "DJI_20260812174651_0716_T.jpeg",
+      "saved_at": "2026-08-31T13:53:48.699Z"
+    },
+    "PANEL_11450": {
+      "active": true,
+      "reference_filename": "DJI_20260812174651_0716_T.jpeg",
+      "saved_at": "2026-08-31T13:53:53.448Z"
+    },
+    "PANEL_11478": {
+      "active": true,
+      "reference_filename": "DJI_20260812174702_0727_T.jpeg",
+      "saved_at": "2026-08-31T13:54:15.984Z"
+    },
+    "PANEL_11386": {
+      "active": true,
+      "reference_filename": "DJI_20260812174708_0733_T.jpeg",
+      "saved_at": "2026-08-31T13:54:24.819Z"
+    },
+    "PANEL_11402": {
+      "active": true,
+      "reference_filename": "DJI_20260812174708_0733_T.jpeg",
+      "saved_at": "2026-08-31T13:54:30.624Z"
+    },
+    "PANEL_11229": {
+      "active": true,
+      "reference_filename": "DJI_20260812174713_0738_T.jpeg",
+      "saved_at": "2026-08-31T13:54:37.861Z"
+    },
+    "PANEL_14108": {
+      "active": true,
+      "reference_filename": "DJI_20260812174826_0810_T.jpeg",
+      "saved_at": "2026-08-31T13:55:23.544Z"
+    },
+    "PANEL_14102": {
+      "active": true,
+      "reference_filename": "DJI_20260812174826_0810_T.jpeg",
+      "saved_at": "2026-08-31T13:55:26.664Z"
+    },
+    "PANEL_14104": {
+      "active": true,
+      "reference_filename": "DJI_20260812174826_0810_T.jpeg",
+      "saved_at": "2026-08-31T13:55:29.222Z"
+    },
+    "PANEL_11639": {
+      "active": true,
+      "reference_filename": "DJI_20260812174900_0843_T.jpeg",
+      "saved_at": "2026-08-31T17:23:43.848Z"
+    },
+    "PANEL_11641": {
+      "active": true,
+      "reference_filename": "DJI_20260812174900_0843_T.jpeg",
+      "saved_at": "2026-08-31T17:23:46.655Z"
+    },
+    "PANEL_11643": {
+      "active": true,
+      "reference_filename": "DJI_20260812174900_0843_T.jpeg",
+      "saved_at": "2026-08-31T17:23:49.287Z"
+    },
+    "PANEL_11704": {
+      "active": true,
+      "reference_filename": "DJI_20260812174919_0861_T.jpeg",
+      "saved_at": "2026-08-31T17:24:06.630Z"
+    },
+    "PANEL_12028": {
+      "active": true,
+      "reference_filename": "DJI_20260812175039_0939_T.jpeg",
+      "saved_at": "2026-08-31T17:24:54.777Z"
+    },
+    "PANEL_13962": {
+      "active": true,
+      "reference_filename": "DJI_20260812175054_0954_T.jpeg",
+      "saved_at": "2026-08-31T17:25:04.396Z"
+    },
+    "PANEL_12053": {
+      "active": true,
+      "reference_filename": "DJI_20260812175149_1008_T.jpeg",
+      "saved_at": "2026-08-31T17:25:33.743Z"
+    },
+    "PANEL_12055": {
+      "active": true,
+      "reference_filename": "DJI_20260812175149_1008_T.jpeg",
+      "saved_at": "2026-08-31T17:25:36.190Z"
+    },
+    "PANEL_12057": {
+      "active": true,
+      "reference_filename": "DJI_20260812175149_1008_T.jpeg",
+      "saved_at": "2026-08-31T17:25:39.381Z"
+    },
+    "PANEL_06654": {
+      "active": true,
+      "reference_filename": "DJI_20260817180608_0015_T.jpeg",
+      "saved_at": "2026-08-31T17:26:55.259Z"
+    },
+    "PANEL_05960": {
+      "active": true,
+      "reference_filename": "DJI_20260817180614_0023_T.jpeg",
+      "saved_at": "2026-08-31T17:27:25.877Z"
+    },
+    "PANEL_05962": {
+      "active": true,
+      "reference_filename": "DJI_20260817180614_0023_T.jpeg",
+      "saved_at": "2026-08-31T17:27:29.276Z"
+    },
+    "PANEL_06528": {
+      "active": true,
+      "reference_filename": "DJI_20260817180643_0067_T.jpeg",
+      "saved_at": "2026-08-31T17:27:48.379Z"
+    },
+    "PANEL_06506": {
+      "active": true,
+      "reference_filename": "DJI_20260817180647_0072_T.jpeg",
+      "saved_at": "2026-08-31T17:28:00.350Z"
+    },
+    "PANEL_05889": {
+      "active": true,
+      "reference_filename": "DJI_20260817180704_0096_T.jpeg",
+      "saved_at": "2026-08-31T17:28:17.727Z"
+    },
+    "PANEL_05891": {
+      "active": true,
+      "reference_filename": "DJI_20260817180704_0096_T.jpeg",
+      "saved_at": "2026-08-31T17:28:22.883Z"
+    },
+    "PANEL_05893": {
+      "active": true,
+      "reference_filename": "DJI_20260817180704_0096_T.jpeg",
+      "saved_at": "2026-08-31T17:28:26.179Z"
+    },
+    "PANEL_05895": {
+      "active": true,
+      "reference_filename": "DJI_20260817180704_0096_T.jpeg",
+      "saved_at": "2026-08-31T17:28:27.953Z"
+    },
+    "PANEL_06442": {
+      "active": true,
+      "reference_filename": "DJI_20260817180717_0115_T.jpeg",
+      "saved_at": "2026-08-31T17:28:46.337Z"
+    },
+    "PANEL_06326": {
+      "active": true,
+      "reference_filename": "DJI_20260817180721_0120_T.jpeg",
+      "saved_at": "2026-08-31T17:29:08.543Z"
+    }
+  }
+}

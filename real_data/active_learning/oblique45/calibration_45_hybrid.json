@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "model": "affine_image_position_altitude_hybrid",
+  "created_at": "2026-08-29T09:49:05.280551",
+  "features": [
+    "1",
+    "altitude*(u-0.5)",
+    "altitude*(v-0.5)"
+  ],
+  "source_calibration": "calibration_45_per_flight.json",
+  "global_fallback": {
+    "source": "calibration_45.json",
+    "coef_x": [
+      0.30625241721974766,
+      0.9957500599216413,
+      -0.030797523088834877
+    ],
+    "coef_y": [
+      2.061335595023705,
+      -0.003957889676425852,
+      -1.110121442217963
+    ]
+  },
+  "flights": {
+    "1": {
+      "coef_x": [
+        0.5131189697187585,
+        0.9848322711170003,
+        -0.01578957413775406
+      ],
+      "coef_y": [
+        1.4839589053636348,
+        0.004345348948799677,
+        -1.164858741512063
+      ],
+      "training_images": 96,
+      "original_points": 538,
+      "retained_points": 487,
+      "median_error_m": 0.956,
+      "p90_error_m": 1.544,
+      "rmse_m": 1.027
+    },
+    "2": {
+      "coef_x": [
+        0.4522579702781522,
+        0.9413319299717171,
+        -0.0013552956443586561
+      ],
+      "coef_y": [
+        2.245037992572378,
+        -0.04793307879444497,
+        -1.0831774409361623
+      ],
+      "training_images": 38,
+      "original_points": 97,
+      "retained_points": 76,
+      "median_error_m": 0.534,
+      "p90_error_m": 1.0,
+      "rmse_m": 0.651
+    },
+    "3": {
+      "fallback": "global",
+      "reason": "No manual calibration links available"
+    },
+    "4": {
+      "coef_x": [
+        -0.01574008793963176,
+        0.9776874005552822,
+        -0.05518563838684476
+      ],
+      "coef_y": [
+        3.094722432860953,
+        -0.010601478277706744,
+        -1.0862490620297822
+      ],
+      "training_images": 63,
+      "original_points": 121,
+      "retained_points": 118,
+      "median_error_m": 0.593,
+      "p90_error_m": 1.256,
+      "rmse_m": 0.807
+    },
+    "5": {
+      "coef_x": [
+        -0.36728577722441164,
+        0.9672724659375456,
+        -0.03531376430561117
+      ],
+      "coef_y": [
+        2.148475433918855,
+        0.011203977280762167,
+        -1.0393235131145664
+      ],
+      "training_images": 43,
+      "original_points": 109,
+      "retained_points": 88,
+      "median_error_m": 0.554,
+      "p90_error_m": 1.203,
+      "rmse_m": 0.738
+    }
+  },
+  "rules": [
+    {
+      "flight": 1,
+      "condition": "sequence < 673",
+      "calibration": "global"
+    },
+    {
+      "flight": 1,
+      "condition": "sequence >= 673",
+      "calibration": "flight_1"
+    },
+    {
+      "flight": 2,
+      "condition": "timestamp >= 2026-08-11T17:57:20 and timestamp <= 2026-08-11T17:58:53",
+      "calibration": "global"
+    },
+    {
+      "flight": 2,
+      "condition": "otherwise",
+      "calibration": "flight_2"
+    },
+    {
+      "flight": 3,
+      "condition": "all",
+      "calibration": "global"
+    },
+    {
+      "flight": 4,
+      "condition": "all",
+      "calibration": "flight_4"
+    },
+    {
+      "flight": 5,
+      "condition": "all",
+      "calibration": "flight_5"
+    }
+  ],
+  "validation": {
+    "points": 865,
+    "images": 240,
+    "rmse_m": 1.151,
+    "mean_error_m": 0.983,
+    "median_error_m": 0.921,
+    "p75_error_m": 1.237,
+    "p90_error_m": 1.779,
+    "p95_error_m": 2.272,
+    "max_error_m": 3.485,
+    "within_1m_percent": 61.0,
+    "within_1_5m_percent": 83.5,
+    "within_2m_percent": 92.3
+  },
+  "detection_policy": {
+    "panel_model": "V1 all4160",
+    "panel_confidence": 0.05,
+    "anomaly_model": "V3.1",
+    "anomaly_confidence": 0.05,
+    "anomaly_filter": "anomaly center inside accepted V1 panel"
+  }
+}

@@ -1,4 +1,4 @@
-﻿let images = [];
+let images = [];
 let currentIndex = 0;
 let currentImage = null;
 
@@ -23,6 +23,126 @@ let panelsLayer = null;
 let locationLayer = null;
 
 let selectedMapPanelId = null;
+
+/* === REAL_MASTER_PERSIST_V2 === */
+
+const AL_MASTER_ACTIVE_KEY =
+    "pv_al_master_active_v2";
+
+let alMasterActivePanels = {};
+
+function alMasterLoadActive() {
+
+    try {
+
+        const raw =
+            localStorage.getItem(
+                AL_MASTER_ACTIVE_KEY
+            );
+
+        alMasterActivePanels =
+            raw
+                ? JSON.parse(raw)
+                : {};
+
+        if (
+            !alMasterActivePanels
+            ||
+            typeof alMasterActivePanels !== "object"
+            ||
+            Array.isArray(alMasterActivePanels)
+        ) {
+            alMasterActivePanels = {};
+        }
+
+    }
+    catch (_) {
+        alMasterActivePanels = {};
+    }
+}
+
+
+function alMasterSaveActive() {
+
+    try {
+
+        localStorage.setItem(
+            AL_MASTER_ACTIVE_KEY,
+            JSON.stringify(
+                alMasterActivePanels
+            )
+        );
+
+    }
+    catch (e) {
+
+        console.error(
+            "MASTER active save failed:",
+            e
+        );
+    }
+}
+
+
+function alMasterActivate(
+    panelId,
+    filename
+) {
+
+    panelId =
+        String(
+            panelId || ""
+        ).trim();
+
+    if (!panelId) {
+        return;
+    }
+
+    alMasterActivePanels[
+        panelId
+    ] = {
+
+        active: true,
+
+        reference_filename:
+            filename
+            ? String(filename)
+            : null,
+
+        saved_at:
+            new Date().toISOString()
+    };
+
+    alMasterSaveActive();
+
+    console.log(
+        "MASTER ACTIVATED:",
+        panelId,
+        filename
+    );
+}
+
+
+function alMasterIsActive(
+    panelId
+) {
+
+    const rec =
+        alMasterActivePanels[
+            String(panelId || "")
+        ];
+
+    return !!(
+        rec
+        &&
+        rec.active === true
+    );
+}
+
+
+alMasterLoadActive();
+
+
 
 let meta = null;
 let allPanels = null;
@@ -175,6 +295,63 @@ function setupButtons() {
     };
 
 
+    const imageJumpInput =
+        document.getElementById("imageJumpInput");
+
+    const imageJumpBtn =
+        document.getElementById("imageJumpBtn");
+
+    async function jumpToImageNumber() {
+
+        if (!images.length) {
+            return;
+        }
+
+        const requested =
+            Number.parseInt(
+                imageJumpInput.value,
+                10
+            );
+
+        if (
+            !Number.isInteger(requested)
+            ||
+            requested < 1
+            ||
+            requested > images.length
+        ) {
+            toast(
+                `Enter an image number between 1 and ${images.length}`
+            );
+
+            imageJumpInput.focus();
+            imageJumpInput.select();
+
+            return;
+        }
+
+        await loadImage(
+            requested - 1
+        );
+    }
+
+    imageJumpBtn.onclick =
+        jumpToImageNumber;
+
+    imageJumpInput.addEventListener(
+        "keydown",
+        async (event) => {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                await jumpToImageNumber();
+            }
+        }
+    );
+
+
     document.getElementById(
         "prevBtn"
     ).onclick = async () => {
@@ -239,6 +416,17 @@ function setupButtons() {
             activePanelIndex
         ].panel_id =
             selectedMapPanelId;
+
+        /*
+           Persist the MASTER activation BEFORE
+           selectedMapPanelId is cleared below.
+
+           currentImage is the exact IR currently shown.
+        */
+        alMasterActivate(
+            selectedMapPanelId,
+            currentImage
+        );
 
 
         toast(
@@ -1842,7 +2030,7 @@ function createMap() {
 
 
                             return (
-                                `/tiles/`
+                                `/active-learning-ir-tiles/`
                                 +
                                 `${tileCoord[0]}/`
                                 +
@@ -1882,6 +2070,36 @@ function createMap() {
                             ||
                             ""
                         );
+
+
+                    /*
+                       Persistent manual activation has priority
+                       over the per-image assignment state.
+                    */
+
+                    if (
+                        alMasterIsActive(
+                            id
+                        )
+                    ) {
+
+                        return new ol.style.Style({
+
+                            stroke:
+                                new ol.style.Stroke({
+                                    color:
+                                        "#ff2020",
+                                    width:
+                                        4
+                                }),
+
+                            fill:
+                                new ol.style.Fill({
+                                    color:
+                                        "rgba(255,32,32,.30)"
+                                })
+                        });
+                    }
 
 
                     let assigned =
@@ -2251,7 +2469,7 @@ async function locateCurrentImage() {
                 resolutions.length - 1,
                 Math.max(
                     0,
-                    resolutions.length - 4
+                    resolutions.length - 5
                 )
             );
 
@@ -3256,6 +3474,1194 @@ init();
 
         install();
     }
+
+})();
+
+
+
+/* ============================================================
+   ACTIVE LEARNING - MANUAL MASTER VALIDATION
+
+   Rules:
+   - MASTER click = select only
+   - Activate = selected PANEL_ID + CURRENT IR filename
+   - Delete = remove manual activation
+   - No automatic image selection
+   ============================================================ */
+
+let alManualMap = null;
+let alManualPanelsLayer = null;
+let alManualSelectedFeature = null;
+let alManualSelectedPanelId = null;
+let alManualActivePanels = new Set();
+
+
+function alManualCurrentFilename() {
+
+    /*
+       Active Learning already owns currentImage/currentIndex.
+       Support both string and object image lists.
+    */
+
+    if (
+        typeof currentImage === "string"
+        &&
+        currentImage
+    ) {
+        return currentImage;
+    }
+
+    if (
+        currentImage
+        &&
+        typeof currentImage === "object"
+        &&
+        currentImage.filename
+    ) {
+        return currentImage.filename;
+    }
+
+    if (
+        Array.isArray(images)
+        &&
+        currentIndex >= 0
+        &&
+        currentIndex < images.length
+    ) {
+
+        const item = images[currentIndex];
+
+        if (typeof item === "string") {
+            return item;
+        }
+
+        if (
+            item
+            &&
+            item.filename
+        ) {
+            return item.filename;
+        }
+    }
+
+    return null;
+}
+
+
+function alManualPanelStyle(feature) {
+
+    const panelId =
+        String(
+            feature.get("panel_id")
+            || ""
+        );
+
+    const selected =
+        panelId ===
+        alManualSelectedPanelId;
+
+    const active =
+        alManualActivePanels.has(
+            panelId
+        );
+
+    let stroke;
+
+    if (selected) {
+        stroke = "#ffff00";
+    }
+    else if (active) {
+        stroke = "#ff3030";
+    }
+    else {
+        stroke = "#ffffff";
+    }
+
+    return new ol.style.Style({
+
+        stroke:
+            new ol.style.Stroke({
+                color: stroke,
+                width:
+                    selected
+                        ? 3
+                        : active
+                            ? 2.5
+                            : 1.2
+            }),
+
+        fill:
+            new ol.style.Fill({
+                color:
+                    selected
+                        ? "rgba(255,255,0,0.14)"
+                        : active
+                            ? "rgba(255,48,48,0.16)"
+                            : "rgba(255,255,255,0.02)"
+            })
+    });
+}
+
+
+async function alManualLoadState() {
+
+    const response =
+        await fetch(
+            "/api/manual-master/state",
+            {
+                cache: "no-store"
+            }
+        );
+
+    if (!response.ok) {
+        throw new Error(
+            "Manual MASTER state HTTP "
+            + response.status
+        );
+    }
+
+    const data =
+        await response.json();
+
+    alManualActivePanels.clear();
+
+    const panels =
+        data.panels || {};
+
+    for (
+        const [panelId, info]
+        of Object.entries(panels)
+    ) {
+
+        if (
+            info
+            &&
+            info.active === true
+        ) {
+            alManualActivePanels.add(
+                String(panelId)
+            );
+        }
+    }
+
+    if (alManualPanelsLayer) {
+        alManualPanelsLayer
+            .getSource()
+            .changed();
+    }
+}
+
+
+function alManualSelectPanel(feature) {
+
+    if (!feature) return;
+
+    const panelId =
+        String(
+            feature.get("panel_id")
+            || ""
+        );
+
+    if (!panelId) return;
+
+    alManualSelectedFeature =
+        feature;
+
+    alManualSelectedPanelId =
+        panelId;
+
+    const label =
+        document.getElementById(
+            "manualMasterSelected"
+        );
+
+    if (label) {
+
+        const filename =
+            alManualCurrentFilename();
+
+        label.textContent =
+            panelId
+            +
+            " | IR: "
+            +
+            (
+                filename
+                || "No current IR"
+            );
+    }
+
+    if (alManualPanelsLayer) {
+        alManualPanelsLayer
+            .getSource()
+            .changed();
+    }
+}
+
+
+async function alManualActivate() {
+
+    if (!alManualSelectedPanelId) {
+
+        alert(
+            "Selecteaza mai intai un panou MASTER."
+        );
+
+        return;
+    }
+
+    const filename =
+        alManualCurrentFilename();
+
+    if (!filename) {
+
+        alert(
+            "Nu exista o imagine IR curenta."
+        );
+
+        return;
+    }
+
+    const response =
+        await fetch(
+            "/api/manual-master/activate",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body:
+                    JSON.stringify({
+                        panel_id:
+                            alManualSelectedPanelId,
+
+                        filename:
+                            filename
+                    })
+            }
+        );
+
+    const data =
+        await response.json();
+
+    if (!response.ok || !data.ok) {
+
+        alert(
+            data.error
+            || "Activate failed."
+        );
+
+        return;
+    }
+
+    alManualActivePanels.add(
+        alManualSelectedPanelId
+    );
+
+    if (alManualPanelsLayer) {
+        alManualPanelsLayer
+            .getSource()
+            .changed();
+    }
+
+    const label =
+        document.getElementById(
+            "manualMasterSelected"
+        );
+
+    if (label) {
+        label.textContent =
+            alManualSelectedPanelId
+            +
+            " | ACTIVE | reference: "
+            +
+            filename;
+    }
+
+    console.log(
+        "MANUAL MASTER ACTIVATED",
+        alManualSelectedPanelId,
+        filename
+    );
+}
+
+
+async function alManualDelete() {
+
+    if (!alManualSelectedPanelId) {
+
+        alert(
+            "Selecteaza panoul pe care vrei sa-l stergi."
+        );
+
+        return;
+    }
+
+    const panelId =
+        alManualSelectedPanelId;
+
+    const response =
+        await fetch(
+            "/api/manual-master/delete",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body:
+                    JSON.stringify({
+                        panel_id:
+                            panelId
+                    })
+            }
+        );
+
+    const data =
+        await response.json();
+
+    if (!response.ok || !data.ok) {
+
+        alert(
+            data.error
+            || "Delete failed."
+        );
+
+        return;
+    }
+
+    alManualActivePanels.delete(
+        panelId
+    );
+
+    if (alManualPanelsLayer) {
+        alManualPanelsLayer
+            .getSource()
+            .changed();
+    }
+
+    const label =
+        document.getElementById(
+            "manualMasterSelected"
+        );
+
+    if (label) {
+        label.textContent =
+            panelId
+            +
+            " | INACTIVE";
+    }
+
+    console.log(
+        "MANUAL MASTER DELETED",
+        panelId
+    );
+}
+
+
+async function alManualMasterInit() {
+
+    const target =
+        document.getElementById(
+            "manualMasterMap"
+        );
+
+    if (!target) {
+        console.warn(
+            "manualMasterMap not found."
+        );
+        return;
+    }
+
+    if (
+        typeof ol === "undefined"
+    ) {
+        console.error(
+            "OpenLayers not loaded."
+        );
+        return;
+    }
+
+    try {
+
+        const [
+            metaResponse,
+            panelsResponse
+        ] = await Promise.all([
+            fetch(
+                "/api/qa/meta",
+                {
+                    cache: "no-store"
+                }
+            ),
+
+            fetch(
+                "/api/qa/all-panels",
+                {
+                    cache: "no-store"
+                }
+            )
+        ]);
+
+        if (!metaResponse.ok) {
+            throw new Error(
+                "QA meta HTTP "
+                + metaResponse.status
+            );
+        }
+
+        if (!panelsResponse.ok) {
+            throw new Error(
+                "QA panels HTTP "
+                + panelsResponse.status
+            );
+        }
+
+        const meta =
+            await metaResponse.json();
+
+        const panelGeoJson =
+            await panelsResponse.json();
+
+        const width =
+            Number(meta.width);
+
+        const height =
+            Number(meta.height);
+
+        const tileSize =
+            Number(meta.tileSize);
+
+        const maxZoom =
+            Number(meta.maxZoom);
+
+        const extent = [
+            0,
+            0,
+            width,
+            height
+        ];
+
+        const projection =
+            new ol.proj.Projection({
+                code:
+                    "AL_MANUAL_MASTER_IMAGE",
+
+                units:
+                    "pixels",
+
+                extent:
+                    extent
+            });
+
+
+        /*
+           IMPORTANT:
+           This matches the STATIC WebP pyramid.
+
+           Highest zoom:
+               1 map unit = 1 source raster pixel.
+        */
+
+        const resolutions = [];
+
+        for (
+            let z = 0;
+            z <= maxZoom;
+            z++
+        ) {
+
+            resolutions.push(
+                Math.pow(
+                    2,
+                    maxZoom - z
+                )
+            );
+        }
+
+
+        const tileGrid =
+            new ol.tilegrid.TileGrid({
+
+                extent:
+                    extent,
+
+                origin: [
+                    0,
+                    height
+                ],
+
+                tileSize:
+                    tileSize,
+
+                resolutions:
+                    resolutions
+            });
+
+
+        const rasterLayer =
+            new ol.layer.Tile({
+
+                extent:
+                    extent,
+
+                source:
+                    new ol.source.TileImage({
+
+                        projection:
+                            projection,
+
+                        tileGrid:
+                            tileGrid,
+
+                        wrapX:
+                            false,
+
+                        tileUrlFunction:
+                            tileCoord => {
+
+                                if (!tileCoord) {
+                                    return undefined;
+                                }
+
+                                return (
+                                    "/static/qa_ir_tiles/"
+                                    +
+                                    tileCoord[0]
+                                    + "/"
+                                    +
+                                    tileCoord[2]
+                                    + "/"
+                                    +
+                                    tileCoord[1]
+                                    + ".webp"
+                                );
+                            }
+                    })
+            });
+
+
+        const features =
+            new ol.format.GeoJSON()
+                .readFeatures(
+                    panelGeoJson
+                );
+
+
+        const vectorSource =
+            new ol.source.Vector({
+                features:
+                    features
+            });
+
+
+        alManualPanelsLayer =
+            new ol.layer.Vector({
+
+                source:
+                    vectorSource,
+
+                style:
+                    alManualPanelStyle
+            });
+
+
+        alManualMap =
+            new ol.Map({
+
+                target:
+                    target,
+
+                layers: [
+                    rasterLayer,
+                    alManualPanelsLayer
+                ],
+
+                view:
+                    new ol.View({
+
+                        projection:
+                            projection,
+
+                        center: [
+                            width / 2,
+                            height / 2
+                        ],
+
+                        resolutions:
+                            resolutions,
+
+                        resolution:
+                            resolutions[0],
+
+                        extent:
+                            extent
+                    })
+            });
+
+
+        alManualMap
+            .getView()
+            .fit(
+                extent,
+                {
+                    size:
+                        alManualMap
+                            .getSize(),
+
+                    padding: [
+                        20,
+                        20,
+                        20,
+                        20
+                    ]
+                }
+            );
+
+
+        alManualMap.on(
+            "singleclick",
+            event => {
+
+                const feature =
+                    alManualMap
+                        .forEachFeatureAtPixel(
+                            event.pixel,
+                            candidate =>
+                                candidate,
+                            {
+                                layerFilter:
+                                    layer =>
+                                        layer ===
+                                        alManualPanelsLayer,
+
+                                hitTolerance:
+                                    5
+                            }
+                        );
+
+                if (!feature) {
+                    return;
+                }
+
+                /*
+                   CLICK = SELECT ONLY.
+                   NEVER ACTIVATE HERE.
+                */
+
+                alManualSelectPanel(
+                    feature
+                );
+            }
+        );
+
+
+        const activateButton =
+            document.getElementById(
+                "manualActivatePanel"
+            );
+
+        if (activateButton) {
+            activateButton.onclick =
+                alManualActivate;
+        }
+
+
+        const deleteButton =
+            document.getElementById(
+                "manualDeletePanel"
+            );
+
+        if (deleteButton) {
+            deleteButton.onclick =
+                alManualDelete;
+        }
+
+
+        await alManualLoadState();
+
+        console.log(
+            "ACTIVE LEARNING MANUAL MASTER READY",
+            features.length,
+            "MASTER PANELS"
+        );
+
+    }
+    catch (err) {
+
+        console.error(
+            "MANUAL MASTER INIT FAILED",
+            err
+        );
+    }
+}
+
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            alManualMasterInit,
+            250
+        );
+    }
+);
+
+
+/* ============================================================
+   TWO MAP RESIZE FIX
+   ============================================================ */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        setTimeout(
+            () => {
+
+                try {
+                    if (map) {
+                        map.updateSize();
+                    }
+                }
+                catch (_) {}
+
+                try {
+                    if (alManualMap) {
+                        alManualMap.updateSize();
+                    }
+                }
+                catch (_) {}
+
+            },
+            800
+        );
+    }
+);
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        try {
+            if (map) {
+                map.updateSize();
+            }
+        }
+        catch (_) {}
+
+        try {
+            if (alManualMap) {
+                alManualMap.updateSize();
+            }
+        }
+        catch (_) {}
+    }
+);
+
+
+
+/* ============================================================
+   AL_PERSISTENT_SELECTED_PANELS_V1
+
+   Select Current Panel:
+   - keeps panel activated
+   - remembers current IR image
+   - survives Next/Previous IR
+   - survives page refresh
+   ============================================================ */
+
+const AL_PERSIST_KEY =
+    "pv_al_persistent_selected_panels_v1";
+
+let alPersistentPanels = {};
+
+
+function alLoadPersistentPanels() {
+
+    try {
+
+        const raw =
+            localStorage.getItem(
+                AL_PERSIST_KEY
+            );
+
+        alPersistentPanels =
+            raw
+                ? JSON.parse(raw)
+                : {};
+
+        if (
+            !alPersistentPanels
+            ||
+            typeof alPersistentPanels !== "object"
+            ||
+            Array.isArray(alPersistentPanels)
+        ) {
+            alPersistentPanels = {};
+        }
+
+    }
+    catch (_) {
+        alPersistentPanels = {};
+    }
+}
+
+
+function alSavePersistentPanels() {
+
+    localStorage.setItem(
+        AL_PERSIST_KEY,
+        JSON.stringify(
+            alPersistentPanels
+        )
+    );
+
+    try {
+
+        if (panelsLayer) {
+            panelsLayer
+                .getSource()
+                .changed();
+        }
+
+    }
+    catch (_) {}
+}
+
+
+function alCurrentIRFilename() {
+
+    try {
+
+        if (
+            typeof currentImage === "string"
+            &&
+            currentImage
+        ) {
+            return currentImage;
+        }
+
+        if (
+            currentImage
+            &&
+            typeof currentImage === "object"
+            &&
+            currentImage.filename
+        ) {
+            return currentImage.filename;
+        }
+
+        if (
+            Array.isArray(images)
+            &&
+            Number.isInteger(currentIndex)
+            &&
+            currentIndex >= 0
+            &&
+            currentIndex < images.length
+        ) {
+
+            const item =
+                images[currentIndex];
+
+            if (typeof item === "string") {
+                return item;
+            }
+
+            if (
+                item
+                &&
+                item.filename
+            ) {
+                return item.filename;
+            }
+        }
+
+    }
+    catch (_) {}
+
+    const name =
+        document.getElementById(
+            "imageName"
+        );
+
+    return name
+        ? String(name.textContent || "").trim()
+        : "";
+}
+
+
+function alPersistCurrentPanel() {
+
+    if (!selectedMapPanelId) {
+        return;
+    }
+
+    const panelId =
+        String(
+            selectedMapPanelId
+        );
+
+    const filename =
+        alCurrentIRFilename();
+
+    alPersistentPanels[panelId] = {
+        active: true,
+        reference_filename:
+            filename || null,
+        saved_at:
+            new Date().toISOString()
+    };
+
+    alSavePersistentPanels();
+
+    console.log(
+        "AL PANEL SAVED",
+        panelId,
+        filename
+    );
+}
+
+
+function alDeletePersistentPanel(
+    panelId
+) {
+
+    panelId =
+        String(
+            panelId || ""
+        );
+
+    if (!panelId) {
+        return;
+    }
+
+    delete alPersistentPanels[
+        panelId
+    ];
+
+    alSavePersistentPanels();
+}
+
+
+function alIsPersistentPanel(
+    panelId
+) {
+
+    panelId =
+        String(
+            panelId || ""
+        );
+
+    return !!(
+        panelId
+        &&
+        alPersistentPanels[
+            panelId
+        ]
+        &&
+        alPersistentPanels[
+            panelId
+        ].active === true
+    );
+}
+
+
+alLoadPersistentPanels();
+
+
+/*
+   Watch selectedMapPanelId.
+
+   When the existing Active Learning action
+   commits/selects the current panel, store it.
+
+   This deliberately does NOT activate merely
+   because the user clicked the map.
+*/
+
+(function installPersistentSelectHook() {
+
+    const labels = [
+        "select current panel",
+        "select current",
+        "current panel"
+    ];
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            const button =
+                event.target.closest(
+                    "button"
+                );
+
+            if (!button) {
+                return;
+            }
+
+            const text =
+                String(
+                    button.textContent || ""
+                )
+                .trim()
+                .toLowerCase();
+
+            const match =
+                labels.some(
+                    label =>
+                        text.includes(
+                            label
+                        )
+                );
+
+            if (!match) {
+                return;
+            }
+
+            /*
+               Existing button handler runs first
+               in the same click cycle.
+
+               Small delay lets existing code set
+               selectedMapPanelId before persisting.
+            */
+
+            setTimeout(
+                () => {
+
+                    if (
+                        selectedMapPanelId
+                    ) {
+                        alPersistCurrentPanel();
+                    }
+
+                },
+                50
+            );
+
+        },
+        true
+    );
+
+})();
+
+
+/*
+   Add a persistent style layer ABOVE the existing style.
+
+   Green = already activated/saved
+   Yellow selection can still remain visible because
+   selected panel gets stronger outline.
+*/
+
+(function installPersistentPanelStyle() {
+
+    const wait = () => {
+
+        if (
+            !panelsLayer
+            ||
+            !panelsLayer.getSource()
+        ) {
+            setTimeout(
+                wait,
+                250
+            );
+            return;
+        }
+
+        const originalStyle =
+            panelsLayer.getStyle();
+
+        panelsLayer.setStyle(
+            function(
+                feature,
+                resolution
+            ) {
+
+                const panelId =
+                    String(
+                        feature.get("panel_id")
+                        ||
+                        feature.get("PANEL_ID")
+                        ||
+                        feature.get("id")
+                        ||
+                        ""
+                    );
+
+                if (
+                    alIsPersistentPanel(
+                        panelId
+                    )
+                ) {
+
+                    const isSelected =
+                        panelId ===
+                        String(
+                            selectedMapPanelId
+                            || ""
+                        );
+
+                    return new ol.style.Style({
+
+                        stroke:
+                            new ol.style.Stroke({
+                                color:
+                                    isSelected
+                                        ? "#ffff00"
+                                        : "#ff3030",
+
+                                width:
+                                    isSelected
+                                        ? 4
+                                        : 3
+                            }),
+
+                        fill:
+                            new ol.style.Fill({
+                                color:
+                                    "rgba(255,48,48,.28)"
+                            })
+                    });
+                }
+
+                if (
+                    typeof originalStyle
+                    === "function"
+                ) {
+                    return originalStyle(
+                        feature,
+                        resolution
+                    );
+                }
+
+                return originalStyle;
+            }
+        );
+
+        panelsLayer
+            .getSource()
+            .changed();
+
+        console.log(
+            "AL persistent panels loaded:",
+            Object.keys(
+                alPersistentPanels
+            ).length
+        );
+    };
+
+    wait();
 
 })();
 

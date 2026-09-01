@@ -1,4 +1,7 @@
+﻿# ============================================================
 # Python
+# ============================================================
+
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -7,44 +10,160 @@ dist/
 build/
 *.egg
 
-# Virtual environment
-venv/
+# ============================================================
+# Virtual environments
+# ============================================================
+
 .venv/
 .deploy-venv/
+venv/
 env/
 
-# Data (large files — download via prepare script)
-data/raw/*.zip
-data/raw/InfraredSolarModules/
+# ============================================================
+# IDE / OS
+# ============================================================
 
-# Model checkpoints & outputs
-outputs/
-models/*.pth
-models/*.pt
-!models/.gitkeep
-
-# IDE & OS
 .idea/
 .vscode/
 *.swp
 .DS_Store
 Thumbs.db
+desktop.ini
 
-# Streamlit
-.streamlit/secrets.toml
+# ============================================================
+# Temporary / backups
+# ============================================================
 
-# Deployment exclusions
 backups/
+backup_*/
 temp/
-runs/
-*.tif
-*.tiff
-*.zip
 *.bak
 *.bak.*
+*.tmp
+*.log
 *before_*
 *backup*
+
+# ============================================================
+# ML training / generated outputs
+# ============================================================
+
+runs/
+datasets/
+outputs/
+
+# ============================================================
+# Raw / large project data
+# ============================================================
+
 real_data/raw/
-real_data/processed/park_01/classified_full/
-real_data/processed/park_01/oblique70_corrected_FULL_web/
-real_data/processed/park_01/confirmed45*/
+real_data/incoming/
+real_data/organized/
+real_data/jobs/
+real_data/debug/
+real_data/micmac*/
+real_data/metashape*/
+real_data/odm*/
+
+# Large processed data
+real_data/processed/
+
+# Large orthophotos / rasters anywhere
+*.tif
+*.tiff
+
+# Archives
+*.zip
+
+# ============================================================
+# Generated web map tiles
+# ============================================================
+
+web/static/ir_pulkovo_tiles/
+web/static/qa_ir_tiles/
+
+# Generated caches
+real_data/qa/pdf_thumb_cache/
+
+# ============================================================
+# Keep authoritative small project data
+# ============================================================
+
+!real_data/master/
+!real_data/master/panels_MASTER_complete_fixed_ids.gpkg
+
+!real_data/qa/
+!real_data/qa/manual_master_panels.json
+!real_data/qa/manual_master_panels_FINAL.json
+!real_data/qa/manual620_visual_defects.json
+
+!real_data/active_learning/
+!real_data/active_learning/oblique45/
+!real_data/active_learning/oblique45/calibration_45_hybrid.json
+!real_data/active_learning/oblique45/annotations.json
+
+# ============================================================
+# Models
+# ============================================================
+
+# Ignore generic training checkpoints
+models/*.pth
+models/*.pt
+
+# Keep final production models
+!models/production/
+!models/production/*.pt
+
+# ============================================================
+# Secrets
+# ============================================================
+
+.streamlit/secrets.toml
+.env
+.env.*
+
+# ============================================================
+# FINAL REPOSITORY CLEANUP
+# ============================================================
+
+# All processed imagery / orthomosaics
+real_data/processed/
+
+# Large raw orthomosaics
+real_data/*.tif
+real_data/*.tiff
+real_data/*.tif.*
+real_data/*.tiff.*
+
+# Training outputs
+outputs/
+runs/
+datasets/
+
+# Generated map tiles
+web/static/ir_pulkovo_tiles/
+web/static/qa_ir_tiles/
+
+# Old backend/frontend snapshots
+*_PRE_*
+*_STABLE_*
+*_before_*
+*before_*
+*backup*
+
+# Local tests / debug images
+test_*.jpg
+test_*.jpeg
+test_*.png
+qa_test_tile.png
+
+# Temporary inspection / context dumps
+*_current_code.txt
+*_patch_context.txt
+
+# Temporary PDF test
+PDF_DOWNLOAD_TEST.pdf
+
+# Standalone downloaded YOLO base weights
+yolo*.pt
+

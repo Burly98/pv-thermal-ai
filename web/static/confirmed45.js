@@ -3,6 +3,248 @@
 
     const COLOR = "#ffb020";
     let confirmedLayer = null;
+
+    /* === MANUAL620_CONFIRMED_LAYER_FILTER_V2 === */
+
+    let manual620Registry = {};
+
+
+    function manual620FindAnomalyCheckbox(name) {
+
+        const legend =
+            document.getElementById(
+                "anomalyLegend"
+            );
+
+        if (!legend) {
+            return null;
+        }
+
+
+        const rows =
+            legend.querySelectorAll(
+                ".legend-row"
+            );
+
+
+        for (
+            const row
+            of
+            rows
+        ) {
+
+            const label =
+                row.querySelector(
+                    ".legend-label"
+                );
+
+
+            if (!label) {
+                continue;
+            }
+
+
+            if (
+                String(
+                    label.textContent
+                    ||
+                    ""
+                ).trim()
+                !==
+                name
+            ) {
+                continue;
+            }
+
+
+            return row.querySelector(
+                'input[type="checkbox"]'
+            );
+        }
+
+
+        return null;
+    }
+
+
+    function manual620AnomalyEnabled(
+        name
+    ) {
+
+        const checkbox =
+            manual620FindAnomalyCheckbox(
+                name
+            );
+
+
+        /*
+         * If UI has not been built yet,
+         * do not accidentally hide data.
+         */
+        if (!checkbox) {
+            return true;
+        }
+
+
+        return Boolean(
+            checkbox.checked
+        );
+    }
+
+
+    function manual620SeverityEnabled(
+        severity
+    ) {
+
+        const container =
+            document.getElementById(
+                "manual620SeverityFilter"
+            );
+
+
+        if (!container) {
+            return true;
+        }
+
+
+        const checkboxes =
+            container.querySelectorAll(
+                'input[type="checkbox"]'
+            );
+
+
+        for (
+            const checkbox
+            of
+            checkboxes
+        ) {
+
+            const value =
+                String(
+                    checkbox.dataset.severity
+                    ||
+                    ""
+                ).trim();
+
+
+            if (
+                value
+                ===
+                severity
+            ) {
+
+                return Boolean(
+                    checkbox.checked
+                );
+            }
+        }
+
+
+        return true;
+    }
+
+
+    function manual620FeatureVisible(
+        feature
+    ) {
+
+        const panelId =
+            String(
+                feature.get(
+                    "panel_id"
+                )
+                ||
+                feature.get(
+                    "PANEL_ID"
+                )
+                ||
+                ""
+            );
+
+
+        if (!panelId) {
+            return false;
+        }
+
+
+        const info =
+            manual620Registry[
+                panelId
+            ];
+
+
+        /*
+         * Only the authoritative manually validated
+         * population belongs to this displayed layer.
+         */
+        if (!info) {
+            return false;
+        }
+
+
+        const anomaly =
+            String(
+                info.anomaly_type
+                ||
+                info.visual_defect_estimate
+                ||
+                "Hot-Spot"
+            );
+
+
+        const severity =
+            String(
+                info.severity_estimate
+                ||
+                "Low"
+            );
+
+
+        /*
+         * Also attach authoritative classification
+         * to the OpenLayers feature itself.
+         */
+        feature.set(
+            "anomaly_type",
+            anomaly,
+            true
+        );
+
+
+        feature.set(
+            "severity",
+            severity,
+            true
+        );
+
+
+        return (
+            manual620AnomalyEnabled(
+                anomaly
+            )
+            &&
+            manual620SeverityEnabled(
+                severity
+            )
+        );
+    }
+
+
+    function manual620RefreshConfirmedLayer() {
+
+        if (
+            confirmedLayer
+            &&
+            typeof confirmedLayer.changed
+            ===
+            "function"
+        ) {
+
+            confirmedLayer.changed();
+        }
+    }
+
+
     let currentDetail = null;
     let currentPhotoIndex = 0;
     let showPanel = true;
@@ -253,13 +495,162 @@
 
         removeLegacyFindingsLayer();
 
+        /*
+         * Load authoritative manual620 V3 classification
+         * before creating the displayed vector layer.
+         */
+        try {
+
+            const manualResponse =
+                await fetch(
+                    "/static/manual620_visual_defects.json?t="
+                    +
+                    Date.now()
+                );
+
+
+            if (!manualResponse.ok) {
+
+                throw new Error(
+                    "manual620 HTTP "
+                    +
+                    manualResponse.status
+                );
+            }
+
+
+            const manualData =
+                await manualResponse.json();
+
+
+            manual620Registry =
+                manualData.panels
+                ||
+                {};
+
+
+            console.log(
+                "[MANUAL620 CONFIRMED FILTER] registry",
+                Object.keys(
+                    manual620Registry
+                ).length
+            );
+
+        }
+        catch (error) {
+
+            console.error(
+                "[MANUAL620 CONFIRMED FILTER] registry error",
+                error
+            );
+
+            manual620Registry =
+                {};
+        }
+
+
         const features = new ol.format.GeoJSON().readFeatures(data);
         confirmedLayer = new ol.layer.Vector({
             source: new ol.source.Vector({features}),
             zIndex: 60,
-            style: function(){ return new ol.style.Style({stroke:new ol.style.Stroke({color:COLOR,width:3.2}),fill:new ol.style.Fill({color:"rgba(255,176,32,0.11)"})}); }
+            style: function(feature){
+
+                if (
+                    !manual620FeatureVisible(
+                        feature
+                    )
+                ) {
+
+                    return null;
+                }
+
+
+                return new ol.style.Style({
+                    stroke:
+                        new ol.style.Stroke({
+                            color: COLOR,
+                            width: 3.2
+                        }),
+
+                    fill:
+                        new ol.style.Fill({
+                            color:
+                                "rgba(255,176,32,0.11)"
+                        })
+                });
+            }
         });
         map.addLayer(confirmedLayer);
+
+
+        /*
+         * Repaint the REAL displayed layer whenever an
+         * anomaly/severity checkbox changes.
+         */
+        if (
+            !window.__manual620ConfirmedFilterBound
+        ) {
+
+            window.__manual620ConfirmedFilterBound =
+                true;
+
+
+            document.addEventListener(
+                "change",
+                function(event) {
+
+                    const target =
+                        event.target;
+
+
+                    if (
+                        !target
+                        ||
+                        target.type
+                        !==
+                        "checkbox"
+                    ) {
+                        return;
+                    }
+
+
+                    const inAnomalyLegend =
+                        Boolean(
+                            target.closest(
+                                "#anomalyLegend"
+                            )
+                        );
+
+
+                    const inSeverityFilter =
+                        Boolean(
+                            target.closest(
+                                "#manual620SeverityFilter"
+                            )
+                        );
+
+
+                    if (
+                        inAnomalyLegend
+                        ||
+                        inSeverityFilter
+                    ) {
+
+                        setTimeout(
+                            manual620RefreshConfirmedLayer,
+                            0
+                        );
+                    }
+                },
+                true
+            );
+        }
+
+
+        /*
+         * Initial classification/style pass.
+         */
+        manual620RefreshConfirmedLayer();
 
         const toggle = el("findingsToggle");
         if (toggle) {

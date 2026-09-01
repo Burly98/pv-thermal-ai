@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,9 +20,6 @@
         href="/static/app.css"
     >
 
-<link rel="stylesheet"
-      href="{{ url_for('static', filename='admin-login.css') }}">
-
 </head>
 
 <body>
@@ -30,9 +27,9 @@
 <header class="topbar">
 
     <div class="project-title">
-        <span class="project-site">Urzicuta</span>
+        <span class="project-site">Petreu</span>
         <span class="project-divider">/</span>
-        <strong>Solar Thermography</strong>
+        <strong>Photovoltaic Park Thermal Inspection</strong>
     </div>
 
     <nav class="main-nav">
@@ -77,13 +74,81 @@
         class="view active-view"
     >
 
-        <div id="map"></div>
+        
+<div id="pvPanelSearch" style="
+    position:absolute;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:50;
+    display:flex;
+    gap:8px;
+    padding:8px;
+    border-radius:10px;
+    background:rgba(255,255,255,.94);
+    box-shadow:0 2px 12px rgba(0,0,0,.22);
+">
+    <input
+        id="pvPanelSearchInput"
+        type="text"
+        placeholder="PANEL_00014"
+        autocomplete="off"
+        style="
+            width:190px;
+            padding:9px 12px;
+            border:1px solid #aab2bd;
+            border-radius:7px;
+            font-size:14px;
+            outline:none;
+        "
+    >
+
+    <button
+        id="pvPanelSearchButton"
+        type="button"
+        style="
+            padding:9px 16px;
+            border:0;
+            border-radius:7px;
+            cursor:pointer;
+            font-weight:700;
+        "
+    >
+        Search
+    </button>
+</div>
+
+<div id="map"></div>
+
 
 
         <aside
             id="detailCard"
             class="detail-card hidden"
         >
+<button
+    id="panelDetailClose"
+    type="button"
+    aria-label="Close panel details"
+    title="Close"
+    style="
+        position:absolute;
+        top:14px;
+        right:16px;
+        z-index:100;
+        width:34px;
+        height:34px;
+        padding:0;
+        border:0;
+        background:transparent;
+        cursor:pointer;
+        font-size:20px;
+        font-weight:700;
+        line-height:34px;
+        text-align:center;
+    "
+>X</button>
+
 
             <div class="detail-header">
 
@@ -107,7 +172,7 @@
                     id="closeDetail"
                     class="close-btn"
                 >
-                    Ã—
+                    X
                 </button>
 
             </div>
@@ -117,7 +182,7 @@
 
                 <div>
                     <span>Severity</span>
-                    <strong id="detailSeverity">â€”</strong>
+                    <strong id="detailSeverity">Ã¢â‚¬â€</strong>
                 </div>
 
                 <div>
@@ -129,7 +194,7 @@
 
                 <div>
                     <span>Observations</span>
-                    <strong id="detailObservations">â€”</strong>
+                    <strong id="detailObservations">Ã¢â‚¬â€</strong>
                 </div>
 
             </div>
@@ -143,12 +208,12 @@
 
                 <div>
                     <span>Latitude</span>
-                    <strong id="detailLatitude">â€”</strong>
+                    <strong id="detailLatitude">Ã¢â‚¬â€</strong>
                 </div>
 
                 <div>
                     <span>Longitude</span>
-                    <strong id="detailLongitude">â€”</strong>
+                    <strong id="detailLongitude">Ã¢â‚¬â€</strong>
                 </div>
 
             </div>
@@ -159,7 +224,7 @@
             </div>
 
             <div class="thermal-toolbar">
-    <button id="thermalZoomOut">−</button>
+    <button id="thermalZoomOut">-</button>
     <button id="thermalReset">Reset</button>
     <button id="thermalZoomIn">+</button>
 </div>
@@ -180,12 +245,12 @@
 
                 <div>
                     <span>Image</span>
-                    <strong id="detailFilename">â€”</strong>
+                    <strong id="detailFilename">Ã¢â‚¬â€</strong>
                 </div>
 
                 <div>
                     <span>Detection ID</span>
-                    <strong id="detailDetection">â€”</strong>
+                    <strong id="detailDetection">Ã¢â‚¬â€</strong>
                 </div>
 
             </div>
@@ -309,90 +374,7 @@
 <script
     src="https://cdn.jsdelivr.net/npm/ol@v10.6.1/dist/ol.js"
 ></script>
-<!-- ======================================================
-     ADMIN LOGIN
-====================================================== -->
 
-<button
-    id="adminButton"
-    class="admin-login-button"
-    type="button"
->
-    Admin
-</button>
-
-
-<div
-    id="adminLoginOverlay"
-    class="admin-login-overlay"
-    hidden
->
-
-    <div class="admin-login-modal">
-
-        <button
-            id="closeAdminLogin"
-            class="admin-login-close"
-            type="button"
-            aria-label="Închide"
-        >
-            ×
-        </button>
-
-
-        <h2>Administrator</h2>
-
-        <p class="admin-login-subtitle">
-            Autentificare pentru editorul proiectului
-        </p>
-
-
-        <form id="adminLoginForm">
-
-            <label for="adminUsername">
-                Utilizator
-            </label>
-
-            <input
-                id="adminUsername"
-                type="text"
-                autocomplete="username"
-                required
-            >
-
-
-            <label for="adminPassword">
-                Parolă
-            </label>
-
-            <input
-                id="adminPassword"
-                type="password"
-                autocomplete="current-password"
-                required
-            >
-
-
-            <button
-                class="admin-login-submit"
-                type="submit"
-            >
-                Autentificare
-            </button>
-
-
-            <div
-                id="adminLoginError"
-                class="admin-login-error"
-            ></div>
-
-        </form>
-
-    </div>
-
-</div>
-
-<!-- END ADMIN LOGIN -->
 
 
 <script src="/static/app.js"></script>
@@ -401,6 +383,10 @@
 
 </body>
 </html>
+
+
+
+
 
 
 

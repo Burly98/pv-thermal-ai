@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -28,6 +28,21 @@
         <button id="prevBtn">
             ◀ Previous
         </button>
+
+        <div class="image-jump" style="display:flex; align-items:center; gap:6px;">
+            <input
+                id="imageJumpInput"
+                type="number"
+                min="1"
+                step="1"
+                placeholder="Image #"
+                title="Go directly to image number"
+                style="width:90px;"
+            >
+            <button id="imageJumpBtn" type="button">
+                Go
+            </button>
+        </div>
 
         <span id="counter">
             -
@@ -190,7 +205,58 @@
 
         </div>
 
-        <div id="map"></div>
+        
+        <div id="rightMaps">
+
+            <!-- OLD ACTIVE LEARNING MAP -->
+            <section
+                id="oldMapPane"
+                class="al-map-pane">
+
+                <div class="al-map-pane-title">
+                    IR ORTHOPHOTO · CURRENT IMAGE
+                </div>
+
+                <div id="map"></div>
+
+            </section>
+
+
+            <!-- NEW MANUAL MASTER MAP -->
+            <section
+                id="manualMasterOverlay"
+                class="al-map-pane">
+
+                <div id="manualMasterTopbar">
+
+                    <span id="manualMasterSelected">
+                        No MASTER panel selected
+                    </span>
+
+                    <div id="manualMasterActions">
+
+                        <button
+                            id="manualActivatePanel"
+                            type="button">
+                            Activate
+                        </button>
+
+                        <button
+                            id="manualDeletePanel"
+                            type="button">
+                            Delete
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <div id="manualMasterMap"></div>
+
+            </section>
+
+        </div>
+
 
         <div class="map-footer">
 
@@ -217,6 +283,7 @@
 <script
     src="/static/active_learning.js"
 ></script>
+
 
 </body>
 </html>

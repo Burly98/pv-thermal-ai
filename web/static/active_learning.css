@@ -1,4 +1,4 @@
-﻿* {
+* {
     box-sizing: border-box;
 }
 
@@ -274,5 +274,223 @@ button:disabled {
 
     font-size: 12px;
     color: #fff;
+}
+
+
+/* ============================================================
+   MANUAL MASTER VALIDATION
+   ============================================================ */
+
+
+
+
+
+
+
+
+
+#manualMasterActions button {
+    min-width: 100px;
+    padding: 7px 14px;
+    cursor: pointer;
+}
+
+
+
+#imageStage {
+    max-width: 52vw;
+}
+
+
+
+
+
+
+
+/* ============================================================
+   ACTIVE LEARNING - REAL RIGHT COLUMN SPLIT
+   Both maps live inside the EXISTING .right-panel.
+   ============================================================ */
+
+.right-panel {
+    min-height: 0 !important;
+    overflow: hidden !important;
+}
+
+
+/*
+   Existing header stays above both maps.
+   Existing footer stays below both maps.
+*/
+
+#rightMaps {
+    flex: 1 1 auto !important;
+
+    display: grid !important;
+    grid-template-rows:
+        minmax(0, 1fr)
+        minmax(0, 1fr) !important;
+
+    width: 100% !important;
+    min-height: 0 !important;
+
+    overflow: hidden !important;
+
+    gap: 4px !important;
+
+    background: #080808 !important;
+}
+
+
+.al-map-pane {
+    position: relative !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+
+    overflow: hidden !important;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.18) !important;
+}
+
+
+.al-map-pane-title {
+    flex: 0 0 auto !important;
+
+    height: 24px !important;
+    line-height: 24px !important;
+
+    padding: 0 8px !important;
+
+    font-size: 11px !important;
+    font-weight: 700 !important;
+
+    background: #111 !important;
+}
+
+
+/*
+   OLD map.
+*/
+
+#oldMapPane #map {
+    position: relative !important;
+
+    flex: 1 1 auto !important;
+
+    inset: auto !important;
+
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+
+    max-height: none !important;
+}
+
+
+/*
+   NEW map.
+   Absolutely no fixed positioning.
+*/
+
+#manualMasterOverlay {
+    position: relative !important;
+
+    inset: auto !important;
+
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    margin: 0 !important;
+
+    z-index: auto !important;
+
+    background: #101010 !important;
+}
+
+
+#manualMasterTopbar {
+    flex: 0 0 auto !important;
+
+    min-height: 30px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    gap: 8px !important;
+
+    padding: 3px 8px !important;
+
+    background: #111 !important;
+}
+
+
+#manualMasterSelected {
+    min-width: 0 !important;
+
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+
+    font-family: monospace !important;
+    font-size: 11px !important;
+}
+
+
+#manualMasterActions {
+    display: flex !important;
+    flex: 0 0 auto !important;
+
+    gap: 6px !important;
+
+    padding: 0 !important;
+}
+
+
+#manualMasterActions button {
+    padding: 4px 12px !important;
+
+    min-width: 76px !important;
+
+    cursor: pointer !important;
+}
+
+
+#manualMasterMap {
+    position: relative !important;
+
+    flex: 1 1 auto !important;
+
+    inset: auto !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    min-height: 0 !important;
+
+    overflow: hidden !important;
+}
+
+
+/*
+   OpenLayers canvases must fill each pane,
+   not the whole page.
+*/
+
+#rightMaps .ol-viewport {
+    width: 100% !important;
+    height: 100% !important;
 }
 

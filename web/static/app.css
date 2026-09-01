@@ -673,3 +673,82 @@ tbody tr:hover {
     cursor: pointer;
 }
 
+
+
+/* === MANUAL620_SIDEBAR_NO_FLASH_FINAL === */
+
+/*
+   Hide whatever legacy code renders while the page is loading.
+   The final MANUAL620 renderer makes it visible after rebuilding.
+*/
+#anomalyLegend {
+    visibility: hidden;
+}
+
+#anomalyLegend.manual620-ready {
+    visibility: visible;
+}
+
+#anomalyLegend.manual620-ready input,
+#anomalyLegend.manual620-ready label,
+#anomalyLegend.manual620-ready .legend-color,
+#anomalyLegend.manual620-ready .legend-swatch {
+    display: none !important;
+}
+
+#anomalyLegend .manual620-final-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 18px;
+    padding: 8px 0;
+    margin: 0;
+}
+
+#anomalyLegend .manual620-final-row span:last-child {
+    margin-left: auto;
+    text-align: right;
+}
+
+
+/* === PV_RECENTER_SAFE_V2_CSS === */
+
+.pv-ortho-title-with-recenter {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px;
+    width: 100%;
+}
+
+#pvRecenterSafe {
+    position: static !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    min-width: 72px;
+    height: 30px;
+
+    margin: 0 0 0 auto;
+    padding: 0 10px;
+
+    border: 1px solid #d6dce2;
+    border-radius: 5px;
+
+    background: #ffffff;
+    color: #303840;
+
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+#pvRecenterSafe:hover {
+    background: #f3f5f6;
+}
+
