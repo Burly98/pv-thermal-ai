@@ -36,3 +36,8 @@
 !Procfile
 !render.yaml
 !Dockerfile
+
+# Render - current V31 hybrid runtime dataset
+!real_data/processed/park_01/active_learning_exact_web_v31_hybrid/
+!real_data/processed/park_01/active_learning_exact_web_v31_hybrid/findings_active_learning_exact_v31_hybrid.json
+!real_data/processed/park_01/active_learning_exact_web_v31_hybrid/panels_active_learning_exact_v31_hybrid.gpkg
