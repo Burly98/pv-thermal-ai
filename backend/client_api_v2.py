@@ -1,4 +1,4 @@
-import mimetypes
+﻿import mimetypes
 mimetypes.add_type("image/webp", ".webp")
 import os
 from pathlib import Path
@@ -107,11 +107,16 @@ ACTIVE_LEARNING_EXACT_GPKG = (
     / "panels_active_learning_exact_v31_hybrid.gpkg"
 )
 
-IMAGE_ROOT = (
-    BASE
-    / "real_data"
-    / "raw"
-    / "park_01"
+IMAGE_ROOT = Path(
+    os.environ.get(
+        "PV_THERMAL_IMAGE_ROOT",
+        str(
+            BASE
+            / "real_data"
+            / "raw"
+            / "park_01"
+        ),
+    )
 )
 
 PREDICTION_DIR = (
@@ -7667,6 +7672,7 @@ if __name__ == "__main__":
         threaded=
             True,
     )
+
 
 
 
