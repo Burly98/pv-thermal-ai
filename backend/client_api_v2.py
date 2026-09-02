@@ -3791,12 +3791,17 @@ def active_learning_ir_tile(
 # ACTIVE LEARNING - IR + MASTER PANEL
 # ============================================================
 
-ACTIVE_LEARNING_IMAGE_ROOT = (
-    BASE
-    / "real_data"
-    / "raw"
-    / "park_01"
-    / "Imagini IR"
+ACTIVE_LEARNING_IMAGE_ROOT = Path(
+    os.environ.get(
+        "PV_THERMAL_IMAGE_ROOT",
+        str(
+            BASE
+            / "real_data"
+            / "raw"
+            / "park_01"
+            / "Imagini IR"
+        ),
+    )
 )
 
 ACTIVE_LEARNING_DIR = (
@@ -7672,6 +7677,7 @@ if __name__ == "__main__":
         threaded=
             True,
     )
+
 
 
 
