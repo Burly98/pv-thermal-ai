@@ -197,10 +197,12 @@
                             extent
                     }),
 
-                // OLD IR disabled.
-                // IR Pulkovo HD WebP is now the active IR layer.
+                // Render ships the optimized aligned JPEG, not the
+                // multi-gigabyte Pulkovo tile pyramid.
                 visible:
-                    false,
+                    window.location.hostname.endsWith(
+                        ".onrender.com"
+                    ),
 
                 opacity:
                     0.72
@@ -1078,6 +1080,14 @@
 /* === IR_PULKOVO_WEBP_V1 === */
 
 (function installIrPulkovoWebP() {
+
+    if (
+        window.location.hostname.endsWith(
+            ".onrender.com"
+        )
+    ) {
+        return;
+    }
 
     function tryInstall() {
 
