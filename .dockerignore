@@ -17,12 +17,17 @@
 !web/static/admin_editor.css
 !web/static/active_learning.js
 !web/static/active_learning.css
+!web/static/manual620_visual_defects.json
+!web/static/exports/
+!web/static/exports/PV_Thermal_Validated_620.pdf
 !web/static/map_layers/
 !web/static/map_layers/rgb_aligned.jpg
 !web/static/map_layers/ir_aligned.jpg
 !real_data/
 !real_data/master/
 !real_data/master/panels_MASTER_complete_fixed_ids.gpkg
+!real_data/qa/
+!real_data/qa/manual_master_panels.json
 !real_data/processed/
 !real_data/processed/park_01/
 !real_data/processed/park_01/active_learning_exact_web/
