@@ -208,6 +208,9 @@
                     0.72
             });
 
+        window.irFastLayer =
+            irFastLayer;
+
 
         rgbLayer.set(
             "pvLayer",
@@ -587,6 +590,11 @@
 
             return;
         }
+
+        const controlLayer =
+            window.irFastLayer
+            ||
+            null;
 
 
         map.on(
@@ -1384,8 +1392,8 @@
                     true,
 
                 opacity:
-                    isRender && irFastLayer
-                        ? irFastLayer.getOpacity()
+                    isRender && controlLayer
+                        ? controlLayer.getOpacity()
                         : 1.0
             });
 
@@ -1424,26 +1432,26 @@
         if (
             isRender
             &&
-            irFastLayer
+            controlLayer
         ) {
             // Keep the existing IR checkbox and opacity slider, while
             // avoiding the lower-resolution JPEG download on Render.
-            irFastLayer.setSource(null);
+            controlLayer.setSource(null);
 
-            irFastLayer.on(
+            controlLayer.on(
                 "change:visible",
                 function() {
                     layer.setVisible(
-                        irFastLayer.getVisible()
+                        controlLayer.getVisible()
                     );
                 }
             );
 
-            irFastLayer.on(
+            controlLayer.on(
                 "change:opacity",
                 function() {
                     layer.setOpacity(
-                        irFastLayer.getOpacity()
+                        controlLayer.getOpacity()
                     );
                 }
             );
