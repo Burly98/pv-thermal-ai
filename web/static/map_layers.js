@@ -197,8 +197,8 @@
                             extent
                     }),
 
-                // Render ships the optimized aligned JPEG, not the
-                // multi-gigabyte Pulkovo tile pyramid.
+                // On Render this acts as the control proxy for the HD
+                // Pulkovo tiles hosted in R2.
                 visible:
                     window.location.hostname.endsWith(
                         ".onrender.com"
@@ -1081,13 +1081,15 @@
 
 (function installIrPulkovoWebP() {
 
-    if (
+    const isRender =
         window.location.hostname.endsWith(
             ".onrender.com"
-        )
-    ) {
-        return;
-    }
+        );
+
+    const tileBaseUrl =
+        isRender
+            ? "https://pub-09771315fe014e92a6a9dab1eba118a1.r2.dev/ir_pulkovo_tiles"
+            : "/static/ir_pulkovo_tiles";
 
     function tryInstall() {
 
@@ -1349,7 +1351,9 @@
                          */
 
                         return (
-                            "/static/ir_pulkovo_tiles/"
+                            tileBaseUrl
+                            +
+                            "/"
                             +
                             z
                             +
@@ -1380,8 +1384,15 @@
                     true,
 
                 opacity:
-                    1.0
+                    isRender && irFastLayer
+                        ? irFastLayer.getOpacity()
+                        : 1.0
             });
+
+
+        layer.setZIndex(
+            5
+        );
 
 
         layer.set(
@@ -1408,6 +1419,35 @@
 
         window.irPulkovoLayer =
             layer;
+
+
+        if (
+            isRender
+            &&
+            irFastLayer
+        ) {
+            // Keep the existing IR checkbox and opacity slider, while
+            // avoiding the lower-resolution JPEG download on Render.
+            irFastLayer.setSource(null);
+
+            irFastLayer.on(
+                "change:visible",
+                function() {
+                    layer.setVisible(
+                        irFastLayer.getVisible()
+                    );
+                }
+            );
+
+            irFastLayer.on(
+                "change:opacity",
+                function() {
+                    layer.setOpacity(
+                        irFastLayer.getOpacity()
+                    );
+                }
+            );
+        }
 
         window.irPulkovoExtent =
             irExtent;
