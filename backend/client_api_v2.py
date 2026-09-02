@@ -1298,6 +1298,22 @@ def tile(
 @app.route("/api/all-panels")
 def api_all_panels():
 
+    deployment_geojson = (
+        BASE
+        / "deployment_assets"
+        / "all_panels.geojson"
+    )
+
+    if (
+        COMPACT_WEB_DEPLOYMENT
+        and deployment_geojson.exists()
+    ):
+
+        return send_file(
+            deployment_geojson,
+            mimetype="application/geo+json",
+        )
+
     # ========================================================
     # MANUAL FINAL GROUND TRUTH
     # 620 panels validated manually in Active Learning.

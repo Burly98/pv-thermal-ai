@@ -34,6 +34,7 @@
 !real_data/processed/park_01/active_learning_exact_web/findings_active_learning_exact.json
 !real_data/processed/park_01/active_learning_exact_web/panels_active_learning_exact.gpkg
 !deployment_assets/
+!deployment_assets/all_panels.geojson
 !deployment_assets/thermal_images/
 !deployment_assets/thermal_images/**
 !requirements.txt
