@@ -41,3 +41,7 @@
 !real_data/processed/park_01/active_learning_exact_web_v31_hybrid/
 !real_data/processed/park_01/active_learning_exact_web_v31_hybrid/findings_active_learning_exact_v31_hybrid.json
 !real_data/processed/park_01/active_learning_exact_web_v31_hybrid/panels_active_learning_exact_v31_hybrid.gpkg
+
+# Render - confirmed45 panel viewer runtime data
+!real_data/processed/park_01/confirmed45_panel_inclusive_web/
+!real_data/processed/park_01/confirmed45_panel_inclusive_web/findings_45_panel_inclusive_web.json
