@@ -591,12 +591,6 @@
             return;
         }
 
-        const controlLayer =
-            window.irFastLayer
-            ||
-            null;
-
-
         map.on(
 
             "singleclick",
@@ -1112,6 +1106,11 @@
             );
             return;
         }
+
+        const controlLayer =
+            window.irFastLayer
+            ||
+            null;
 
         /*
          * New IR GeoTIFF:
