@@ -15,6 +15,7 @@ from flask import (
     request,
     session,
     Flask,
+    Response,
     jsonify,
     render_template,
     send_file,
@@ -1347,67 +1348,53 @@ def api_all_panels():
                 exc
             )
 
-    features = []
+    def generate_geojson():
 
-    for _, row in (
-        all_panels.iterrows()
-    ):
+        yield '{"type":"FeatureCollection","features":['
 
-        geometry = (
-            row.geometry
-        )
+        first = True
 
-        if (
-            geometry is None
-            or
-            geometry.is_empty
-        ):
+        for _, row in all_panels.iterrows():
 
-            continue
+            geometry = row.geometry
 
-        panel_id = safe_text(
-            row.get(
-                "panel_id",
-                ""
+            if geometry is None or geometry.is_empty:
+                continue
+
+            panel_id = safe_text(
+                row.get("panel_id", "")
             )
-        )
 
-        pixel_geometry = (
-            geometry_to_pixel_space(
-                geometry
-            )
-        )
-
-        features.append(
-            {
-                "type":
-                    "Feature",
-
-                "geometry":
-                    mapping(
-                        pixel_geometry
-                    ),
-
+            feature = {
+                "type": "Feature",
+                "geometry": mapping(
+                    geometry_to_pixel_space(geometry)
+                ),
                 "properties": {
-                    "panel_id":
-                        panel_id,
-
-                    "affected":
-                        panel_id
-                        in
-                        manual_affected_ids,
+                    "panel_id": panel_id,
+                    "affected": (
+                        panel_id in manual_affected_ids
+                    ),
                 },
             }
-        )
 
-    return jsonify(
-        {
-            "type":
-                "FeatureCollection",
+            if not first:
+                yield ","
 
-            "features":
-                features,
-        }
+            yield json.dumps(
+                feature,
+                separators=(",", ":"),
+            )
+
+            first = False
+
+        yield "]}"
+
+    # Stream the large MASTER collection so the 512 MB Render
+    # instance never holds both the feature list and encoded JSON.
+    return Response(
+        generate_geojson(),
+        mimetype="application/json",
     )
 
 
