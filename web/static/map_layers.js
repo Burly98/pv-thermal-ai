@@ -157,7 +157,7 @@
                                 +
                                 "rgb_aligned.jpg"
                                 +
-                                "?v=20260902_render_ir_2"
+                                "?v=20260902_render_rasters_3"
                             ),
 
                         projection:
@@ -187,7 +187,7 @@
                                 +
                                 "ir_aligned.jpg"
                                 +
-                                "?v=20260902_render_ir_2"
+                                "?v=20260902_render_rasters_3"
                             ),
 
                         projection:
