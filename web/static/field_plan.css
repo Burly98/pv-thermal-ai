@@ -1,0 +1,238 @@
+.field-plan-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 4000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 22px;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(5px);
+}
+
+.field-plan-modal.is-open {
+    display: flex;
+}
+
+.field-plan-dialog {
+    position: relative;
+    width: min(760px, 100%);
+    max-height: calc(100vh - 44px);
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 32px;
+    border: 1px solid #d7dee8;
+    border-radius: 18px;
+    background: #fff;
+    color: #172033;
+    box-shadow: 0 28px 75px rgba(15, 23, 42, 0.28);
+}
+
+.field-plan-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background: #eef2f7;
+    color: #172033;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.field-plan-kicker {
+    margin: 0 0 8px;
+    color: #147d56;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.field-plan-dialog h2 {
+    margin: 0 48px 10px 0;
+    font-size: clamp(24px, 4vw, 34px);
+}
+
+.field-plan-intro,
+.field-plan-note {
+    color: #526071;
+    line-height: 1.55;
+}
+
+.field-plan-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.field-plan-stats div {
+    padding: 16px;
+    border-radius: 12px;
+    background: #f3f7f5;
+}
+
+.field-plan-stats strong,
+.field-plan-stats span {
+    display: block;
+}
+
+.field-plan-stats strong {
+    color: #0d6846;
+    font-size: 24px;
+}
+
+.field-plan-stats span {
+    margin-top: 4px;
+    color: #526071;
+    font-size: 13px;
+}
+
+.field-plan-example {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 14px 16px;
+    border-left: 4px solid #ef4444;
+    background: #fff7f7;
+}
+
+.field-plan-example span,
+.field-plan-example small {
+    color: #64748b;
+}
+
+.field-plan-example strong {
+    color: #a31818;
+    font-size: 21px;
+}
+
+.field-plan-downloads {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin: 22px 0 16px;
+}
+
+.field-plan-downloads a {
+    min-height: 88px;
+    padding: 16px;
+    border: 1px solid #d7dee8;
+    border-radius: 12px;
+    color: #172033;
+    text-decoration: none;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.field-plan-downloads a:hover {
+    border-color: #147d56;
+    transform: translateY(-2px);
+}
+
+.field-plan-downloads strong,
+.field-plan-downloads span {
+    display: block;
+}
+
+.field-plan-downloads strong {
+    margin-bottom: 7px;
+    color: #0d6846;
+    font-size: 18px;
+}
+
+.field-plan-downloads span {
+    color: #526071;
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.field-position-card {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 8px;
+    margin: 4px 0 14px;
+}
+
+.field-position-card > div {
+    min-width: 0;
+    padding: 9px 10px;
+    border: 1px solid #d9e2e8;
+    border-radius: 8px;
+    background: #f6faf8;
+}
+
+.field-position-card span,
+.field-position-card strong {
+    display: block;
+}
+
+.field-position-card span {
+    color: #6b7280;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.field-position-card strong {
+    margin-top: 3px;
+    overflow: hidden;
+    color: #0d6846;
+    font-size: 13px;
+    text-overflow: ellipsis;
+}
+
+.field-code-inline {
+    display: block;
+    margin-top: 3px;
+    color: #0d6846;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+@media (max-width: 680px) {
+    .field-plan-modal {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .field-plan-dialog {
+        width: 100%;
+        max-height: 92vh;
+        padding: 26px 18px;
+        border-radius: 18px 18px 0 0;
+    }
+
+    .field-plan-stats,
+    .field-plan-downloads {
+        grid-template-columns: 1fr;
+    }
+
+    .field-plan-stats {
+        gap: 8px;
+    }
+
+    .field-plan-stats div {
+        padding: 12px 14px;
+    }
+
+    .field-plan-stats strong {
+        font-size: 20px;
+    }
+
+    .field-plan-downloads a {
+        min-height: 0;
+    }
+
+    .field-plan-example {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    #fieldPlanButton {
+        font-size: 12px;
+    }
+}

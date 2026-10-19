@@ -18,6 +18,13 @@
 !web/static/active_learning.js
 !web/static/active_learning.css
 !web/static/manual620_visual_defects.json
+!web/static/field_plan.js
+!web/static/field_plan.css
+!web/static/field_plan/
+!web/static/field_plan/panel_field_index.json
+!web/static/field_plan/PV_Thermal_Defective_Panels_620.csv
+!web/static/field_plan/PV_Thermal_Field_Plan.dxf
+!web/static/field_plan/PV_Thermal_Field_Plan.pdf
 !web/static/exports/
 !web/static/exports/PV_Thermal_Validated_620.pdf
 !web/static/map_layers/
