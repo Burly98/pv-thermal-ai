@@ -6,6 +6,7 @@
     let byField = Object.create(null);
     let indexPromise = null;
     let indexLoaded = false;
+    let searchRequestToken = 0;
 
     function normalizeFieldCode(value) {
         const match = String(value || "")
@@ -20,13 +21,29 @@
         return `R${String(Number(match[1])).padStart(3, "0")}-P${String(Number(match[2])).padStart(3, "0")}`;
     }
 
-    function translateSearchInput(input) {
-        const fieldCode = normalizeFieldCode(input.value);
-        if (fieldCode && byField[fieldCode]) {
-            input.value = byField[fieldCode];
-            return true;
+    function waitForPanelData(callback, token, startedAt) {
+        let ready = false;
+        try {
+            ready = Boolean(
+                typeof allPanelsGeoJSON !== "undefined"
+                && allPanelsGeoJSON
+                && Array.isArray(allPanelsGeoJSON.features)
+                && allPanelsGeoJSON.features.length
+            );
+        } catch (_error) {
+            ready = false;
         }
-        return !fieldCode;
+
+        if (token !== searchRequestToken) {
+            return;
+        }
+        if (ready || Date.now() - startedAt > 30000) {
+            callback();
+            return;
+        }
+        window.setTimeout(function () {
+            waitForPanelData(callback, token, startedAt);
+        }, 150);
     }
 
     function installSearchBridge() {
@@ -38,17 +55,20 @@
 
         function waitForIndex(event) {
             const fieldCode = normalizeFieldCode(input.value);
-            if (!fieldCode || translateSearchInput(input)) {
+            if (!fieldCode) {
                 return;
             }
 
             event.preventDefault();
             event.stopImmediatePropagation();
+            const token = ++searchRequestToken;
 
             (indexPromise || loadIndex()).then(function () {
                 if (byField[fieldCode]) {
                     input.value = byField[fieldCode];
-                    button.click();
+                    waitForPanelData(function () {
+                        button.click();
+                    }, token, Date.now());
                     return;
                 }
                 if (indexLoaded) {
