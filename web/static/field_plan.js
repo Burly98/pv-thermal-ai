@@ -4,6 +4,8 @@
     const INDEX_URL = "/static/field_plan/panel_field_index.json";
     let byPanel = Object.create(null);
     let byField = Object.create(null);
+    let indexPromise = null;
+    let indexLoaded = false;
 
     function normalizeFieldCode(value) {
         const match = String(value || "")
@@ -18,11 +20,13 @@
         return `R${String(Number(match[1])).padStart(3, "0")}-P${String(Number(match[2])).padStart(3, "0")}`;
     }
 
-    function resolveSearchInput(input) {
+    function translateSearchInput(input) {
         const fieldCode = normalizeFieldCode(input.value);
         if (fieldCode && byField[fieldCode]) {
             input.value = byField[fieldCode];
+            return true;
         }
+        return !fieldCode;
     }
 
     function installSearchBridge() {
@@ -32,13 +36,34 @@
             return;
         }
 
-        button.addEventListener("click", function () {
-            resolveSearchInput(input);
+        function waitForIndex(event) {
+            const fieldCode = normalizeFieldCode(input.value);
+            if (!fieldCode || translateSearchInput(input)) {
+                return;
+            }
+
+            event.preventDefault();
+            event.stopImmediatePropagation();
+
+            (indexPromise || loadIndex()).then(function () {
+                if (byField[fieldCode]) {
+                    input.value = byField[fieldCode];
+                    button.click();
+                    return;
+                }
+                if (indexLoaded) {
+                    window.alert(`Codul de teren ${fieldCode} nu a fost gasit.`);
+                }
+            });
+        }
+
+        button.addEventListener("click", function (event) {
+            waitForIndex(event);
         }, true);
 
         input.addEventListener("keydown", function (event) {
             if (event.key === "Enter") {
-                resolveSearchInput(input);
+                waitForIndex(event);
             }
         }, true);
     }
@@ -157,6 +182,7 @@
             .then(function (payload) {
                 byPanel = payload.by_panel || Object.create(null);
                 byField = payload.by_field || Object.create(null);
+                indexLoaded = true;
                 updateDetailPosition();
                 enhanceTable();
             })
@@ -170,7 +196,7 @@
         installSearchBridge();
         installDetailObserver();
         installTableObserver();
-        loadIndex();
+        indexPromise = loadIndex();
     }
 
     if (document.readyState === "loading") {
